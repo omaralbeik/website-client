@@ -1,10 +1,7 @@
 // Styled Components
 import styled from "styled-components";
 
-// Routing & Links
-import {Link} from 'react-router-dom';
-
-const A = styled(Link)`
+const A = styled.a`
   color: ${props => props.theme.colors.selected};
   font-family: ${props => props.theme.fonts.title};
   &:hover {

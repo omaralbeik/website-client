@@ -2,9 +2,9 @@
 import styled from "styled-components";
 
 // Routing & Links
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
-const A = styled(Link)`
+const NavA = styled(NavLink)`
   color: ${props => props.theme.colors.selected};
   font-family: ${props => props.theme.fonts.title};
   &:hover {
@@ -13,4 +13,4 @@ const A = styled(Link)`
   }
 `;
 
-export default A;
+export default NavA;

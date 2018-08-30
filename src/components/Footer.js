@@ -1,12 +1,12 @@
 // React
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 // Styled Components
 import styled from 'styled-components';
 
 // Bootstrap
-import { Container, Row, Col } from 'reactstrap';
-import { sm } from '../breakpoints';
+import {Container, Row, Col} from 'reactstrap';
+import {sm} from '../breakpoints';
 
 // Components
 import InnerContainer from './InnerContainer';
@@ -15,45 +15,47 @@ import Paragraph from './Paragraph';
 import SocialLinks from './SocialLinks';
 
 // Links
-import { footerLinks, repoLink } from '../links';
+import {footerLinks, repoLink} from '../links';
 
 // Strings
-import { genericStrings, footerStrings } from '../strings';
+import {genericStrings, footerStrings} from '../strings';
 
 class Footer extends Component {
 
   render() {
-    return (
-      <Container className='fixed-bottom'>
-        <FooterInnerContainer>
-          <Row className='align-items-center'>
-            <Col sm={12} md={7} lg={8}>
-              <Row>
-                <LinksWrapper>
-                  { footerLinks.map(l => <FooterLink key={ l.name } href={ l.url }>{ l.name }</FooterLink>) }
-                </LinksWrapper>
-              </Row>
-              <Row>
-                <OpenSourceWrapper lg={8}>
-                  <Paragraph >
-                    { footerStrings.openSource }
-                    <Link href={repoLink.url} target='blank'>{repoLink.name}</Link>
-                  </Paragraph>
-                </OpenSourceWrapper>
-              </Row>
-            </Col>
-            <Col sm={12} md={5} lg={4}>
-              <SocialLinks/>
-            </Col>
-          </Row>
-        </FooterInnerContainer>
-        <CopyrightWrapper>
-          { footerStrings.copyright }
-          <Link href='/'>{ genericStrings.name }</Link>
-          { footerStrings.allRightsReserved }
-        </CopyrightWrapper>
-      </Container>
-    );
+    return (<Container className='fixed-bottom'>
+      <FooterInnerContainer>
+        <Row className='align-items-center'>
+          <Col sm={12} md={7} lg={8}>
+            <Row>
+              <LinksWrapper>
+                {
+                  footerLinks.map(l => (
+                    <FooterLink key={l.name} to={l.url}>{l.name}</FooterLink>
+                  ))
+                }
+              </LinksWrapper>
+            </Row>
+            <Row>
+              <OpenSourceWrapper lg={8}>
+                <Paragraph >
+                  {footerStrings.openSource}
+                  <Link to={repoLink.url} target='blank'>{repoLink.name}</Link>
+                </Paragraph>
+              </OpenSourceWrapper>
+            </Row>
+          </Col>
+          <Col sm={12} md={5} lg={4}>
+            <SocialLinks/>
+          </Col>
+        </Row>
+      </FooterInnerContainer>
+      <CopyrightWrapper>
+        {footerStrings.copyright}
+        <Link to='/'>{genericStrings.name}</Link>
+        {footerStrings.allRightsReserved}
+      </CopyrightWrapper>
+    </Container>);
   }
 
 }

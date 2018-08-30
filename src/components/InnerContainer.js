@@ -2,10 +2,10 @@
 import styled from "styled-components";
 
 // Bootstrap
-import { Container } from "reactstrap";
+import {Container} from "reactstrap";
 
 const InnerContainer = styled(Container)`
-    background: ${ props => props.theme.colors.inner_background };
+    background: ${props => props.theme.colors.inner_background};
 `;
 
 export default InnerContainer;

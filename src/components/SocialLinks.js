@@ -1,14 +1,14 @@
 // React
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 // Bootstrap
-import { sm } from '../breakpoints';
+import {sm} from '../breakpoints';
 
 // Styled Components
-import styled, { withTheme } from "styled-components";
+import styled, {withTheme} from "styled-components";
 
 // Components
-import Link from './Link';
+import GlobalLink from './GlobalLink';
 
 // Links
 import social from '../links/social';
@@ -16,17 +16,19 @@ import social from '../links/social';
 class Links extends Component {
 
   render() {
-    const { theme } = this.props;
-    return (
-      <SocialLinkWrapper>
-        {social(theme).map(l => <SocialLink key={l.name} href={l.url} target='blank'><img src={l.icon} alt={l.name}></img></SocialLink>)}
-      </SocialLinkWrapper>
-    );
+    const {theme} = this.props;
+    return (<SocialLinkWrapper>
+      {social(theme).map(l => (
+        <SocialLink key={l.name} href={l.url} target='blank'>
+          <img src={l.icon} alt={l.name}/>
+        </SocialLink>
+      ))}
+    </SocialLinkWrapper>);
   }
 
 }
 
-const SocialLink = styled(Link)`
+const SocialLink = styled(GlobalLink)`
   padding: 5px;
   opacity: 0.75;
   &:hover {
