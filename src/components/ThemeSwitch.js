@@ -12,7 +12,7 @@ import {loadTheme} from '../actions';
 import Switch from "react-switch";
 
 // Themes
-import { Light, Dark } from '../thems';
+import { Light, Dark, getTheme, generateInfo } from '../thems';
 
 // Media
 import lightIcon from '../images/icon-light-mode.svg';
@@ -30,14 +30,15 @@ class ThemeSwitch extends Component {
   }
 
   handleChange(checked) {
-    var theme = checked ? Dark : Light;
-    this.loadTheme(theme)
+    const info = generateInfo(checked ? Dark : Light);
+    this.loadTheme(info)
   }
 
   render() {
-    const {theme} = this.props;
+    const info = this.props.theme;
+    const theme = getTheme(info);
     const {selected} = theme.colors;
-    const checked = theme.id === 2
+    const checked = info.style === 'dark';
 
     return (
       <StyledSwitch

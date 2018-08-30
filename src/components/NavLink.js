@@ -9,7 +9,6 @@ const NavA = styled(NavLink)`
   font-family: ${props => props.theme.fonts.title};
   &:hover {
     color: ${props => props.theme.colors.highlighted};
-    font-weight: bolder;
   }
 `;
 

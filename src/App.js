@@ -18,13 +18,16 @@ import WebsiteWrapper from './components/WebsiteWrapper';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+import {getTheme} from './thems';
+
 // Bootstrap
 import {Container} from 'reactstrap';
 
 class App extends Component {
 
   render() {
-    const {theme} = this.props;
+    const info = this.props.theme;
+    const theme = getTheme(info);
     document.body.style.backgroundColor = theme.colors.background;
 
     return (

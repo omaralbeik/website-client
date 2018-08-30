@@ -12,6 +12,7 @@ import so2 from '../images/social-so-2.svg';
 // Light theme
 export const Light = {
   id: 1,
+  style: 'light',
   colors: {
     background: '#FFFEFB',
     inner_background: '#F6F6F6',
@@ -35,6 +36,7 @@ export const Light = {
 // Dark theme
 export const Dark = {
   id: 2,
+  style: 'dark',
   colors: {
     background: '#002A36',
     inner_background: '#001D23',
@@ -54,3 +56,21 @@ export const Dark = {
     body: 'Open Sans'
   }
 };
+
+export function getTheme(info) {
+  switch (info.id) {
+    case 1:
+      return Light;
+    case 2:
+      return Dark;
+    default:
+      return Light;
+  }
+}
+
+export function generateInfo(theme) {
+  return {
+    id: theme.id,
+    style: theme.style
+  };
+}
