@@ -1,10 +1,13 @@
 // React
 import React, {Component} from "react";
 
+// Components
+import {Container} from 'reactstrap';
+
 class Portfolio extends Component {
 
   render() {
-    return (<div>Portfolio</div>);
+    return (<Container>Portfolio</Container>);
   }
 
 }

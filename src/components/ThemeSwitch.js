@@ -4,8 +4,15 @@ import React, {Component} from "react";
 // Styled Components
 import styled, {withTheme} from 'styled-components';
 
+// Redux
+import {connect} from 'react-redux';
+import {loadTheme} from '../actions';
+
 // Bootstrap
 import Switch from "react-switch";
+
+// Themes
+import { Light, Dark } from '../thems';
 
 // Media
 import lightIcon from '../images/icon-light-mode.svg';
@@ -15,21 +22,27 @@ class ThemeSwitch extends Component {
 
   constructor() {
     super();
-    this.state = {checked: false};
     this.handleChange = this.handleChange.bind(this);
   }
 
+  loadTheme(theme) {
+    this.props.loadTheme(theme);
+  }
+
   handleChange(checked) {
-    console.log(checked);
-    this.setState({ checked });
+    var theme = checked ? Dark : Light;
+    this.loadTheme(theme)
   }
 
   render() {
-    const {selected} = this.props.theme.colors;
+    const {theme} = this.props;
+    const {selected} = theme.colors;
+    const checked = theme.id === 2
+
     return (
       <StyledSwitch
           onChange={this.handleChange}
-          checked={this.state.checked}
+          checked={checked}
           width={80}
           height={34}
           onColor={selected}
@@ -48,4 +61,14 @@ const StyledSwitch = styled(Switch)`
   margin-right: -10px;
 `;
 
-export default withTheme(ThemeSwitch);
+function mapStateToProps(theme) {
+  return theme;
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadTheme: theme => dispatch(loadTheme(theme))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withTheme(ThemeSwitch));

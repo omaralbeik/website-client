@@ -1,10 +1,13 @@
 // React
 import React, {Component} from "react";
 
+// Components
+import {Container} from 'reactstrap';
+
 class Blog extends Component {
 
   render() {
-    return (<div>Blog</div>);
+    return (<Container>Blog</Container>);
   }
 
 }
