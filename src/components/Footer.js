@@ -1,12 +1,12 @@
 // React
 import React, {Component} from "react";
 
-// Styled Components
-import styled from 'styled-components';
-
 // Bootstrap
 import {Container, Row, Col} from 'reactstrap';
 import {sm} from '../breakpoints';
+
+// Styled Components
+import styled from 'styled-components';
 
 // Components
 import InnerContainer from './InnerContainer';
@@ -19,6 +19,7 @@ import {footerLinks, repoLink} from '../links';
 
 // Strings
 import {genericStrings, footerStrings} from '../strings';
+
 
 class Footer extends Component {
 

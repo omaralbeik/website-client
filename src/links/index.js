@@ -1,4 +1,6 @@
+// Strings
 import {genericStrings} from '../strings';
+
 
 export const blogLink = {
   name: 'Blog',

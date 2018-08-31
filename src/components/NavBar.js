@@ -1,9 +1,6 @@
 // React
 import React, {Component} from "react";
 
-// Styled Components
-import styled from 'styled-components';
-
 // Bootstrap
 import {
   Container,
@@ -15,6 +12,9 @@ import {
   NavItem
 } from 'reactstrap';
 
+// Styled Components
+import styled from 'styled-components';
+
 // Components
 import NavLink from '../components/NavLink';
 import Separator from '../components/Separator';
@@ -22,6 +22,7 @@ import ThemeSwitch from '../components/ThemeSwitch';
 
 // Links
 import {navbarLinks} from '../links';
+
 
 class Bar extends Component {
 

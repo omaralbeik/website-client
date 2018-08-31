@@ -1,4 +1,4 @@
-// Themes
+// Default theme (Light)
 import {Light} from './thems';
 
 export const loadState = _ => {

@@ -57,6 +57,8 @@ export const Dark = {
   }
 };
 
+
+// Get a theme from an info object.
 export function getTheme(info) {
   switch (info.id) {
     case 1:
@@ -68,6 +70,7 @@ export function getTheme(info) {
   }
 }
 
+// Generate info object for a theme
 export function generateInfo(theme) {
   return {
     id: theme.id,

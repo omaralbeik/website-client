@@ -31,6 +31,7 @@ import {errorStrings} from '../strings';
  **/
 ReactGA.initialize(GA_TRACKING_NUMBER);
 
+
 class Routes extends Component {
 
   logPageView() {

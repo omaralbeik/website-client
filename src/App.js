@@ -4,24 +4,24 @@ import React, {Component} from 'react';
 // Redux
 import {connect} from 'react-redux';
 
-// Routing & Links
-import {withRouter} from 'react-router-dom';
+// Bootstrap
+import {Container} from 'reactstrap';
 
 // Styled Components
 import {ThemeProvider} from "styled-components";
-
-// Routes
-import Routes from './routes';
 
 // Components
 import WebsiteWrapper from './components/WebsiteWrapper';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+// Routing & Links
+import {withRouter} from 'react-router-dom';
+import Routes from './routes';
+
+// Themes
 import {getTheme} from './thems';
 
-// Bootstrap
-import {Container} from 'reactstrap';
 
 class App extends Component {
 

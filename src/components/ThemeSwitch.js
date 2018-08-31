@@ -1,9 +1,6 @@
 // React
 import React, {Component} from "react";
 
-// Styled Components
-import styled, {withTheme} from 'styled-components';
-
 // Redux
 import {connect} from 'react-redux';
 import {loadTheme} from '../actions';
@@ -11,12 +8,16 @@ import {loadTheme} from '../actions';
 // Bootstrap
 import Switch from "react-switch";
 
+// Styled Components
+import styled, {withTheme} from 'styled-components';
+
 // Themes
 import { Light, Dark, getTheme, generateInfo } from '../thems';
 
 // Media
 import lightIcon from '../images/icon-light-mode.svg';
 import darkIcon from '../images/icon-dark-mode.svg';
+
 
 class ThemeSwitch extends Component {
 

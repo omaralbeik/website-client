@@ -4,6 +4,7 @@ import React, {Component} from "react";
 // Components
 import {Container} from 'reactstrap';
 
+
 class Blog extends Component {
 
   render() {

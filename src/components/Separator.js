@@ -1,6 +1,7 @@
 // Styled Components
 import styled from "styled-components";
 
+
 const Separator = styled.hr`
   height: 0px;
   border: none;
