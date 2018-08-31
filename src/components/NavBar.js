@@ -13,7 +13,8 @@ import {
 } from 'reactstrap';
 
 // Styled Components
-import styled from 'styled-components';
+import styled, {withTheme} from 'styled-components';
+import {sm} from '../breakpoints';
 
 // Components
 import NavLink from '../components/NavLink';
@@ -42,11 +43,15 @@ class Bar extends Component {
   }
 
   render() {
+    const {menu} = this.props.theme.icons;
+
     return (
       <Container>
         <StyledNavbar expand="md">
           <Brand href='/'>Omar Albeik</Brand>
-          <NavbarToggler onClick={this.toggle}/>
+          <Toggler onClick={this.toggle}>
+            <img src={menu} alt='Menu' />
+          </Toggler>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className="ml-auto">
               {
@@ -56,7 +61,7 @@ class Bar extends Component {
                   </Item>
                 ))
               }
-              <Item><ThemeSwitch/></Item>
+              <SwitchItem><ThemeSwitch/></SwitchItem>
             </Nav>
           </Collapse>
         </StyledNavbar>
@@ -69,6 +74,10 @@ class Bar extends Component {
 const StyledNavbar = styled(Navbar)`
   margin-top: 12px;
   padding-bottom: 0;
+  @media (${sm}) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 const Brand = styled(NavbarBrand)`
@@ -79,11 +88,13 @@ const Brand = styled(NavbarBrand)`
   &:hover {
     color: ${props => props.theme.colors.highlighted};
   }
-
+  @media (${sm}) {
+    font-size: 160%;
+  }
 `;
 
 const Item = styled(NavItem)`
-  padding: 0 10px;
+  padding: 8px 10px 0 10px;
   font-weight: lighter;
   text-transform: uppercase;
   a {
@@ -96,6 +107,32 @@ const Item = styled(NavItem)`
     font-weight: bold;
     color: ${props => props.theme.colors.selected};
   }
+  @media (${sm}) {
+    text-align: center;
+    font-size: 120%;
+    margin: 12px 0 0 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: ${props => props.theme.colors.inner_background};
+  }
 `
 
-export default Bar;
+const SwitchItem = styled(Item)`
+  padding-top: 2px;
+  background-color: ${props => props.theme.colors.background};
+  @media (${sm}) {
+    margin: 12px 0 0 0;
+    padding: 4px 26px 10px 6px;
+  }
+`
+
+const Toggler = styled(NavbarToggler)`
+  padding-right: 4px;
+  padding-left: 4px;
+  &:focus {
+    background-color: ${props => props.theme.colors.inner_background};
+    outline: none;
+  }
+`
+
+export default withTheme(Bar);

@@ -4,14 +4,12 @@ import React, {Component} from 'react';
 // Redux
 import {connect} from 'react-redux';
 
-// Bootstrap
-import {Container} from 'reactstrap';
-
 // Styled Components
-import {ThemeProvider} from "styled-components";
+import styled, {ThemeProvider} from "styled-components";
 
 // Components
 import WebsiteWrapper from './components/WebsiteWrapper';
+import FlexWrapper from './components/FlexWrapper';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -33,17 +31,23 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <WebsiteWrapper>
-          <Container fluid>
+          <FlexWrapper>
             <Navbar/>
-            <Routes/>
+            <PagesWrapper>
+              <Routes/>
+            </PagesWrapper>
             <Footer/>
-          </Container>
+          </FlexWrapper>
         </WebsiteWrapper>
       </ThemeProvider>
     );
   }
 
 }
+
+const PagesWrapper = styled.div`
+  min-height: calc(100vh - 97px);
+`
 
 function mapStateToProps(theme) {
   return theme;

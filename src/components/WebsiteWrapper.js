@@ -1,14 +1,14 @@
 // Styled Components
 import styled from 'styled-components';
+import {Container} from 'reactstrap'
 
 
-const WebsiteWrapper = styled.div`
+const WebsiteWrapper = styled(Container)`
   background: ${props => props.theme.colors.background};
   color: ${props => props.theme.colors.primary};
-  position: fixed;
-  top: 0;
+  position: absolute;
+  min-height: 100vh;
   left: 0;
-  bottom: 0;
   right: 0;
 `;
 

@@ -58,7 +58,6 @@ class ThemeSwitch extends Component {
 }
 
 const StyledSwitch = styled(Switch)`
-  margin-top: -5px;
   margin-left: 12px;
   margin-right: -10px;
 `;

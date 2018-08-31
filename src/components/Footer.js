@@ -24,42 +24,47 @@ import {genericStrings, footerStrings} from '../strings';
 class Footer extends Component {
 
   render() {
-    return (<Container className='fixed-bottom'>
-      <FooterInnerContainer>
-        <Row className='align-items-center'>
-          <Col sm={12} md={7} lg={8}>
-            <Row>
-              <LinksWrapper>
-                {
-                  footerLinks.map(l => (
-                    <FooterLink key={l.name} to={l.url}>{l.name}</FooterLink>
-                  ))
-                }
-              </LinksWrapper>
-            </Row>
-            <Row>
-              <OpenSourceWrapper lg={8}>
-                <Paragraph >
-                  {footerStrings.openSource}
-                  <Link to={repoLink.url} target='blank'>{repoLink.name}</Link>
-                </Paragraph>
-              </OpenSourceWrapper>
-            </Row>
-          </Col>
-          <Col sm={12} md={5} lg={4}>
-            <SocialLinks/>
-          </Col>
-        </Row>
-      </FooterInnerContainer>
-      <CopyrightWrapper>
-        {footerStrings.copyright}
-        <Link to='/'>{genericStrings.name}</Link>
-        {footerStrings.allRightsReserved}
-      </CopyrightWrapper>
-    </Container>);
+    return (
+      <FooterContainer>
+        <FooterInnerContainer>
+          <Row className='align-items-center'>
+            <Col sm={12} md={7} lg={8}>
+              <Row>
+                <LinksWrapper>
+                  {
+                    footerLinks.map(l => (
+                      <FooterLink key={l.name} to={l.url}>{l.name}</FooterLink>
+                    ))
+                  }
+                </LinksWrapper>
+              </Row>
+              <Row>
+                <OpenSourceWrapper lg={8}>
+                  <Paragraph >
+                    {footerStrings.openSource}
+                    <Link to={repoLink.url} target='blank'>{repoLink.name}</Link>
+                  </Paragraph>
+                </OpenSourceWrapper>
+              </Row>
+            </Col>
+            <Col sm={12} md={5} lg={4}>
+              <SocialLinks/>
+            </Col>
+          </Row>
+        </FooterInnerContainer>
+        <CopyrightWrapper>
+          {footerStrings.copyright}
+          <Link to='/'>{genericStrings.name}</Link>
+          {footerStrings.allRightsReserved}
+        </CopyrightWrapper>
+      </FooterContainer>
+    );
   }
 
 }
+
+const FooterContainer = styled(Container)`
+`
 
 const FooterLink = styled(Link)`
   font-size: 120%;

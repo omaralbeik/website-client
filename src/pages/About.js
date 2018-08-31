@@ -8,7 +8,11 @@ import {Container} from 'reactstrap';
 class About extends Component {
 
   render() {
-    return (<Container>About</Container>);
+    return (
+      <Container>
+        <p>About</p>
+      </Container>
+    );
   }
 
 }

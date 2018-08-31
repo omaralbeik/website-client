@@ -9,6 +9,9 @@ import tw2 from '../images/social-tw-2.svg';
 import in2 from '../images/social-in-2.svg';
 import so2 from '../images/social-so-2.svg';
 
+import menu1 from '../images/menu-1.svg';
+import menu2 from '../images/menu-2.svg';
+
 // Light theme
 export const Light = {
   id: 1,
@@ -20,6 +23,9 @@ export const Light = {
     inner_primary: '#444747',
     selected: '#FC5B37',
     highlighted: '#FC8840'
+  },
+  icons: {
+    menu: menu1
   },
   social_icons: {
     github: gh1,
@@ -44,6 +50,9 @@ export const Dark = {
     inner_primary: '#E2E2E2',
     selected: '#F7BC31',
     highlighted: '#FBD73F'
+  },
+  icons: {
+    menu: menu2
   },
   social_icons: {
     github: gh2,
