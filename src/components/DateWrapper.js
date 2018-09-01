@@ -15,7 +15,7 @@ import Moment from 'react-moment';
 class DateWrapper extends Component {
   static propTypes = {
     date: PropTypes.string.isRequired,
-    isRelative: PropTypes.bool.isRequired
+    isRelative: PropTypes.bool
   }
 
   render() {

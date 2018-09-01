@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import Title from '../components/Title';
 import DateWrapper from '../components/DateWrapper';
 import Paragraph from '../components/Paragraph';
-import Link from '../components/Link';
+import GlobalLink from '../components/GlobalLink';
 
 // Strings
 import {genericStrings} from '../strings';
@@ -39,7 +39,7 @@ class ProjectCell extends Component {
             <StyledTitle>{project.title}</StyledTitle>
             <DateWrapper date={project.date} />
             <StyledParagraph>{project.summary}</StyledParagraph>
-            <StyledLink to='/'>{genericStrings.readMore}</StyledLink>
+            <StyledLink href={project.url.url} target='_blank'>{project.url.name} {genericStrings.linkArrow}</StyledLink>
           </Col>
         </Row>
       </StyledContainer>
@@ -83,7 +83,7 @@ const StyledParagraph = styled(Paragraph)`
     font-size: 90%;
   }
 `
-const StyledLink = styled(Link)`
+const StyledLink = styled(GlobalLink)`
   margin-top: 20px;
   font-size: 135%;
   font-weight: bold;

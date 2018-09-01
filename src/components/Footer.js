@@ -11,6 +11,7 @@ import styled from 'styled-components';
 // Components
 import InnerContainer from './InnerContainer';
 import Link from './Link';
+import GlobalLink from './GlobalLink';
 import Paragraph from './Paragraph';
 import SocialLinks from './SocialLinks';
 
@@ -42,7 +43,7 @@ class Footer extends Component {
                 <OpenSourceWrapper lg={8}>
                   <Paragraph >
                     {footerStrings.openSource}
-                    <Link to={repoLink.url} target='blank'>{repoLink.name}</Link>
+                    <GlobalLink href={repoLink.url} target='_blank'>{repoLink.name}</GlobalLink>
                   </Paragraph>
                 </OpenSourceWrapper>
               </Row>

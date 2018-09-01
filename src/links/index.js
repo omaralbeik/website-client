@@ -4,6 +4,7 @@ import {genericStrings} from '../strings';
 
 export const blogLink = {
   name: 'Blog',
+  title: 'Latest Posts',
   url: '/',
   documentTitle: `Blog | ${genericStrings.name}`
 };
@@ -14,12 +15,14 @@ export function blogPostLink(p) {
 
 export const portfolioLink = {
   name: 'Portfolio',
+  title: 'Featured Projects',
   url: '/portfolio',
   documentTitle: `Portfolio | ${genericStrings.name}`
 };
 
 export const aboutLink = {
   name: 'About',
+  title: 'About Me',
   url: '/about',
   documentTitle: `About | ${genericStrings.name}`
 };

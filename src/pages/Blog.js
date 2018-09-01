@@ -6,6 +6,10 @@ import {Container} from 'reactstrap';
 
 // Components
 import PostCell from '../components/PostCell';
+import PageTitle from '../components/PageTitle';
+
+// Links
+import {blogLink} from '../links';
 
 
 class Blog extends Component {
@@ -20,6 +24,7 @@ class Blog extends Component {
 
     return (
       <Container>
+        <PageTitle>{blogLink.title}</PageTitle>
         <PostCell post={post}/>
         <PostCell post={post}/>
         <PostCell post={post}/>
