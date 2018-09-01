@@ -28,7 +28,7 @@ class Footer extends Component {
       <FooterContainer>
         <FooterInnerContainer>
           <Row className='align-items-center'>
-            <Col sm={12} md={7} lg={8}>
+            <Col md={7} lg={8}>
               <Row>
                 <LinksWrapper>
                   {
@@ -47,7 +47,7 @@ class Footer extends Component {
                 </OpenSourceWrapper>
               </Row>
             </Col>
-            <Col sm={12} md={5} lg={4}>
+            <Col md={5} lg={4}>
               <SocialLinks/>
             </Col>
           </Row>

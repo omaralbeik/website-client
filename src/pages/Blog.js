@@ -1,14 +1,33 @@
 // React
 import React, {Component} from "react";
 
-// Components
+// Bootstrap
 import {Container} from 'reactstrap';
+
+// Components
+import PostCell from '../components/PostCell';
 
 
 class Blog extends Component {
 
   render() {
-    return (<Container>Blog</Container>);
+    const post = {
+      id: 1,
+      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      date: "1976-04-19T12:59-0500",
+      summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor …"
+    };
+
+    return (
+      <Container>
+        <PostCell post={post}/>
+        <PostCell post={post}/>
+        <PostCell post={post}/>
+        <PostCell post={post}/>
+        <PostCell post={post}/>
+        <PostCell post={post}/>
+      </Container>
+    );
   }
 
 }

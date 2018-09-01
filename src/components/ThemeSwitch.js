@@ -23,6 +23,7 @@ class ThemeSwitch extends Component {
 
   constructor() {
     super();
+
     this.handleChange = this.handleChange.bind(this);
   }
 

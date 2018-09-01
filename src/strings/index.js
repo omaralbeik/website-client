@@ -1,7 +1,8 @@
 export const genericStrings = {
   name: "Omar Albeik",
   title: "Portfolio, Blog and Personal Website",
-  share: "Share"
+  share: "Share",
+  readMore: "Read More →"
 };
 
 export const errorStrings = {
