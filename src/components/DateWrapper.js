@@ -14,15 +14,16 @@ import Moment from 'react-moment';
 
 class DateWrapper extends Component {
   static propTypes = {
-    date: PropTypes.string.isRequired
+    date: PropTypes.string.isRequired,
+    isRelative: PropTypes.bool.isRequired
   }
 
   render() {
-    const {date} = this.props;
+    const {date, isRelative} = this.props;
 
     return (
       <div>
-        <StyledMoment fromNow>{date}</StyledMoment>
+        <StyledMoment fromNow={isRelative} format={isRelative ? null : 'YYYY/MM/DD'}>{date}</StyledMoment>
         <StyledSeparator/>
       </div>
     );
