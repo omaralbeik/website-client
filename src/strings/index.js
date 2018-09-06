@@ -17,3 +17,15 @@ export const footerStrings = {
   copyright: `Copyright © ${ (new Date()).getFullYear()} `,
   allRightsReserved: ". All rights reserved."
 };
+
+export const contactStrings = {
+  defaultCountry: "- Country -",
+  submit: "Send Message!",
+  namePlaceholder: "Name",
+  emailPlaceholder: "Email Address",
+  phonePlaceholder: "Phone",
+  countryPlaceholder: "Country",
+  cityPlaceholder: "City",
+  subjectPlaceholder: "Subject",
+  messagePlaceholder: "Message",
+}

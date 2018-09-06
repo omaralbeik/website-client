@@ -36,6 +36,18 @@ class Bar extends Component {
     };
   }
 
+  open() {
+    this.setState({
+      isOpen: true
+    });
+  }
+
+  close() {
+    this.setState({
+      isOpen: false
+    });
+  }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -57,7 +69,7 @@ class Bar extends Component {
               {
                 navbarLinks.map(l => (
                   <Item key={l.name}>
-                    <NavLink activeClassName='active' exact to={l.url}>{l.name}</NavLink>
+                    <NavLink activeClassName='active' exact to={l.url} onClick={_ => {this.close()}}>{l.name}</NavLink>
                   </Item>
                 ))
               }

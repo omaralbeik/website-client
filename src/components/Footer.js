@@ -65,7 +65,8 @@ class Footer extends Component {
 }
 
 const FooterContainer = styled(Container)`
-`
+  
+`;
 
 const FooterLink = styled(Link)`
   font-size: 120%;
@@ -104,6 +105,7 @@ const CopyrightWrapper = styled(Paragraph)`
   }
   @media (${sm}) {
     font-size: 75%;
+    padding: 12px 0 20px 0;
   }
 `;
 
