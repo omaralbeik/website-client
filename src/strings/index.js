@@ -19,6 +19,7 @@ export const footerStrings = {
 };
 
 export const contactStrings = {
+  title: "Get In Touch",
   defaultCountry: "- Country -",
   submit: "Send Message!",
   namePlaceholder: "Name",

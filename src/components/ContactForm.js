@@ -16,6 +16,8 @@ import {sm} from '../breakpoints';
 
 // Components
 import InnerContainer from '../components/InnerContainer';
+import Subtitle from '../components/Subtitle';
+import Button from '../components/Button';
 
 // Data
 import Countries from '../data/countries';
@@ -24,8 +26,9 @@ import {contactStrings} from '../strings';
 class ContactForm extends Component {
 
   render() {
-    return (
-      <FormContainer>
+    return [
+      <FormSubtitle key="title">{contactStrings.title}</FormSubtitle>,
+      <FormContainer key="form">
         <Form>
           <FormGroup row>
             <FormLabel for='name' sm={3} hide='xs'>{contactStrings.namePlaceholder} *</FormLabel>
@@ -34,7 +37,7 @@ class ContactForm extends Component {
             </Col>
           </FormGroup>
           <FormGroup row>
-            <FormLabel for='email' sm={3}>{contactStrings.emailPlaceholder}</FormLabel>
+            <FormLabel for='email' sm={3}>{contactStrings.emailPlaceholder} *</FormLabel>
             <Col sm={9}>
               <FormInput type='email' name='email' id='email' placeholder={contactStrings.emailPlaceholder}/>
             </Col>
@@ -73,16 +76,25 @@ class ContactForm extends Component {
             <FormInput type='textarea' name="message" id='message' rows={10} placeholder={contactStrings.messagePlaceholder}/>
           </Col>
         </FormGroup>
+        <FormGroup row>
+        <Col sm={12}>
+          <SubmitButton className='float-right'>{contactStrings.submit}</SubmitButton>
+        </Col>
+      </FormGroup>
         </Form>
       </FormContainer>
-    );
+    ];
   }
 }
+
+const FormSubtitle = styled(Subtitle)`
+  margin-top: 60px;
+`;
 
 const FormContainer = styled(InnerContainer)`
   padding: 50px;
   border-radius: 8px;
-  margin: 30px 0;
+  margin: 15px 0 30px 0;
   @media (${sm}) {
     padding: 20px;
   }
@@ -108,5 +120,11 @@ const FormInput = styled(Input)`
     box-shadow: none;
   }
 `
+
+const SubmitButton = styled(Button)`
+  @media (${sm}) {
+    width: 100%;
+  }
+`;
 
 export default ContactForm;
