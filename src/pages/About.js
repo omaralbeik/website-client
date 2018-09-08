@@ -1,6 +1,10 @@
 // React
 import React, {Component} from "react";
 
+// Redux
+import {connect} from 'react-redux';
+import {addContent} from '../actions';
+
 // Styled Components
 import styled from 'styled-components';
 import {sm} from '../breakpoints';
@@ -11,6 +15,7 @@ import PageTitle from '../components/PageTitle';
 import Title from '../components/Title';
 import Paragraph from '../components/Paragraph';
 import ContactForm from '../components/ContactForm';
+import Loading from '../components/Loading';
 
 // Links
 import {aboutLink} from '../links';
@@ -18,21 +23,44 @@ import {aboutLink} from '../links';
 // Strings
 import {genericStrings} from '../strings';
 
-// Media
-import me from '../images/omaralbeik.jpg';
+// Helpers
+import APIHelper from '../utils/APIHelper';
+
 
 class About extends Component {
 
+  constructor(props) {
+    super(props);
+    this.fetchAbout();
+  }
+
+  fetchAbout() {
+    APIHelper.fetchAbout().then(content => {
+      this.props.addContent({content});
+    });
+  }
+
   render() {
+    const {contents} = this.props;
+    const about = contents.about;
     return (
       <Container>
         <PageTitle>{aboutLink.title}</PageTitle>
-        <StyledImage src={me} alt={genericStrings.name}/>
-        <StyledTitle>Hello, I'm Omar</StyledTitle>
-        <Paragraph>Lorem Ipsum</Paragraph>
+        {this.generateBody(about)}
         <ContactForm/>
       </Container>
     );
+  }
+
+  generateBody(about) {
+    if (!about) {
+      return <Loading/>
+    }
+    return [
+      <StyledImage key='image' src={about.image_url} alt={genericStrings.name}/>,
+      <StyledTitle key='title'>{about.title}</StyledTitle>,
+      <Paragraph key='body'>{about.text}</Paragraph>
+    ];
   }
 
 }
@@ -51,4 +79,14 @@ const StyledTitle = styled(Title)`
   }
 `;
 
-export default About;
+function mapStateToProps({contents}) {
+  return {contents}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addContent: content => dispatch(addContent(content))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(About);

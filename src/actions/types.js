@@ -8,3 +8,6 @@ export const ADD_BLOG_POST = 'ADD_BLOG_POST';
 
 export const LOAD_PROJECTS = 'LOAD_PROJECTS';
 export const ADD_PROJECT = 'ADD_PROJECT';
+
+export const LOAD_CONTENETS = 'LOAD_CONTENETS';
+export const ADD_CONTENT = 'ADD_CONTENT';

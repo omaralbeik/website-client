@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 
 // Routing & Links
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import * as links from '../links';
 
 // Google Analytics
@@ -46,7 +46,9 @@ class Routes extends Component {
     return [
       <Route key='home' path='/' component={this.logPageView}/>,
       <Switch key='routes'>
-        <Route exact path={links.homeLink.url} component={Blog}/>
+        <Route exact path={links.homeLink.url} render={_ => (
+          <Redirect to={links.blogLink.url}/>
+        )}/>
         <Route exact path={links.blogLink.url} component={Blog}/>
         <Route exact path={`${links.blogLink.url}/:post_id`} component={BlogPostDetails}/>
         <Route exact path={links.portfolioLink.url} component={Portfolio}/>

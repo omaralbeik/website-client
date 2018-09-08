@@ -23,3 +23,11 @@ export function loadProjects({projects}) {
 export function addProject({project}) {
   return {type: types.ADD_PROJECT, project};
 }
+
+export function loadContents({contents}) {
+  return {type: types.LOAD_CONTENETS, contents};
+}
+
+export function addContent({content}) {
+  return {type: types.ADD_CONTENT, content};
+}

@@ -15,6 +15,10 @@ class APIHelper {
     return `${this.API_URL}/projects/`;
   }
 
+  static get CONTENTS_URL() {
+    return `${this.API_URL}/contents/`;
+  }
+
   /**
    * Get all blog posts.
    */
@@ -34,6 +38,13 @@ class APIHelper {
    */
   static fetchBlogPost(post_id) {
     return this._fetchObject(this.BLOG_URL, post_id);
+  }
+
+  /**
+   * Get about contents.
+   */
+  static fetchAbout() {
+    return this._fetchObject(this.CONTENTS_URL, 'about');
   }
 
   /**

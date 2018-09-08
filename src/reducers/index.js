@@ -75,5 +75,30 @@ function projects(state = {}, action) {
   }
 }
 
+/**
+ * Contents Reducers
+ */
+function contents(state = {}, action) {
+  const {contents, content} = action;
+
+  switch (action.type) {
+    // load projectss to store
+    case types.LOAD_CONTENETS:
+      return {
+        ...state,
+        ...objectFromArray(contents)
+      };
+    // add a content
+    case types.ADD_CONTENT:
+      return {
+        ...state,
+        [content.slug]: content
+      };
+    // any other action: return all projectss
+    default:
+      return state;
+  }
+}
+
 // export all above reducers combined
-export default combineReducers({theme, blogPosts, projects});
+export default combineReducers({theme, blogPosts, projects, contents});
