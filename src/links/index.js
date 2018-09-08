@@ -1,16 +1,26 @@
 // Strings
 import {genericStrings} from '../strings';
 
+export const homeLink = {
+  name: 'Home',
+  title: 'Home',
+  url: '/',
+  documentTitle: genericStrings.name
+};
 
 export const blogLink = {
   name: 'Blog',
   title: 'Latest Posts',
-  url: '/',
+  url: '/blog',
   documentTitle: `Blog | ${genericStrings.name}`
 };
 
 export function blogPostLink(p) {
-  return {name: p.title, url: `${blogLink.url}/${p.url_title}`, documentTitle: `${p.title} | ${genericStrings.name}`};
+  return {
+    name: p.title,
+    title: p.title,
+    url: `${blogLink.url}/${p.id}`,
+    documentTitle: `${p.title} | ${genericStrings.name}`};
 };
 
 export const portfolioLink = {

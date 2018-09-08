@@ -46,6 +46,7 @@ class Routes extends Component {
     return [
       <Route key='home' path='/' component={this.logPageView}/>,
       <Switch key='routes'>
+        <Route exact path={links.homeLink.url} component={Blog}/>
         <Route exact path={links.blogLink.url} component={Blog}/>
         <Route exact path={`${links.blogLink.url}/:post_id`} component={BlogPostDetails}/>
         <Route exact path={links.portfolioLink.url} component={Portfolio}/>

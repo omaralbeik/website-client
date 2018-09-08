@@ -35,7 +35,8 @@ export const Light = {
   },
   fonts: {
     title: 'Merriweather',
-    body: 'Open Sans'
+    body: 'Open Sans',
+    mono: 'Inconsolata, monospace'
   }
 };
 
@@ -62,7 +63,8 @@ export const Dark = {
   },
   fonts: {
     title: 'Merriweather',
-    body: 'Open Sans'
+    body: 'Open Sans',
+    mono: 'Inconsolata, monospace'
   }
 };
 
