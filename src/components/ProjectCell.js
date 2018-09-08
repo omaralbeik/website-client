@@ -19,13 +19,11 @@ import GlobalLink from '../components/GlobalLink';
 import Img from 'react-image'
 
 // Strings
-import {portfolioStrings} from '../strings';
+import {genericStrings} from '../strings';
 
 // Media
 import placeholder from '../images/placeholders/project.svg';
 
-// Helpers
-import APIHelper from '../utils/APIHelper';
 
 class ProjectCell extends Component {
   static propTypes = {
@@ -34,31 +32,24 @@ class ProjectCell extends Component {
 
   render() {
     const {project} = this.props;
-    const imageUrl = APIHelper.mediaUrl(project.logo.url);
 
     return (
       <StyledContainer>
         <Row>
           <ImageWrapper md={4} lg={3}>
-            <StyledImage src={[imageUrl, placeholder]} alt={project.title}/>
+            <a href={project.url} target='_blank'>
+              <StyledImage src={[project.logo_url, placeholder]} alt={project.title}/>
+            </a>
           </ImageWrapper>
           <Col md={8} lg={9}>
             <StyledTitle>{project.name}</StyledTitle>
-            <DateWrapper date={project.releasedAt} />
+            <DateWrapper date={project.date_published} />
             <StyledParagraph>{project.summary}</StyledParagraph>
-            {this.generatProjectLink(project)}
+            <StyledLink href={project.url} target='_blank'>{project.url_name} {genericStrings.linkArrow}</StyledLink>
           </Col>
         </Row>
       </StyledContainer>
     );
-  }
-
-  generatProjectLink(project) {
-    if (project.url) {
-      return <StyledLink href={project.websiteUrl} target='_blank'>{portfolioStrings.website}</StyledLink>
-    } else if (project.repoUrl) {
-      return <StyledLink href={project.repoUrl} target='_blank'>{portfolioStrings.repo}</StyledLink>
-    }
   }
 
 }

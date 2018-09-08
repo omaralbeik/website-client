@@ -11,7 +11,7 @@ const PageTitle = styled.h1`
   margin: 30px 0 60px 12px;
   @media (${sm}) {
     font-size: 165%;
-    margin: 20px 0 45px 12px;
+    margin: 20px 0 45px 0;
   }
 `;
 

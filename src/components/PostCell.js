@@ -10,13 +10,17 @@ import {sm} from '../breakpoints';
 import styled from 'styled-components';
 
 // Components
-import Title from '../components/Title';
-import DateWrapper from '../components/DateWrapper';
-import Paragraph from '../components/Paragraph';
-import Link from '../components/Link';
+import Title from './Title';
+import DateWrapper from './DateWrapper';
+import Paragraph from './Paragraph';
+import Link from './Link';
 
 // Strings
 import {genericStrings} from '../strings';
+
+// Links
+import {blogPostLink} from '../links';
+
 
 class PostCell extends Component {
   static propTypes = {
@@ -29,18 +33,39 @@ class PostCell extends Component {
     return (
       <StyledContainer>
         <StyledTitle>{post.title}</StyledTitle>
-        <DateWrapper date={post.publishedAt} isRelative/>
+        {this.generateImage(post)}
+        <DateWrapper date={post.date_published} isRelative/>
         <StyledParagraph>{post.summary}</StyledParagraph>
-        <StyledLink to='/'>{genericStrings.readMore}</StyledLink>
+        <StyledLink to={blogPostLink(post).url}>{genericStrings.readMore}</StyledLink>
       </StyledContainer>
     );
+  }
+
+  generateImage(post) {
+    if (post.cover_image_url) {
+      return (
+        <Link to={blogPostLink(post).url}>
+          <StyledImage src={post.cover_image_url} alt={post.title}/>
+        </Link>
+      );
+    }
   }
 
 }
 
 const StyledContainer = styled(Container)`
   margin: 30px 0 60px 0;
+  @media (${sm}) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `
+
+const StyledImage = styled.img`
+  border-radius: 8px;
+  width: 100%;
+  margin: 18px 0;
+`;
 
 const StyledTitle = styled(Title)`
   max-width: 80%;

@@ -15,9 +15,9 @@ import styled from 'styled-components';
 import {sm} from '../breakpoints';
 
 // Components
-import InnerContainer from '../components/InnerContainer';
-import Subtitle from '../components/Subtitle';
-import Button from '../components/Button';
+import InnerContainer from './InnerContainer';
+import Subtitle from './Subtitle';
+import Button from './Button';
 
 // Data
 import Countries from '../data/countries';

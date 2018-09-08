@@ -19,7 +19,7 @@ export function blogPostLink(p) {
   return {
     name: p.title,
     title: p.title,
-    url: `${blogLink.url}/${p.id}`,
+    url: `${blogLink.url}/${p.slug}`,
     documentTitle: `${p.title} | ${genericStrings.name}`};
 };
 

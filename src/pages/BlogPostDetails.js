@@ -1,28 +1,84 @@
 // React
 import React, {Component} from "react";
 
+// Redux
+import {connect} from 'react-redux';
+import {addBlogPost} from '../actions';
+
 // Styled Components
 import {withTheme} from 'styled-components';
 
 // Components
 import {Container} from 'reactstrap';
+import PageTitle from '../components/PageTitle';
 import FreeCodeContainer from '../components/FreeCodeContainer';
+import Loading from '../components/Loading';
+
+// Helpers
+import APIHelper from '../utils/APIHelper';
+import {arrayFromObject} from '../utils';
 
 
 class BlogPostDetails extends Component {
-  render() {
-    const {style} = this.props.theme;
-    const syntaxClassName = style === 'dark' ? 'dark-code' : 'light-code';
 
-    const html = "<h1>Title (h1)</h1>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\n<h2>Title (h2)</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\n<h3>Title (h3)</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\n<h4>Title (h4)</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\n<div class=\"codehilite\"><pre><span></span><code><span class=\"kd\">func</span> <span class=\"nf\">test</span><span class=\"p\">()</span> <span class=\"p\">{</span>\n  <span class=\"bp\">print</span><span class=\"p\">(</span><span class=\"s\">&quot;Hello World!&quot;</span><span class=\"p\">)</span>         \n<span class=\"p\">}</span>\n\n<span class=\"kd\">struct</span> <span class=\"nc\">User</span> <span class=\"p\">{</span>\n  <span class=\"kd\">var</span> <span class=\"nv\">id</span><span class=\"p\">:</span> <span class=\"nb\">Int</span><span class=\"p\">,</span>\n  <span class=\"kd\">var</span> <span class=\"nv\">name</span><span class=\"p\">:</span> <span class=\"nb\">String</span>\n<span class=\"p\">}</span>\n\n<span class=\"kd\">extension</span> <span class=\"nc\">User</span><span class=\"p\">:</span> <span class=\"n\">Codable</span> <span class=\"p\">{</span>\n\n<span class=\"p\">}</span>\n</code></pre></div>\n"
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
+    this.fetchBlogPost();
+  }
+
+  fetchBlogPost() {
+    const {post_id} = this.props.match.params;
+    APIHelper.fetchBlogPost(post_id).then(post => {
+      this.props.addBlogPost({post});
+    }).catch(error => {
+      this.setState({error: error});
+    });
+  }
+
+  render() {
+    const {blogPosts} = this.props;
+    const {post_id} = this.props.match.params;
+
+    var post;
+    if (parseInt(post_id, 0)) { // get post by id
+      post = blogPosts[post_id]
+    } else { // get post by url_title
+      const postsArray = arrayFromObject(blogPosts);
+      post = postsArray.filter(p => (p.slug === post_id))[0]
+    }
 
     return (
       <Container>
-        <FreeCodeContainer dangerouslySetInnerHTML={{__html: html}} className={syntaxClassName}></FreeCodeContainer>
+        {this.generateBody(post)}
       </Container>
     );
+
+  }
+
+  generateBody(post) {
+    if (!post) {
+      return <Loading/>
+    }
+
+    const {style} = this.props.theme;
+    const syntaxClassName = style === 'dark' ? 'dark-code' : 'light-code';
+    return [
+      <PageTitle key='title'>{post.title}</PageTitle>,
+      <FreeCodeContainer key='body' dangerouslySetInnerHTML={{__html: post.html_text}} className={syntaxClassName}></FreeCodeContainer>
+    ];
   }
 
 }
 
-export default withTheme(BlogPostDetails);
+function mapStateToProps({blogPosts}) {
+  return {blogPosts}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addBlogPost: post => dispatch(addBlogPost(post))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withTheme(BlogPostDetails));

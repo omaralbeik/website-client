@@ -17,9 +17,9 @@ import styled, {withTheme} from 'styled-components';
 import {sm} from '../breakpoints';
 
 // Components
-import NavLink from '../components/NavLink';
-import Separator from '../components/Separator';
-import ThemeSwitch from '../components/ThemeSwitch';
+import NavLink from './NavLink';
+import Separator from './Separator';
+import ThemeSwitch from './ThemeSwitch';
 
 // Links
 import {navbarLinks} from '../links';
