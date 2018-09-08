@@ -11,8 +11,23 @@ import PageTitle from '../components/PageTitle';
 // Links
 import {blogLink} from '../links';
 
+// Helpers
+import APIHelper from '../utils/APIHelper';
+
 
 class Blog extends Component {
+
+  constructor(props) {
+    super(props);
+    this.fetchProjects();
+  }
+
+  fetchProjects() {
+    APIHelper.fetchProjects().then(projects => {
+      console.log(projects);
+      // this.props.loadProjects({projects})
+    })
+  }
 
   render() {
     const post = {
