@@ -29,7 +29,7 @@ class PostCell extends Component {
     return (
       <StyledContainer>
         <StyledTitle>{post.title}</StyledTitle>
-        <DateWrapper date={post.date} isRelative/>
+        <DateWrapper date={post.publishedAt} isRelative/>
         <StyledParagraph>{post.summary}</StyledParagraph>
         <StyledLink to='/'>{genericStrings.readMore}</StyledLink>
       </StyledContainer>

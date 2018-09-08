@@ -27,6 +27,7 @@ const store = createStore(rootReducer, persistedState, reduxDevTools);
 
 store.subscribe(_ => {
   saveState({
+    ...store.getState(),
     theme: store.getState().theme
   });
 });

@@ -9,6 +9,7 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-ga": "^2.5.3",
+    "react-image": "^1.4.1",
     "react-moment": "^0.7.9",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",

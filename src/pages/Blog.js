@@ -1,6 +1,10 @@
 // React
 import React, {Component} from "react";
 
+// Redux
+import {connect} from 'react-redux';
+import {loadBlogPosts} from '../actions';
+
 // Bootstrap
 import {Container} from 'reactstrap';
 
@@ -12,6 +16,7 @@ import PageTitle from '../components/PageTitle';
 import {blogLink} from '../links';
 
 // Helpers
+import {arrayFromObject} from '../utils';
 import APIHelper from '../utils/APIHelper';
 
 
@@ -19,37 +24,37 @@ class Blog extends Component {
 
   constructor(props) {
     super(props);
-    this.fetchProjects();
+    this.fetchBlogPosts();
   }
 
-  fetchProjects() {
-    APIHelper.fetchProjects().then(projects => {
-      console.log(projects);
-      // this.props.loadProjects({projects})
-    })
+  fetchBlogPosts() {
+    APIHelper.fetchBlogPosts().then(posts => {
+      this.props.loadBlogPosts({posts});
+    });
   }
 
   render() {
-    const post = {
-      id: 1,
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      date: "1976-04-19T12:59-0500",
-      summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor …"
-    };
+    const {blogPosts} = this.props;
+    const postsArray = arrayFromObject(blogPosts)
 
     return (
       <Container>
         <PageTitle>{blogLink.title}</PageTitle>
-        <PostCell post={post}/>
-        <PostCell post={post}/>
-        <PostCell post={post}/>
-        <PostCell post={post}/>
-        <PostCell post={post}/>
-        <PostCell post={post}/>
+        {postsArray.map(p => (<PostCell key={p.id} post={p}/>))}
       </Container>
     );
   }
 
 }
 
-export default Blog;
+function mapStateToProps({blogPosts}) {
+  return {blogPosts}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadBlogPosts: posts => dispatch(loadBlogPosts(posts))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);

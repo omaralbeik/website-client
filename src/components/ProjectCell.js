@@ -15,11 +15,17 @@ import DateWrapper from '../components/DateWrapper';
 import Paragraph from '../components/Paragraph';
 import GlobalLink from '../components/GlobalLink';
 
-// Strings
-import {genericStrings} from '../strings';
+// 3rd party components
+import Img from 'react-image'
 
-// Test images
-import Logo from '../images/test_logo.svg';
+// Strings
+import {portfolioStrings} from '../strings';
+
+// Media
+import placeholder from '../images/placeholders/project.svg';
+
+// Helpers
+import APIHelper from '../utils/APIHelper';
 
 class ProjectCell extends Component {
   static propTypes = {
@@ -28,22 +34,31 @@ class ProjectCell extends Component {
 
   render() {
     const {project} = this.props;
+    const imageUrl = APIHelper.mediaUrl(project.logo.url);
 
     return (
       <StyledContainer>
         <Row>
           <ImageWrapper md={4} lg={3}>
-            <StyledImage src={Logo} alt={project.title} />
+            <StyledImage src={[imageUrl, placeholder]} alt={project.title}/>
           </ImageWrapper>
           <Col md={8} lg={9}>
-            <StyledTitle>{project.title}</StyledTitle>
-            <DateWrapper date={project.date} />
+            <StyledTitle>{project.name}</StyledTitle>
+            <DateWrapper date={project.releasedAt} />
             <StyledParagraph>{project.summary}</StyledParagraph>
-            <StyledLink href={project.url.url} target='_blank'>{project.url.name} {genericStrings.linkArrow}</StyledLink>
+            {this.generatProjectLink(project)}
           </Col>
         </Row>
       </StyledContainer>
     );
+  }
+
+  generatProjectLink(project) {
+    if (project.url) {
+      return <StyledLink href={project.websiteUrl} target='_blank'>{portfolioStrings.website}</StyledLink>
+    } else if (project.repoUrl) {
+      return <StyledLink href={project.repoUrl} target='_blank'>{portfolioStrings.repo}</StyledLink>
+    }
   }
 
 }
@@ -58,7 +73,7 @@ const ImageWrapper = styled(Col)`
   }
 `
 
-const StyledImage = styled.img`
+const StyledImage = styled(Img)`
   background-color: red;
   border-radius: 10px;
   width: 100%;

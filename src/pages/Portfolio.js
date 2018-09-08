@@ -1,6 +1,10 @@
 // React
 import React, {Component} from "react";
 
+// Redux
+import {connect} from 'react-redux';
+import {loadProjects} from '../actions';
+
 // Bootstrap
 import {Container} from 'reactstrap';
 
@@ -11,32 +15,45 @@ import PageTitle from '../components/PageTitle';
 // Links
 import {portfolioLink} from '../links';
 
+// Helpers
+import {arrayFromObject} from '../utils';
+import APIHelper from '../utils/APIHelper';
 
 class Portfolio extends Component {
 
+  constructor(props) {
+    super(props);
+    this.fetchProjects();
+  }
+
+  fetchProjects() {
+    APIHelper.fetchProjects().then(projects => {
+      this.props.loadProjects({projects})
+    })
+  }
+
   render() {
-    const project = {
-      id: 1,
-      title: "Lorem Ipsum Dolor Sit Amet",
-      date: "1976-04-19T12:59-0500",
-      summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor …",
-      url: {
-        name: "Github Repo",
-        url: "https://github.com/swifterswift/swifterswift"
-      }
-    };
+    const {projects} = this.props;
+    const projectsArray = arrayFromObject(projects)
 
     return (
       <Container>
         <PageTitle>{portfolioLink.title}</PageTitle>
-        <ProjectCell project={project}/>
-        <ProjectCell project={project}/>
-        <ProjectCell project={project}/>
-        <ProjectCell project={project}/>
+        {projectsArray.map(p => (<ProjectCell key={p.id} project={p}/>))}
       </Container>
     );
   }
 
 }
 
-export default Portfolio;
+function mapStateToProps({projects}) {
+  return {projects}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadProjects: projects => dispatch(loadProjects(projects))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);

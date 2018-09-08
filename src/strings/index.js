@@ -6,6 +6,11 @@ export const genericStrings = {
   linkArrow: " →"
 };
 
+export const portfolioStrings = {
+  website: `Website ${genericStrings.linkArrow}`,
+  repo: `Github ${genericStrings.linkArrow}`
+};
+
 export const errorStrings = {
   error: "Error!",
   backHome: "Back Home",
