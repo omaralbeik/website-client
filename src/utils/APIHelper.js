@@ -4,7 +4,7 @@
 class APIHelper {
 
   static get API_URL() {
-    return 'http://api.omaralbeik.com/v1';
+    return 'https://api.omaralbeik.com/v1';
   }
 
   static get BLOG_URL() {
