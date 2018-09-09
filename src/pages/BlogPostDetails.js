@@ -6,7 +6,8 @@ import {connect} from 'react-redux';
 import {addBlogPost} from '../actions';
 
 // Styled Components
-import {withTheme} from 'styled-components';
+import styled, {withTheme} from 'styled-components';
+import {sm} from '../breakpoints';
 
 // Components
 import {Container} from 'reactstrap';
@@ -65,11 +66,29 @@ class BlogPostDetails extends Component {
     const syntaxClassName = style === 'dark' ? 'dark-code' : 'light-code';
     return [
       <PageTitle key='title'>{post.title}</PageTitle>,
-      <FreeCodeContainer key='body' dangerouslySetInnerHTML={{__html: post.html_text}} className={syntaxClassName}></FreeCodeContainer>
+      <div key='cover'>{this.generateCoverImage(post)}</div>,
+      <FreeCodeContainer key='body' dangerouslySetInnerHTML={{__html: post.html_text}} className={syntaxClassName}/>
     ];
   }
 
+  generateCoverImage(post) {
+    if (!post) { return }
+    if (!post.cover_image_url) { return }
+    return (<CoverImage src={post.cover_image_url} alt={post.title}/>)
+  }
+
 }
+
+const CoverImage = styled.img`
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: 0 -50vw 60px -50vw;
+  @media (${sm}) {
+    display: none;
+  }
+`;
 
 function mapStateToProps({blogPosts}) {
   return {blogPosts}

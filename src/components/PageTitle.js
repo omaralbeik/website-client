@@ -9,8 +9,9 @@ const PageTitle = styled.h1`
   font-family: ${props => props.theme.fonts.title};
   font-weight: bold;
   margin: 30px 0 60px 12px;
+  font-size: 25pt;
   @media (${sm}) {
-    font-size: 165%;
+    font-size: 20pt;
     margin: 20px 0 45px 0;
   }
 `;

@@ -7,9 +7,6 @@ import {sm} from '../breakpoints';
 // Styled Components
 import styled, {withTheme} from "styled-components";
 
-// Components
-import GlobalLink from './GlobalLink';
-
 // Links
 import social from '../links/social';
 
@@ -29,7 +26,7 @@ class Links extends Component {
 
 }
 
-const SocialLink = styled(GlobalLink)`
+const SocialLink = styled.a`
   padding: 5px;
   opacity: 0.75;
   &:hover {

@@ -7,7 +7,8 @@ import {
   Form,
   FormGroup,
   Label,
-  Input
+  Input,
+  Button
 } from 'reactstrap';
 
 // Styled Components
@@ -16,8 +17,6 @@ import {sm} from '../breakpoints';
 
 // Components
 import InnerContainer from './InnerContainer';
-import Subtitle from './Subtitle';
-import Button from './Button';
 
 // Data
 import Countries from '../data/countries';
@@ -27,7 +26,7 @@ class ContactForm extends Component {
 
   render() {
     return [
-      <FormSubtitle key="title">{contactStrings.title}</FormSubtitle>,
+      <Title key="title">{contactStrings.title}</Title>,
       <FormContainer key="form">
         <Form>
           <FormGroup row>
@@ -87,12 +86,12 @@ class ContactForm extends Component {
   }
 }
 
-const FormSubtitle = styled(Subtitle)`
-  margin-top: 60px;
+const Title = styled.h2`
+  margin-top: 65px;
 `;
 
 const FormContainer = styled(InnerContainer)`
-  padding: 50px;
+  padding: 50px 50px 30px 50px;
   border-radius: 8px;
   margin: 15px 0 30px 0;
   @media (${sm}) {

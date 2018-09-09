@@ -10,10 +10,7 @@ import {sm} from '../breakpoints';
 import styled from 'styled-components';
 
 // Components
-import Title from '../components/Title';
 import DateWrapper from '../components/DateWrapper';
-import Paragraph from '../components/Paragraph';
-import GlobalLink from '../components/GlobalLink';
 
 // 3rd party components
 import Img from 'react-image'
@@ -34,68 +31,70 @@ class ProjectCell extends Component {
     const {project} = this.props;
 
     return (
-      <StyledContainer>
+      <CellContainer>
         <Row>
           <ImageWrapper md={4} lg={3}>
             <a href={project.url} target='_blank'>
-              <StyledImage src={[project.logo_url, placeholder]} alt={project.title}/>
+              <Image src={[project.logo_url, placeholder]} alt={project.title}/>
             </a>
           </ImageWrapper>
           <Col md={8} lg={9}>
-            <StyledTitle>{project.name}</StyledTitle>
+            <Title>{project.name}</Title>
             <DateWrapper date={project.date_published} />
-            <StyledParagraph>{project.summary}</StyledParagraph>
-            <StyledLink href={project.url} target='_blank'>{project.url_name} {genericStrings.linkArrow}</StyledLink>
+            <Paragraph>{project.summary}</Paragraph>
+            <Link href={project.url} target='_blank'>{project.url_name} {genericStrings.linkArrow}</Link>
           </Col>
         </Row>
-      </StyledContainer>
+      </CellContainer>
     );
   }
 
 }
 
-const StyledContainer = styled(Container)`
-  margin: 30px 0 60px 0;
-`
+const CellContainer = styled(Container)`
+  margin: 20px 0 50px 0;
+  @media (${sm}) {
+    padding: 0;
+  }
+`;
 
 const ImageWrapper = styled(Col)`
   @media (${sm}) {
     display: none;
   }
-`
+`;
 
-const StyledImage = styled(Img)`
-  background-color: red;
+const Image = styled(Img)`
   border-radius: 10px;
   width: 100%;
   margin-top: 0;
   margin-bottom: auto;
-`
+`;
 
-const StyledTitle = styled(Title)`
-  max-width: 80%;
-  font-size: 160%;
-  margin-bottom: 10px;
+const Title = styled.h2`
+  margin: 10px 0 4px 0;
+  max-width: 100%;
+  font-weight: bold;
   @media (${sm}) {
     max-width: 100%;
     font-size: 125%;
   }
-`
+`;
 
-const StyledParagraph = styled(Paragraph)`
-  margin-top: 15px;
-  font-size: 95%;
+const Paragraph = styled.p`
+  margin: 20px 0 12px 0;
+  font-size: 11pt;
   @media (${sm}) {
-    font-size: 90%;
+    font-size: 10pt;
   }
-`
-const StyledLink = styled(GlobalLink)`
+`;
+const Link = styled.a`
   margin-top: 20px;
-  font-size: 135%;
+  font-size: 16pt;
   font-weight: bold;
   @media (${sm}) {
-    font-size: 115%;
+    font-size: 14pt;
   }
-`
+`;
 
 export default ProjectCell;

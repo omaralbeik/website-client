@@ -18,7 +18,6 @@ import {sm} from '../breakpoints';
 
 // Components
 import NavLink from './NavLink';
-import Separator from './Separator';
 import ThemeSwitch from './ThemeSwitch';
 
 // Links
@@ -77,7 +76,7 @@ class Bar extends Component {
             </Nav>
           </Collapse>
         </StyledNavbar>
-        <Separator/>
+        <hr/>
       </Container>
     );
   }
@@ -89,6 +88,15 @@ const StyledNavbar = styled(Navbar)`
   @media (${sm}) {
     padding-left: 0;
     padding-right: 0;
+  }
+  button {
+    background-color: ${props => props.theme.colors.background};
+    &:focus {
+      background-color: ${props => props.theme.colors.background};
+    }
+    &:hover {
+      background-color: ${props => props.theme.colors.background};
+    }
   }
 `;
 

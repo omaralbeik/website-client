@@ -2,6 +2,9 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 
+// Routing & Links
+import {Link} from 'react-router-dom';
+
 // Bootstrap
 import {Container} from 'reactstrap';
 import {sm} from '../breakpoints';
@@ -10,10 +13,7 @@ import {sm} from '../breakpoints';
 import styled from 'styled-components';
 
 // Components
-import Title from './Title';
 import DateWrapper from './DateWrapper';
-import Paragraph from './Paragraph';
-import Link from './Link';
 
 // Strings
 import {genericStrings} from '../strings';
@@ -33,22 +33,11 @@ class PostCell extends Component {
     return (
       <StyledContainer>
         <StyledTitle>{post.title}</StyledTitle>
-        {this.generateImage(post)}
         <DateWrapper date={post.date_published} isRelative/>
         <StyledParagraph>{post.summary}</StyledParagraph>
         <StyledLink to={blogPostLink(post).url}>{genericStrings.readMore}</StyledLink>
       </StyledContainer>
     );
-  }
-
-  generateImage(post) {
-    if (post.cover_image_url) {
-      return (
-        <Link to={blogPostLink(post).url}>
-          <StyledImage src={post.cover_image_url} alt={post.title}/>
-        </Link>
-      );
-    }
   }
 
 }
@@ -59,31 +48,25 @@ const StyledContainer = styled(Container)`
     padding-left: 0;
     padding-right: 0;
   }
-`
-
-const StyledImage = styled.img`
-  border-radius: 8px;
-  width: 100%;
-  margin: 18px 0;
 `;
 
-const StyledTitle = styled(Title)`
+const StyledTitle = styled.h2`
   max-width: 80%;
-  font-size: 160%;
   margin-bottom: 10px;
+  font-weight: bold;
   @media (${sm}) {
     max-width: 100%;
     font-size: 125%;
   }
-`
+`;
 
-const StyledParagraph = styled(Paragraph)`
-  margin-top: 15px;
+const StyledParagraph = styled.p`
+  margin-top: 20px;
   font-size: 95%;
   @media (${sm}) {
     font-size: 90%;
   }
-`
+`;
 const StyledLink = styled(Link)`
   margin-top: 20px;
   font-size: 135%;
@@ -91,6 +74,6 @@ const StyledLink = styled(Link)`
   @media (${sm}) {
     font-size: 115%;
   }
-`
+`;
 
 export default PostCell;

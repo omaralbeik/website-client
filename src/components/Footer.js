@@ -1,6 +1,9 @@
 // React
 import React, {Component} from "react";
 
+// Routing & Links
+import {Link} from 'react-router-dom';
+
 // Bootstrap
 import {Container, Row, Col} from 'reactstrap';
 import {sm} from '../breakpoints';
@@ -10,9 +13,6 @@ import styled from 'styled-components';
 
 // Components
 import InnerContainer from './InnerContainer';
-import Link from './Link';
-import GlobalLink from './GlobalLink';
-import Paragraph from './Paragraph';
 import SocialLinks from './SocialLinks';
 
 // Links
@@ -26,7 +26,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <FooterContainer>
+      <Container>
         <FooterInnerContainer>
           <Row className='align-items-center'>
             <Col md={7} lg={8}>
@@ -41,10 +41,10 @@ class Footer extends Component {
               </Row>
               <Row>
                 <OpenSourceWrapper lg={8}>
-                  <Paragraph >
+                  <p>
                     {footerStrings.openSource}
-                    <GlobalLink href={repoLink.url} target='_blank'>{repoLink.name}</GlobalLink>
-                  </Paragraph>
+                    <a href={repoLink.url} target='_blank'>{repoLink.name}</a>
+                  </p>
                 </OpenSourceWrapper>
               </Row>
             </Col>
@@ -58,15 +58,11 @@ class Footer extends Component {
           <Link to='/'>{genericStrings.name}</Link>
           {footerStrings.allRightsReserved}
         </CopyrightWrapper>
-      </FooterContainer>
+      </Container>
     );
   }
 
 }
-
-const FooterContainer = styled(Container)`
-  
-`;
 
 const FooterLink = styled(Link)`
   font-size: 120%;
@@ -97,7 +93,7 @@ const FooterInnerContainer = styled(InnerContainer)`
   border-radius: 8px;
 `;
 
-const CopyrightWrapper = styled(Paragraph)`
+const CopyrightWrapper = styled.p`
   text-align: center;
   margin: 16px 10px;
   > a {

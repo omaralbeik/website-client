@@ -12,10 +12,9 @@ import {sm} from '../breakpoints';
 // Components
 import {Container} from 'reactstrap';
 import PageTitle from '../components/PageTitle';
-import Title from '../components/Title';
-import Paragraph from '../components/Paragraph';
 import ContactForm from '../components/ContactForm';
 import Loading from '../components/Loading';
+import FreeContentContainer from '../components/FreeContentContainet';
 
 // Links
 import {aboutLink} from '../links';
@@ -59,7 +58,7 @@ class About extends Component {
     return [
       <StyledImage key='image' src={about.image_url} alt={genericStrings.name}/>,
       <StyledTitle key='title'>{about.title}</StyledTitle>,
-      <Paragraph key='body'>{about.text}</Paragraph>
+      <FreeContentContainer key='body' dangerouslySetInnerHTML={{__html: about.html_text}}/>
     ];
   }
 
@@ -71,7 +70,7 @@ const StyledImage = styled.img`
   border-color: red;
 `;
 
-const StyledTitle = styled(Title)`
+const StyledTitle = styled.h1`
   margin-top: 30px;
   font-family: ${props => props.theme.fonts.body};
   @media (${sm}) {
