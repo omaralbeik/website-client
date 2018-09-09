@@ -11,6 +11,7 @@ import {Container} from 'reactstrap';
 // Components
 import ProjectCell from '../components/ProjectCell';
 import PageTitle from '../components/PageTitle';
+import ErrorContainer from '../components/ErrorContainer'
 
 // Links
 import {portfolioLink} from '../links';
@@ -23,16 +24,34 @@ class Portfolio extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { error: null };
     this.fetchProjects();
+  }
+
+  componentWillMount() {
+    document.title = portfolioLink.documentTitle;
   }
 
   fetchProjects() {
     APIHelper.fetchProjects().then(projects => {
       this.props.loadProjects({projects})
-    })
+    }).catch(error => {
+      const {projects} = this.props;
+      const isEmpty = Object.getOwnPropertyNames(projects).length === 0;
+      if (isEmpty) {
+        this.setState({error: error});
+      }
+    });
   }
 
   render() {
+    const {error} = this.state;
+    if (error) {
+      return (
+        <ErrorContainer error={error}/>
+      );
+    }
+
     const {projects} = this.props;
     const projectsArray = arrayFromObject(projects)
 

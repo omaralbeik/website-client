@@ -10,7 +10,8 @@ import {sm} from '../breakpoints';
 import styled from 'styled-components';
 
 // Components
-import DateWrapper from '../components/DateWrapper';
+import DateWrapper from './DateWrapper';
+import Loading from './Loading';
 
 // 3rd party components
 import Img from 'react-image'
@@ -35,7 +36,7 @@ class ProjectCell extends Component {
         <Row>
           <ImageWrapper md={4} lg={3}>
             <a href={project.url} target='_blank'>
-              <Image src={[project.logo_url, placeholder]} alt={project.title}/>
+              <Image src={[project.logo_url, placeholder]} alt={project.title} loader={<Loading/>}/>
             </a>
           </ImageWrapper>
           <Col md={8} lg={9}>

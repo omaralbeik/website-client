@@ -16,7 +16,7 @@ import InnerContainer from './InnerContainer';
 import SocialLinks from './SocialLinks';
 
 // Links
-import {footerLinks, repoLink} from '../links';
+import {homeLink, footerLinks, repoLink} from '../links';
 
 // Strings
 import {genericStrings, footerStrings} from '../strings';
@@ -55,7 +55,7 @@ class Footer extends Component {
         </FooterInnerContainer>
         <CopyrightWrapper>
           {footerStrings.copyright}
-          <Link to='/'>{genericStrings.name}</Link>
+          <Link to={homeLink.url}>{genericStrings.name}</Link>
           {footerStrings.allRightsReserved}
         </CopyrightWrapper>
       </Container>

@@ -6,6 +6,10 @@ export const genericStrings = {
   linkArrow: " →"
 };
 
+export const homeStrings = {
+  bio: "I'm a passionate software developer and AI enthusiast who continuously enjoys learning more about the ever-growing digital world and the technologies used to make it.",
+}
+
 export const errorStrings = {
   error: "Error!",
   backHome: "Back Home",
@@ -13,7 +17,7 @@ export const errorStrings = {
 };
 
 export const footerStrings = {
-  openSource: "This is a fully integrated open-source project that uses React, Swift and Vapor to build. Grab your copy from ",
+  openSource: "This is a fully integrated open-source project that uses React, Redux, and Django to build. Grab your copy from ",
   copyright: `Copyright © ${ (new Date()).getFullYear()} `,
   allRightsReserved: ". All rights reserved."
 };

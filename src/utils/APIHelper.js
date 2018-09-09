@@ -59,9 +59,6 @@ class APIHelper {
        if (child) {
          completeUrl += `/${child}/`
        }
-       if (!completeUrl.endsWith('/')) {
-         completeUrl += '/';
-       }
        var headers = new Headers();
        headers.append('Content-Type', 'application/json');
 

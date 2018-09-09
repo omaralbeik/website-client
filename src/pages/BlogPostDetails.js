@@ -74,7 +74,7 @@ class BlogPostDetails extends Component {
   generateCoverImage(post) {
     if (!post) { return }
     if (!post.cover_image_url) { return }
-    return (<CoverImage src={post.cover_image_url} alt={post.title}/>)
+    return (<CoverImage src={post.cover_image_url} alt={post.title} loader={<Loading/>}/>)
   }
 
 }

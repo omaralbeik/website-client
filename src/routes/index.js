@@ -44,7 +44,7 @@ class Routes extends Component {
 
   render() {
     return [
-      <Route key='home' path='/' component={this.logPageView}/>,
+      <Route key='home' path={links.homeLink.url} component={this.logPageView}/>,
       <Switch key='routes'>
         <Route exact path={links.homeLink.url} render={_ => (
           <Redirect to={links.blogLink.url}/>

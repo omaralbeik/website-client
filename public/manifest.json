@@ -1,15 +1,41 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Omar Albeik",
+  "short_name": "Omar Albeik",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "favicon-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    }, {
+      "src": "favicon-152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    }, {
+      "src": "favicon-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }, {
+      "src": "favicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }, {
+      "src": "favicon-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }, {
+      "src": "favicon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }, {
+      "src": "favicon-600.png",
+      "type": "image/png",
+      "sizes": "600x600"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "landscape",
+  "background_color": "#FFFEFB",
+  "theme_color": "#FC5B37"
 }

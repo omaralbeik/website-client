@@ -33,6 +33,10 @@ class About extends Component {
     this.fetchAbout();
   }
 
+  componentWillMount() {
+    document.title = aboutLink.documentTitle;
+  }
+
   fetchAbout() {
     APIHelper.fetchAbout().then(content => {
       this.props.addContent({content});
@@ -56,7 +60,7 @@ class About extends Component {
       return <Loading/>
     }
     return [
-      <StyledImage key='image' src={about.image_url} alt={genericStrings.name}/>,
+      <StyledImage key='image' src={about.image_url} alt={genericStrings.name} loader={<Loading/>}/>,
       <StyledTitle key='title'>{about.title}</StyledTitle>,
       <FreeContentContainer key='body' dangerouslySetInnerHTML={{__html: about.html_text}}/>
     ];
