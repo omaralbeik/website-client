@@ -55,11 +55,12 @@ class Blog extends Component {
 
     const {blogPosts} = this.props;
     const postsArray = arrayFromObject(blogPosts)
+    const sortedPosts = postsArray.sort((p1, p2) => (p1.date_published < p2.date_published))
 
     return (
       <Container>
         <PageTitle>{blogLink.title}</PageTitle>
-        {postsArray.map(p => (<PostCell key={p.id} post={p}/>))}
+        {sortedPosts.map(p => (<PostCell key={p.id} post={p}/>))}
       </Container>
     );
   }
