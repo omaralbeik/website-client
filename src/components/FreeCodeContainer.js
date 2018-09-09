@@ -46,8 +46,9 @@ const FreeCodeContainer = styled(Container)`
 	}
 
   h1 {
+    font-size: 22pt;
     @media (${sm}) {
-      font-size: 20pt;
+      font-size: 19pt;
     }
   }
 
@@ -70,13 +71,18 @@ const FreeCodeContainer = styled(Container)`
     }
   }
 
-  ul {
+  ul, ol {
     margin: 20px 0;
     padding: 0 0 0 28px;
 
     li {
       padding: 4px 0;
     }
+  }
+
+  img {
+    margin: 20px 0;
+    max-width: 100%;
   }
 
 `;
