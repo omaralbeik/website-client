@@ -17,7 +17,7 @@ function theme(state = {}, action) {
     // load theme to store
     case types.LOAD_THEME:
       return {
-        theme
+        ...theme
       };
     // any other action: return all posts
     default:
