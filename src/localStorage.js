@@ -1,19 +1,19 @@
 // Default theme (Light)
-import {Light} from './thems';
+import {DefaultLight} from './thems';
 
 export const loadState = _ => {
   try {
     const serializedState = localStorage.getItem('state');
     if (serializedState === null) {
       return {
-        theme: Light
+        theme: DefaultLight
       };
     }
     return JSON.parse(serializedState);
   } catch (err) {
     console.error(err.message);
     return {
-      theme: Light
+      theme: DefaultLight
     };
   }
 }
