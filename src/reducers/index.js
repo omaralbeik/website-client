@@ -17,7 +17,7 @@ function theme(state = {}, action) {
     // load theme to store
     case types.LOAD_THEME:
       return {
-        ...theme
+        theme
       };
     // any other action: return all posts
     default:
@@ -35,7 +35,6 @@ function blogPosts(state = {}, action) {
     // load posts to store
     case types.LOAD_BLOG_POSTS:
       return {
-        ...state,
         ...objectFromArray(posts)
       };
     // add a post
@@ -60,7 +59,6 @@ function projects(state = {}, action) {
     // load projectss to store
     case types.LOAD_PROJECTS:
       return {
-        ...state,
         ...objectFromArray(projects)
       };
     // add a project
