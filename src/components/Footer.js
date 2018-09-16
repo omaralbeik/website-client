@@ -43,7 +43,7 @@ class Footer extends Component {
                 <OpenSourceWrapper lg={8}>
                   <p>
                     {footerStrings.openSource}
-                    <a href={repoLink.url} target='_blank'>{repoLink.name}</a>
+                    <a href={repoLink.url} target='_blank' rel='noopener'>{repoLink.name}</a>
                   </p>
                 </OpenSourceWrapper>
               </Row>

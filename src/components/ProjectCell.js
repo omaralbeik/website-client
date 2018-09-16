@@ -35,7 +35,7 @@ class ProjectCell extends Component {
       <CellContainer>
         <Row>
           <ImageWrapper md={4} lg={3}>
-            <a href={project.url} target='_blank'>
+            <a href={project.url} target='_blank' rel='noopener'>
               <Image src={[project.logo_url, placeholder]} alt={project.title} loader={<Loading/>}/>
             </a>
           </ImageWrapper>
@@ -43,7 +43,7 @@ class ProjectCell extends Component {
             <Title>{project.name}</Title>
             <DateWrapper date={project.date_published} />
             <Paragraph>{project.summary}</Paragraph>
-            <Link href={project.url} target='_blank'>{project.url_name} {genericStrings.linkArrow}</Link>
+            <Link href={project.url} target='_blank' rel='noopener'>{project.url_name} {genericStrings.linkArrow}</Link>
           </Col>
         </Row>
       </CellContainer>
