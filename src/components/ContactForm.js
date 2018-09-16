@@ -22,13 +22,17 @@ import InnerContainer from './InnerContainer';
 import Countries from '../data/countries';
 import {contactStrings} from '../strings';
 
+// Strings
+import {EMAIL} from '../data/constants';
+
+
 class ContactForm extends Component {
 
   render() {
     return [
       <Title key="title">{contactStrings.title}</Title>,
       <FormContainer key="form">
-        <Form>
+        <Form method='POST' action={`https://formspree.io/${EMAIL}`}>
           <FormGroup row>
             <FormLabel for='name' sm={3} hide='xs'>{contactStrings.namePlaceholder} *</FormLabel>
             <Col sm={9}>
