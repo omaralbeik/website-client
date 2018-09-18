@@ -12,6 +12,10 @@ class Error extends Component {
     error: PropTypes.string
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   render() {
     const {error} = this.props;
 

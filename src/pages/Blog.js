@@ -33,6 +33,10 @@ class Blog extends Component {
     document.title = blogLink.documentTitle;
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   fetchBlogPosts() {
     APIHelper.fetchBlogPosts().then(posts => {
       this.props.loadBlogPosts({posts});

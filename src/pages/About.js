@@ -37,6 +37,10 @@ class About extends Component {
     document.title = aboutLink.documentTitle;
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   fetchAbout() {
     APIHelper.fetchAbout().then(content => {
       this.props.addContent({content});

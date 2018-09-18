@@ -32,6 +32,10 @@ class Portfolio extends Component {
     document.title = portfolioLink.documentTitle;
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   fetchProjects() {
     APIHelper.fetchProjects().then(projects => {
       this.props.loadProjects({projects})
