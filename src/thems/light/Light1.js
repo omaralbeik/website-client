@@ -12,10 +12,10 @@ const Light1 = {
     colors: {
         background: '#FFFEFB',
         inner_background: '#F6F6F6',
-        primary: '#002A36',
-        inner_primary: '#444747',
-        selected: '#FC5B37',
-        highlighted: '#FC8840'
+        primary: '#003847',
+        inner_primary: '#4F5555',
+        selected: '#B30000',
+        highlighted: '#FF0505'
     },
     icons: {
         menu: menu1
