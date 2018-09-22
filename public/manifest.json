@@ -22,6 +22,14 @@
       "src": "favicon-196x196.png",
       "type": "image/png",
       "sizes": "196x196"
+    }, {
+      "src": "favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }, {
+      "src": "favicon-600x600.png",
+      "type": "image/png",
+      "sizes": "600x600"
     }
   ],
   "start_url": "/index.html",
