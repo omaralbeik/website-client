@@ -32,7 +32,7 @@ class PostCell extends Component {
 
     return (
       <StyledContainer>
-        <StyledTitle>{post.title}</StyledTitle>
+        <TitleLink to={blogPostLink(post).url}><StyledTitle>{post.title}</StyledTitle></TitleLink>
         <DateWrapper date={post.date_published} isRelative/>
         <StyledParagraph>{post.summary}</StyledParagraph>
         <StyledLink to={blogPostLink(post).url}>{genericStrings.readMore}</StyledLink>
@@ -43,7 +43,7 @@ class PostCell extends Component {
 }
 
 const StyledContainer = styled(Container)`
-  margin: 30px 0 60px 0;
+  margin: 40px 0 60px 0;
   @media (${sm}) {
     padding-left: 0;
     padding-right: 0;
@@ -67,6 +67,14 @@ const StyledParagraph = styled.p`
     font-size: 90%;
   }
 `;
+
+const TitleLink = styled(Link)`
+  color: ${props => props.theme.colors.primary} !important;
+  &:hover {
+    text-decoration: none;
+  }
+`
+
 const StyledLink = styled(Link)`
   margin-top: 20px;
   font-size: 135%;

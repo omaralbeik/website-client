@@ -40,7 +40,7 @@ class ProjectCell extends Component {
             </a>
           </ImageWrapper>
           <Col md={8} lg={9}>
-            <Title>{project.name}</Title>
+            <TitleLink href={project.url} target='_blank' rel='noopener'><Title>{project.name}</Title></TitleLink>
             <DateWrapper date={project.date_published} />
             <Paragraph>{project.summary}</Paragraph>
             <Link href={project.url} target='_blank' rel='noopener'>{project.url_name} {genericStrings.linkArrow}</Link>
@@ -89,6 +89,14 @@ const Paragraph = styled.p`
     font-size: 10pt;
   }
 `;
+
+const TitleLink = styled.a`
+  color: ${props => props.theme.colors.primary} !important;
+  &:hover {
+    text-decoration: none;
+  }
+`
+
 const Link = styled.a`
   margin-top: 20px;
   font-size: 16pt;
