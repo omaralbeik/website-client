@@ -17,7 +17,7 @@ class Links extends Component {
     const {theme} = this.props;
     return (<SocialLinkWrapper>
       {social(theme).map(l => (
-        <SocialLink key={l.name} href={l.url} target='_blank' rel='noopener'>
+        <SocialLink key={l.name} href={l.url} target='_blank' rel='noopener noreferrer'>
           <img src={l.icon} alt={l.name}/>
         </SocialLink>
       ))}

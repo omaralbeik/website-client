@@ -35,15 +35,15 @@ class ProjectCell extends Component {
       <CellContainer>
         <Row>
           <ImageWrapper md={4} lg={3}>
-            <a href={project.url} target='_blank' rel='noopener'>
+            <a href={project.url} target='_blank' rel='noopener noreferrer'>
               <Image src={[project.logo_url, placeholder]} alt={project.title} loader={<Loading/>}/>
             </a>
           </ImageWrapper>
           <Col md={8} lg={9}>
-            <TitleLink href={project.url} target='_blank' rel='noopener'><Title>{project.name}</Title></TitleLink>
+            <TitleLink href={project.url} target='_blank' rel='noopener noreferrer'><Title>{project.name}</Title></TitleLink>
             <DateWrapper date={project.date_published} />
             <Paragraph>{project.summary}</Paragraph>
-            <Link href={project.url} target='_blank' rel='noopener'>{project.url_name} {genericStrings.linkArrow}</Link>
+            <Link href={project.url} target='_blank' rel='noopener noreferrer'>{project.url_name} {genericStrings.linkArrow}</Link>
           </Col>
         </Row>
       </CellContainer>
