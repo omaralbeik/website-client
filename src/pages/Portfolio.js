@@ -58,7 +58,7 @@ class Portfolio extends Component {
 
     const {projects} = this.props;
     const projectsArray = arrayFromObject(projects)
-    const sortedProjects = projectsArray.sort((p1, p2) => (p1.date_published < p2.date_published))
+    const sortedProjects = projectsArray.sort((p1, p2) => (p1.date_published < p2.date_published ? 1 : -1))
 
     return (
       <Container>
