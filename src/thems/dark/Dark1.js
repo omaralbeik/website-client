@@ -10,8 +10,8 @@ const Dark1 = {
     id: 2,
     style: 'dark',
     colors: {
-        background: '#002A36',
-        inner_background: '#001D23',
+        background: '#202124',
+        inner_background: '#282C2F',
         primary: '#FFFFFF',
         inner_primary: '#E2E2E2',
         selected: '#F7BC31',
