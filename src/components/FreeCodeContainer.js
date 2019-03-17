@@ -20,6 +20,10 @@ const FreeCodeContainer = styled(Container)`
     border: none;
   }
 
+  code {
+    font-size: 110%;
+  }
+
   pre {
     color: ${props => props.theme.colors.primary};
     background-color: ${props => props.theme.colors.background};
@@ -77,6 +81,12 @@ const FreeCodeContainer = styled(Container)`
 
     li {
       padding: 4px 0;
+    }
+  }
+
+  p, li, ul {
+    code {
+      font-size: 120%;
     }
   }
 
