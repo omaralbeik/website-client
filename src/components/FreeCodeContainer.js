@@ -12,7 +12,7 @@ import '../thems/syntax/light.css';
 const FreeCodeContainer = styled(Container)`
   background-color: ${props => props.theme.colors.inner_background};
   padding: 75px 80px 50px 80px;
-  margin: 10px 0 50px 0;
+  margin: 10px 0 20px 0;
   border-radius: 8px;
   @media (${sm}) {
     background-color: ${props => props.theme.colors.background};

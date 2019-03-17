@@ -14,7 +14,7 @@ import {Container} from 'reactstrap';
 import PageTitle from '../components/PageTitle';
 import ContactForm from '../components/ContactForm';
 import Loading from '../components/Loading';
-import FreeContentContainer from '../components/FreeContentContainet';
+import FreeContentContainer from '../components/FreeContentContainer';
 
 // Links
 import {aboutLink} from '../links';

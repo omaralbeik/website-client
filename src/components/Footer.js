@@ -65,7 +65,7 @@ class Footer extends Component {
 }
 
 const FooterLink = styled(Link)`
-  font-size: 120%;
+  font-size: 110%;
   margin: 0 8px;
   display: inline-block;
 `;
@@ -82,13 +82,14 @@ const LinksWrapper = styled(Col)`
 
 const OpenSourceWrapper = styled(Col)`
   margin: 0 10px;
-  font-size: 95%;
+  font-size: 85%;
   @media (${sm}) {
     text-align: center;
   }
 `;
 
 const FooterInnerContainer = styled(InnerContainer)`
+  margin-top: 60px;
   padding: 20px;
   border-radius: 8px;
 `;

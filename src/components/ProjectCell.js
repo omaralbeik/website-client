@@ -34,12 +34,12 @@ class ProjectCell extends Component {
     return (
       <CellContainer>
         <Row>
-          <ImageWrapper md={4} lg={3}>
+          <ImageWrapper md={3} lg={2}>
             <a href={project.url} target='_blank' rel='noopener noreferrer'>
               <Image src={[project.logo_url, placeholder]} alt={project.title} loader={<Loading/>}/>
             </a>
           </ImageWrapper>
-          <Col md={8} lg={9}>
+          <Col md={9} lg={10}>
             <TitleLink href={project.url} target='_blank' rel='noopener noreferrer'><Title>{project.name}</Title></TitleLink>
             <DateWrapper date={project.date_published} />
             <Paragraph>{project.summary}</Paragraph>
@@ -53,10 +53,10 @@ class ProjectCell extends Component {
 }
 
 const CellContainer = styled(Container)`
-  margin: 20px 0 50px 0;
-  @media (${sm}) {
-    padding: 0;
-  }
+  margin: 20px 0 20px 0;
+  background-color: ${props => props.theme.colors.inner_background};
+  border-radius: 8px;
+  padding: 22px;
 `;
 
 const ImageWrapper = styled(Col)`
@@ -84,7 +84,7 @@ const Title = styled.h2`
 
 const Paragraph = styled.p`
   margin: 20px 0 12px 0;
-  font-size: 11pt;
+  font-size: 10pt;
   @media (${sm}) {
     font-size: 10pt;
   }
@@ -99,7 +99,7 @@ const TitleLink = styled.a`
 
 const Link = styled.a`
   margin-top: 20px;
-  font-size: 16pt;
+  font-size: 12pt;
   font-weight: bold;
   @media (${sm}) {
     font-size: 14pt;

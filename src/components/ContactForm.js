@@ -97,7 +97,7 @@ const Title = styled.h2`
 const FormContainer = styled(InnerContainer)`
   padding: 50px 50px 30px 50px;
   border-radius: 8px;
-  margin: 15px 0 30px 0;
+  margin: 15px 0 10px 0;
   @media (${sm}) {
     padding: 20px;
   }

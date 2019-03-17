@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 // Bootstrap
-import {Container} from 'reactstrap';
+import {Container, Col} from 'reactstrap';
 import {sm} from '../breakpoints';
 
 // Styled Components
@@ -31,38 +31,45 @@ class PostCell extends Component {
     const {post} = this.props;
 
     return (
-      <StyledContainer>
-        <TitleLink to={blogPostLink(post).url}><StyledTitle>{post.title}</StyledTitle></TitleLink>
-        <DateWrapper date={post.date_published} isRelative/>
-        <StyledParagraph>{post.summary}</StyledParagraph>
-        <StyledLink to={blogPostLink(post).url}>{genericStrings.readMore}</StyledLink>
-      </StyledContainer>
+      <StyledCol xs={12} md={6}>
+        <StyledContainer >
+          <TitleLink to={blogPostLink(post).url}><StyledTitle>{post.title}</StyledTitle></TitleLink>
+          <DateWrapper date={post.date_published} isRelative/>
+          <StyledParagraph>{post.summary}</StyledParagraph>
+          <StyledLink to={blogPostLink(post).url}>{genericStrings.readMore}</StyledLink>
+        </StyledContainer>
+      </StyledCol>
     );
   }
 
 }
 
+const StyledCol = styled(Col)`
+  padding: 12px;
+`;
+
 const StyledContainer = styled(Container)`
-  margin: 40px 0 60px 0;
-  @media (${sm}) {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  height: 240px;
+  background-color: ${props => props.theme.colors.inner_background};
+  border-radius: 8px;
+  padding: 25px;
 `;
 
 const StyledTitle = styled.h2`
-  max-width: 80%;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   font-weight: bold;
   @media (${sm}) {
-    max-width: 100%;
-    font-size: 125%;
+    font-size: 145%;
   }
 `;
 
 const StyledParagraph = styled.p`
   margin-top: 20px;
-  font-size: 95%;
+  font-size: 85%;
+  overflow-y: hidden;
   @media (${sm}) {
     font-size: 90%;
   }
@@ -77,8 +84,10 @@ const TitleLink = styled(Link)`
 
 const StyledLink = styled(Link)`
   margin-top: 20px;
-  font-size: 135%;
+  font-size: 12pt;
   font-weight: bold;
+  margin-top: auto;
+  margin-left: auto;
   @media (${sm}) {
     font-size: 115%;
   }

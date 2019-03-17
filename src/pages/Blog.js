@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {loadBlogPosts} from '../actions';
 
 // Bootstrap
-import {Container} from 'reactstrap';
+import {Container, Row} from 'reactstrap';
 
 // Components
 import PostCell from '../components/PostCell';
@@ -64,7 +64,9 @@ class Blog extends Component {
     return (
       <Container>
         <PageTitle>{blogLink.title}</PageTitle>
-        {sortedPosts.map(p => (<PostCell key={p.id} post={p}/>))}
+        <Row>
+          {sortedPosts.map(p => (<PostCell key={p.id} post={p}/>))}
+        </Row>
       </Container>
     );
   }

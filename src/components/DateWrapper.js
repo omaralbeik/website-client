@@ -28,7 +28,7 @@ class DateWrapper extends Component {
 }
 
 const Container = styled.div`
-  margin: 5px auto 0 0;
+  margin: 8px auto 0 0;
 `;
 
 const StyledMoment = styled(Moment)`

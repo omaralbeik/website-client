@@ -88,7 +88,7 @@ const CoverImage = styled.img`
   position: relative;
   left: 50%;
   right: 50%;
-  margin: 0 -50vw 60px -50vw;
+  margin: 0 -50vw 20px -50vw;
   @media (${sm}) {
     display: none;
   }
