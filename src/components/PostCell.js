@@ -31,7 +31,7 @@ class PostCell extends Component {
     const {post} = this.props;
 
     return (
-      <StyledCol xs={12} md={6}>
+      <StyledCol xs={12} md={12} lg={6}>
         <StyledContainer >
           <TitleLink to={blogPostLink(post).url}><StyledTitle>{post.title}</StyledTitle></TitleLink>
           <DateWrapper date={post.date_published} isRelative/>

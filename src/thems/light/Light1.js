@@ -13,7 +13,7 @@ const Light1 = {
         background: '#FFFEFB',
         inner_background: '#F6F6F6',
         primary: '#003847',
-        inner_primary: '#4F5555',
+        inner_primary: '#212121',
         selected: '#B30000',
         highlighted: '#FF0505'
     },

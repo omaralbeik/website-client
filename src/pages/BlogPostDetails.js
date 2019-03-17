@@ -7,7 +7,6 @@ import {addBlogPost} from '../actions';
 
 // Styled Components
 import styled, {withTheme} from 'styled-components';
-import {sm} from '../breakpoints';
 
 // Components
 import {Container} from 'reactstrap';
@@ -89,9 +88,6 @@ const CoverImage = styled.img`
   left: 50%;
   right: 50%;
   margin: 0 -50vw 20px -50vw;
-  @media (${sm}) {
-    display: none;
-  }
 `;
 
 function mapStateToProps({blogPosts}) {

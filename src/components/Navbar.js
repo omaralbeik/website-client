@@ -57,34 +57,45 @@ class Bar extends Component {
     const {menu} = this.props.theme.icons;
 
     return (
-      <Container>
-        <StyledNavbar expand="md">
-          <Brand href='/'>Omar Albeik</Brand>
-          <Toggler onClick={this.toggle}>
-            <img src={menu} alt='Menu' />
-          </Toggler>
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav navbar className="ml-auto">
-              {
-                navbarLinks.map(l => (
-                  <Item key={l.name}>
-                    <NavLink activeClassName='active' exact to={l.url} onClick={_ => {this.close()}}>{l.name}</NavLink>
-                  </Item>
-                ))
-              }
-              <SwitchItem><ThemeSwitch/></SwitchItem>
-            </Nav>
-          </Collapse>
-        </StyledNavbar>
-        <hr/>
-      </Container>
+      <Wrapper>
+        <Container>
+          <StyledNavbar expand="md">
+            <Brand href='/'>Omar Albeik</Brand>
+            <Toggler onClick={this.toggle}>
+              <img src={menu} alt='Menu' />
+            </Toggler>
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav navbar className="ml-auto">
+                {
+                  navbarLinks.map(l => (
+                    <Item key={l.name}>
+                      <NavLink activeClassName='active' exact to={l.url} onClick={_ => {this.close()}}>{l.name}</NavLink>
+                    </Item>
+                  ))
+                }
+                <SwitchItem><ThemeSwitch/></SwitchItem>
+              </Nav>
+            </Collapse>
+          </StyledNavbar>
+        </Container>
+      </Wrapper>
     );
   }
 }
 
+const Wrapper = styled.div`
+  background-color: ${props => props.theme.colors.inner_background};
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  margin-bottom: 30px;
+`;
+
 const StyledNavbar = styled(Navbar)`
-  margin-top: 12px;
-  padding-bottom: 0;
+  background-color: ${props => props.theme.colors.inner_background};
+  padding-top: 12px;
+  padding-bottom: 12px;
   @media (${sm}) {
     padding-left: 0;
     padding-right: 0;
@@ -120,9 +131,6 @@ const Item = styled(NavItem)`
   a {
     color: ${props => props.theme.colors.primary};
   }
-  &:hover {
-    font-weight: bolder;
-  }
   .active {
     font-weight: bold;
     color: ${props => props.theme.colors.selected};
@@ -139,7 +147,7 @@ const Item = styled(NavItem)`
 
 const SwitchItem = styled(Item)`
   padding-top: 2px;
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${props => props.theme.colors.inner_background};
   @media (${sm}) {
     margin: 12px 0 0 0;
     padding: 4px 26px 10px 6px;
