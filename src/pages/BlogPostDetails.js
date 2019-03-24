@@ -10,7 +10,7 @@ import styled, {withTheme} from 'styled-components';
 
 // Components
 import {Container} from 'reactstrap';
-import PageTitle from '../components/PageTitle';
+import PostTitle from '../components/PostTitle';
 import FreeCodeContainer from '../components/FreeCodeContainer';
 import Loading from '../components/Loading';
 
@@ -68,7 +68,7 @@ class BlogPostDetails extends Component {
     const {style} = this.props.theme;
     const syntaxClassName = style === 'dark' ? 'dark-code' : 'light-code';
     return [
-      <PageTitle key='title'>{post.title}</PageTitle>,
+      <PostTitle key='title' post={post}/>,
       <div key='cover'>{this.generateCoverImage(post)}</div>,
       <FreeCodeContainer key='body' dangerouslySetInnerHTML={{__html: post.html_text}} className={syntaxClassName}/>
     ];

@@ -20,7 +20,7 @@ class DateWrapper extends Component {
 
     return (
       <Container>
-        <StyledMoment fromNow={isRelative} format={isRelative ? null : 'YYYY/MM/DD'}>{date}</StyledMoment>
+        <StyledMoment fromNow={isRelative} format={isRelative ? null : 'MMMM YYYY'}>{date}</StyledMoment>
       </Container>
     );
   }
