@@ -56,6 +56,8 @@ const StyledContainer = styled(Container)`
   background-color: ${props => props.theme.colors.inner_background};
   border-radius: 8px;
   padding: 25px;
+  border-top: 10px solid;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
 `;
 
 const StyledTitle = styled.h2`
