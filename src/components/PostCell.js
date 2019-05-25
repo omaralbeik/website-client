@@ -52,7 +52,7 @@ const StyledContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   height: 100%;
-  height: 240px;
+  height: 250px;
   background-color: ${props => props.theme.colors.inner_background};
   border-radius: 8px;
   padding: 25px;
@@ -85,7 +85,7 @@ const TitleLink = styled(Link)`
 `
 
 const StyledLink = styled(Link)`
-  margin-top: 20px;
+  margin-top: 12px;
   font-size: 12pt;
   font-weight: bold;
   margin-top: auto;
