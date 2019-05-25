@@ -14,10 +14,14 @@ import PostTitle from '../components/PostTitle';
 import FreeCodeContainer from '../components/FreeCodeContainer';
 import Loading from '../components/Loading';
 import ErrorContainer from '../components/ErrorContainer'
+import ShareButtons from '../components/ShareButtons';
 
 // Helpers
 import APIHelper from '../utils/APIHelper';
 import {arrayFromObject} from '../utils';
+
+// Strings
+import {genericStrings} from '../strings';
 
 
 class BlogPostDetails extends Component {
@@ -29,7 +33,7 @@ class BlogPostDetails extends Component {
   }
 
   componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   fetchBlogPost() {
@@ -39,6 +43,12 @@ class BlogPostDetails extends Component {
     }).catch(error => {
       this.setState({error: error});
     });
+  }
+
+  setTitle(post) {
+    if (post) {
+      document.title = `${post.title} | ${genericStrings.name}`;
+    }
   }
 
   render() {
@@ -52,6 +62,8 @@ class BlogPostDetails extends Component {
       const postsArray = arrayFromObject(blogPosts);
       post = postsArray.filter(p => (p.slug === post_id))[0]
     }
+
+    this.setTitle(post);
 
     const {error} = this.state;
     if (error) {
@@ -78,6 +90,7 @@ class BlogPostDetails extends Component {
     return [
       <PostTitle key='title' post={post}/>,
       <div key='cover'>{this.generateCoverImage(post)}</div>,
+      <ShareButtons key='share' post={post}/>,
       <FreeCodeContainer key='body' dangerouslySetInnerHTML={{__html: post.html_text}} className={syntaxClassName}/>
     ];
   }
