@@ -8,6 +8,9 @@ import styled from 'styled-components';
 // Bootstrap
 import {sm} from '../breakpoints';
 
+// Srtings
+import {genericStrings} from '../strings';
+
 // Social sharing
 import {
   FacebookShareButton,
@@ -33,14 +36,15 @@ class ShareButtons extends Component {
   render() {
     const url = window.location.href;
     const {post} = this.props;
+    const twitterMessage = `“${post.title}” by @${genericStrings.twitterHandler}`
 
     return (
       <Container>
-        <Share>SHARE</Share>
+        <Share>{genericStrings.share}</Share>
         <FacebookShareButton url={url} quote={post.title}>
           <FacebookIcon size={38} round={true}/>
         </FacebookShareButton>
-        <TwitterShareButton url={url} title={post.title}>
+        <TwitterShareButton url={url} title={twitterMessage}>
           <TwitterIcon size={38} round={true}/>
         </TwitterShareButton>
         <LinkedinShareButton url={url} title={post.title}>

@@ -1,7 +1,8 @@
 export const genericStrings = {
   name: "Omar Albeik",
   title: "Portfolio, Blog and Personal Website",
-  share: "Share",
+  share: "SHARE",
+  twitterHandler: "omaralbeik",
   readMore: "Read More →",
   linkArrow: " →"
 };

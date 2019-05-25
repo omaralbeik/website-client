@@ -24,7 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "postinstall": "node hack-add-skipWaiting-true-to-react-script.js"
   },
   "browserslist": [
     ">0.2%",
@@ -33,6 +34,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.0"
+    "babel-plugin-styled-components": "^1.10.0",
+    "replace-in-file": "^4.1.0"
   }
 }
