@@ -99,7 +99,7 @@ const FormContainer = styled(InnerContainer)`
   border-radius: 8px;
   margin: 15px 0 10px 0;
   border-top: 10px solid;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
   @media (${sm}) {
     padding: 20px;
   }

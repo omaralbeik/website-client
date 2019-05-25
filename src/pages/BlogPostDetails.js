@@ -13,6 +13,7 @@ import {Container} from 'reactstrap';
 import PostTitle from '../components/PostTitle';
 import FreeCodeContainer from '../components/FreeCodeContainer';
 import Loading from '../components/Loading';
+import ErrorContainer from '../components/ErrorContainer'
 
 // Helpers
 import APIHelper from '../utils/APIHelper';
@@ -50,6 +51,13 @@ class BlogPostDetails extends Component {
     } else { // get post by url_title
       const postsArray = arrayFromObject(blogPosts);
       post = postsArray.filter(p => (p.slug === post_id))[0]
+    }
+
+    const {error} = this.state;
+    if (error) {
+      return (
+        <ErrorContainer error={error}/>
+      );
     }
 
     return (

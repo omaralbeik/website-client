@@ -92,6 +92,7 @@ const FooterInnerContainer = styled(InnerContainer)`
   margin-top: 60px;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
 `;
 
 const CopyrightWrapper = styled.p`

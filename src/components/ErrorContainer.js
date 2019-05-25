@@ -12,7 +12,7 @@ import {Button} from 'reactstrap';
 import InnerContainer from './InnerContainer';
 
 // Routing & Links
-import {LinkContainer} from 'react-router-bootstrap';
+import {NavLink} from 'react-router-dom';
 import {homeLink} from '../links';
 
 // Strings
@@ -26,14 +26,13 @@ class ErrorContainer extends Component {
 
   render() {
     const {error} = this.props;
-
     return (
       <Container>
         <h1>{errorStrings.error}</h1>
         <p>{error}</p>
-        <LinkContainer to={homeLink.url}>
+        <NavLink to={homeLink.url}>
           <Button>{errorStrings.backHome}</Button>
-        </LinkContainer>
+        </NavLink>
       </Container>
     );
   }

@@ -14,8 +14,11 @@ const FreeCodeContainer = styled(Container)`
   padding: 75px 80px 50px 80px;
   margin: 10px 0 20px 0;
   border-radius: 8px;
+  border-top: 10px solid;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
   @media (${sm}) {
     background-color: ${props => props.theme.colors.background};
+    box-shadow: none;
     padding: 30px 0;
     border: none;
   }

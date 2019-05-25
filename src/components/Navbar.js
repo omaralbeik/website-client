@@ -157,6 +157,7 @@ const SwitchItem = styled(Item)`
 const Toggler = styled(NavbarToggler)`
   padding-right: 4px;
   padding-left: 4px;
+  background-color: ${props => props.theme.colors.inner_background} !important;
   &:focus {
     background-color: ${props => props.theme.colors.inner_background};
     outline: none;
