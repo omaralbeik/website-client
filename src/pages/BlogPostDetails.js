@@ -8,6 +8,9 @@ import {addBlogPost} from '../actions';
 // Styled Components
 import styled, {withTheme} from 'styled-components';
 
+// Bootstrap
+import {sm} from '../breakpoints';
+
 // Components
 import {Container} from 'reactstrap';
 import PostTitle from '../components/PostTitle';
@@ -98,10 +101,19 @@ class BlogPostDetails extends Component {
   generateCoverImage(post) {
     if (!post) { return }
     if (!post.cover_image_url) { return }
-    return (<CoverImage src={post.cover_image_url} alt={post.title} loader={<Loading/>}/>)
+    return (
+      <CoverContainer>
+        <CoverImage src={post.cover_image_url} alt={post.title} loader={<Loading/>}/>
+        <CreditBadge dangerouslySetInnerHTML={{ __html: post.cover_image_credit_badge }}/>
+      </CoverContainer>
+    );
   }
 
 }
+
+const CoverContainer = styled.div`
+  position: relative;
+`;
 
 const CoverImage = styled.img`
   width: 100vw;
@@ -109,6 +121,16 @@ const CoverImage = styled.img`
   left: 50%;
   right: 50%;
   margin: 0 -50vw 20px -50vw;
+`;
+
+const CreditBadge = styled.div`
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  @media (${sm}) {
+    bottom: 25px;
+    right: -25px;
+  }
 `;
 
 function mapStateToProps({blogPosts}) {
