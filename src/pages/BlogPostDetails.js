@@ -125,11 +125,11 @@ const CoverImage = styled.img`
 
 const CreditBadge = styled.div`
   position: absolute;
-  bottom: 50px;
+  bottom: 6px;
   right: 0;
   @media (${sm}) {
-    bottom: 25px;
-    right: -25px;
+    left: 0;
+    text-align: center;
   }
 `;
 

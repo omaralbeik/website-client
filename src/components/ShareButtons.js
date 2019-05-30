@@ -74,11 +74,11 @@ const Share = styled.p`
 
 const Container = styled.div`
   display: flex;
-  margin: 10px 0 14px 0;
+  margin: 15px 0 14px 0;
   justify-content: flex-end;
   @media (${sm}) {
     justify-content: space-around;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-right: 8px;
     margin-bottom: 0;
   }
