@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 // Bootstrap
 import {Badge} from 'reactstrap';
-import {sm} from '../breakpoints';
 
 // Styled Components
 import styled, {withTheme} from "styled-components";
