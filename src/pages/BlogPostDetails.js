@@ -18,6 +18,7 @@ import FreeCodeContainer from '../components/FreeCodeContainer';
 import Loading from '../components/Loading';
 import ErrorContainer from '../components/ErrorContainer'
 import ShareButtons from '../components/ShareButtons';
+import Tags from '../components/Tags';
 
 // Helpers
 import APIHelper from '../utils/APIHelper';
@@ -94,7 +95,8 @@ class BlogPostDetails extends Component {
       <PostTitle key='title' post={post}/>,
       <div key='cover'>{this.generateCoverImage(post)}</div>,
       <ShareButtons key='share' post={post}/>,
-      <FreeCodeContainer key='body' dangerouslySetInnerHTML={{__html: post.html_text}} className={syntaxClassName}/>
+      <FreeCodeContainer key='body' dangerouslySetInnerHTML={{__html: post.html_text}} className={syntaxClassName}/>,
+      <Tags key='tags' tags={post.tags}/>
     ];
   }
 
