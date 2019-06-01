@@ -57,8 +57,14 @@ const CellContainer = styled(Container)`
   background-color: ${props => props.theme.colors.inner_background};
   border-radius: 8px;
   padding: 22px;
-  border-left: 10px solid;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+  border-left: 10px solid;
+  border-right: 0 ${props => props.theme.colors.inner_background} solid;
+  transition: 0.25s;
+  :hover {
+    border-left: 0 solid;
+    border-right: 10px ${props => props.theme.colors.inner_background} solid;
+  }
 `;
 
 const ImageWrapper = styled(Col)`

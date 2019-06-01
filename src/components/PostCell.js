@@ -56,8 +56,14 @@ const StyledContainer = styled(Container)`
   background-color: ${props => props.theme.colors.inner_background};
   border-radius: 8px;
   padding: 25px;
-  border-top: 10px solid;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+  border-top: 10px solid;
+  border-bottom: 0 ${props => props.theme.colors.inner_background} solid;
+  transition: 0.25s;
+  :hover {
+    border-top: 0 solid;
+    border-bottom: 10px ${props => props.theme.colors.inner_background} solid;
+  }
 `;
 
 const StyledTitle = styled.h2`
