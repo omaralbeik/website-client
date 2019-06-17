@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 
 // Styled Components
-import styled, {withTheme} from "styled-components";
+import styled, {withTheme} from 'styled-components';
 
 // Components
 import ReactLoading from 'react-loading';

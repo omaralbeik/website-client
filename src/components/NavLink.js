@@ -1,5 +1,5 @@
 // Styled Components
-import styled from "styled-components";
+import styled from 'styled-components';
 
 // Routing & Links
 import {NavLink} from 'react-router-dom';

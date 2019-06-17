@@ -1,5 +1,5 @@
 // React
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 // Bootstrap
@@ -12,6 +12,7 @@ import styled from 'styled-components';
 // Components
 import DateWrapper from './DateWrapper';
 import Loading from './Loading';
+import Technologies from './Technologies'
 
 // 3rd party components
 import Img from 'react-image'
@@ -43,6 +44,7 @@ class ProjectCell extends Component {
             <TitleLink href={project.url} target='_blank' rel='noopener noreferrer'><Title>{project.name}</Title></TitleLink>
             <DateWrapper date={project.date_published} />
             <Paragraph>{project.summary}</Paragraph>
+            <Technologies technologies={project.technologies}/>
             <Link href={project.url} target='_blank' rel='noopener noreferrer'>{project.url_name} {genericStrings.linkArrow}</Link>
           </Col>
         </Row>
@@ -84,6 +86,7 @@ const Title = styled.h2`
   margin: 10px 0 4px 0;
   max-width: 100%;
   font-weight: bold;
+  text-overflow: ellipsis;
   @media (${sm}) {
     max-width: 100%;
     font-size: 125%;
@@ -110,7 +113,7 @@ const Link = styled.a`
   font-size: 12pt;
   font-weight: bold;
   @media (${sm}) {
-    font-size: 14pt;
+    font-size: 12pt;
   }
 `;
 

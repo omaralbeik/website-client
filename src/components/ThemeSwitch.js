@@ -1,12 +1,12 @@
 // React
-import React, {Component} from "react";
+import React, {Component} from 'react';
 
 // Redux
 import {connect} from 'react-redux';
 import {loadTheme} from '../actions';
 
 // Bootstrap
-import Switch from "react-switch";
+import Switch from 'react-switch';
 
 // Styled Components
 import styled, {withTheme} from 'styled-components';

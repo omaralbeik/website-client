@@ -1,8 +1,8 @@
 // Bootstrap
-import {Container} from "reactstrap";
+import {Container} from 'reactstrap';
 
 // Styled Components
-import styled from "styled-components";
+import styled from 'styled-components';
 
 
 const InnerContainer = styled(Container)`

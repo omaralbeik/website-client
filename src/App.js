@@ -5,10 +5,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 // Helmet
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
 
 // Styled Components
-import styled, {ThemeProvider} from "styled-components";
+import styled, {ThemeProvider} from 'styled-components';
 
 // Components
 import WebsiteWrapper from './components/WebsiteWrapper';

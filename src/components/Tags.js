@@ -1,12 +1,12 @@
 // React
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 // Bootstrap
 import {Badge} from 'reactstrap';
 
 // Styled Components
-import styled, {withTheme} from "styled-components";
+import styled, {withTheme} from 'styled-components';
 
 class Tags extends Component {
   static propTypes = {
@@ -28,8 +28,8 @@ const TagItem = styled(Badge)`
   margin: 5px;
   padding: 8px 12px;
   user-select: none;
-  background-color: ${props => props.theme.colors.inner_background};
-  color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.highlighted};
+  color: ${props => props.theme.colors.background};
 `;
 
 const TagsContainer = styled.div`

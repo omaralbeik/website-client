@@ -1,5 +1,5 @@
 // React
-import React, {Component} from "react";
+import React, {Component} from 'react';
 
 // Routing & Links
 import {Link} from 'react-router-dom';

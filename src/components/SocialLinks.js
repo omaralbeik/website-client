@@ -1,11 +1,11 @@
 // React
-import React, {Component} from "react";
+import React, {Component} from 'react';
 
 // Bootstrap
 import {sm} from '../breakpoints';
 
 // Styled Components
-import styled, {withTheme} from "styled-components";
+import styled, {withTheme} from 'styled-components';
 
 // Links
 import social from '../links/social';
