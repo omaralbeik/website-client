@@ -37,10 +37,17 @@ export const aboutLink = {
   documentTitle: `About | ${genericStrings.name}`
 };
 
+export const snippetsLink = {
+  name: 'Snippets (Beta)',
+  title: 'Code Snippets (Beta)',
+  url: '/snippets',
+  documentTitle: `Snippets | ${genericStrings.name}`
+};
+
 export const repoLink = {
   name: 'Github',
   url: 'https://github.com/omaralbeik/omaralbeik.com'
 };
 
-export const navbarLinks = [blogLink, portfolioLink, aboutLink];
-export const footerLinks = [blogLink, portfolioLink, aboutLink];
+export const navbarLinks = [blogLink, snippetsLink, portfolioLink, aboutLink];
+export const footerLinks = [blogLink, snippetsLink, portfolioLink, aboutLink];

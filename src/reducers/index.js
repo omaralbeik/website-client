@@ -98,5 +98,30 @@ function contents(state = {}, action) {
   }
 }
 
+/**
+ * Snippets Reducers
+ */
+function snippets(state = {}, action) {
+  const {snippets, snippet} = action;
+
+  switch (action.type) {
+    // load snippets to store
+    case types.LOAD_SNIPPETS:
+      return {
+        ...state,
+        ...objectFromArray(snippets)
+      };
+    // add a snippet
+    case types.ADD_SNIPPET:
+      return {
+        ...state,
+        [snippet.id]: snippet
+      };
+    // any other action: return all snippets
+    default:
+      return state;
+  }
+}
+
 // export all above reducers combined
-export default combineReducers({theme, blogPosts, projects, contents});
+export default combineReducers({theme, blogPosts, projects, contents, snippets});
