@@ -19,6 +19,10 @@ class APIHelper {
     return `${this.API_URL}/contents/`;
   }
 
+  static get SNIPPETS_URL() {
+    return `${this.API_URL}/snippets/`;
+  }
+
   /**
    * Get all blog posts.
    */
@@ -45,6 +49,20 @@ class APIHelper {
    */
   static fetchAbout() {
     return this._fetchObject(this.CONTENTS_URL, 'about');
+  }
+
+  /**
+   * Get snippets.
+   */
+  static fetchSnippets() {
+    return this._fetchObject(this.SNIPPETS_URL);
+  }
+
+  /**
+   * Get a snippet by id.
+   */
+  static fetchSnippet(snippet_id) {
+    return this._fetchObject(this.SNIPPETS_URL, snippet_id);
   }
 
   /**

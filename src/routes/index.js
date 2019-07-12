@@ -14,6 +14,7 @@ import Blog from '../pages/Blog';
 import BlogPostDetails from '../pages/BlogPostDetails';
 import Portfolio from '../pages/Portfolio';
 import About from '../pages/About';
+import Snippets from '../pages/Snippets';
 import Error from '../pages/Error';
 
 // Strings
@@ -53,6 +54,7 @@ class Routes extends Component {
         <Route exact path={`${links.blogLink.url}/:post_id`} component={BlogPostDetails}/>
         <Route exact path={links.portfolioLink.url} component={Portfolio}/>
         <Route exact path={links.aboutLink.url} component={About}/>
+        <Route exact path={links.snippetsLink.url} component={Snippets}/>
         <Route render={() => (<Error error={errorStrings.notFound}/>)}/>
       </Switch>
     ];

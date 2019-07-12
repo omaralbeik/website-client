@@ -12,3 +12,6 @@ export const ADD_PROJECT = 'ADD_PROJECT';
 
 export const LOAD_CONTENETS = 'LOAD_CONTENETS';
 export const ADD_CONTENT = 'ADD_CONTENT';
+
+export const LOAD_SNIPPETS = 'LOAD_SNIPPETS';
+export const ADD_SNIPPET = 'ADD_SNIPPET';

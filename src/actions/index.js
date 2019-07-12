@@ -31,3 +31,11 @@ export function loadContents({contents}) {
 export function addContent({content}) {
   return {type: types.ADD_CONTENT, content};
 }
+
+export function loadSnippets({snippets}) {
+  return {type: types.LOAD_SNIPPETS, snippets};
+}
+
+export function addSnippet({snippet}) {
+  return {type: types.ADD_SNIPPET, snippet};
+}
