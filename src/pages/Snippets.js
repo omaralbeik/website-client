@@ -90,9 +90,7 @@ class Snippets extends Component {
     if (!snippet) { return }
 
     return (
-      <Modal toggle={this.toggle} isOpen centered scrollable size='lg'>
-        <SnippetModal snippet={snippet}/>
-      </Modal>
+      <SnippetModal snippet={snippet} toggle={this.toggle} isOpen centered scrollable size='lg'/>
     );
   }
 

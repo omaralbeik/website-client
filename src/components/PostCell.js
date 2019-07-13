@@ -33,10 +33,10 @@ class PostCell extends Component {
     return (
       <StyledCol xs={12} md={12} lg={6}>
         <StyledContainer >
-          <TitleLink to={blogPostLink(post).url}><StyledTitle>{post.title}</StyledTitle></TitleLink>
+          <StyledLink1 to={blogPostLink(post).url}><StyledH2>{post.title}</StyledH2></StyledLink1>
           <DateWrapper date={post.date_published} isRelative/>
-          <StyledParagraph>{post.summary}</StyledParagraph>
-          <StyledLink to={blogPostLink(post).url}>{genericStrings.readMore}</StyledLink>
+          <StyledP>{post.summary}</StyledP>
+          <StyledLink2 to={blogPostLink(post).url}>{genericStrings.readMore}</StyledLink2>
         </StyledContainer>
       </StyledCol>
     );
@@ -58,15 +58,15 @@ const StyledContainer = styled(Container)`
   padding: 25px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
   border-top: 10px solid;
-  border-bottom: 0 ${props => props.theme.colors.inner_background} solid;
+  border-bottom: 0 transparent solid;
   transition: 0.25s;
   :hover {
     border-top: 0 solid;
-    border-bottom: 10px ${props => props.theme.colors.inner_background} solid;
+    border-bottom: 10px transparent solid;
   }
 `;
 
-const StyledTitle = styled.h2`
+const StyledH2 = styled.h2`
   margin-bottom: 2px;
   font-weight: bold;
   @media (${sm}) {
@@ -74,7 +74,7 @@ const StyledTitle = styled.h2`
   }
 `;
 
-const StyledParagraph = styled.p`
+const StyledP = styled.p`
   margin-top: 20px;
   font-size: 85%;
   overflow-y: hidden;
@@ -83,14 +83,14 @@ const StyledParagraph = styled.p`
   }
 `;
 
-const TitleLink = styled(Link)`
+const StyledLink1 = styled(Link)`
   color: ${props => props.theme.colors.primary} !important;
   &:hover {
     text-decoration: none;
   }
 `
 
-const StyledLink = styled(Link)`
+const StyledLink2 = styled(Link)`
   margin-top: 12px;
   font-size: 12pt;
   font-weight: bold;

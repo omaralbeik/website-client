@@ -14,7 +14,7 @@ import {
 
 // Styled Components
 import styled, {withTheme} from 'styled-components';
-import {sm} from '../breakpoints';
+import {sm, md} from '../breakpoints';
 
 // Components
 import NavLink from './NavLink';
@@ -143,6 +143,10 @@ const Item = styled(NavItem)`
     border-radius: 8px;
     background-color: ${props => props.theme.colors.inner_background};
   }
+  @media (${md}) {
+    font-size: 85%;
+    margin-top: 0;
+  }
 `
 
 const SwitchItem = styled(Item)`
@@ -151,6 +155,9 @@ const SwitchItem = styled(Item)`
   @media (${sm}) {
     margin: 12px 0 0 0;
     padding: 4px 26px 10px 6px;
+  }
+  @media (${md}) {
+    margin: 0;
   }
 `
 

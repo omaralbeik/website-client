@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 // Bootstrap
-import {Container, ButtonGroup, Button} from 'reactstrap';
+import {Modal, Container, ButtonGroup, Button} from 'reactstrap';
 
 // Styled Components
 import styled, {withTheme} from 'styled-components';
@@ -17,6 +17,7 @@ import {copyToClipboard} from '../utils';
 // Links
 import {withRouter} from 'react-router-dom';
 import {snippetsLink} from '../links';
+
 
 class SnippetModal extends Component {
   static propTypes = {
@@ -49,21 +50,23 @@ class SnippetModal extends Component {
 
   render() {
     const {copied} = this.state;
-    const {snippet} = this.props;
+    const {snippet, ...props} = this.props;
     const {style} = this.props.theme;
     const syntaxClassName = style === 'dark' ? 'dark-code' : 'light-code';
 
     return (
-      <StyledContainer>
-        <h2>{snippet.name}</h2>
-        <p>{snippet.summary}</p>
-        <ButtonGroup>
-          <StyledButton onClick={this.close}>Close</StyledButton>
-          <StyledButton onClick={this.copy}>{copied ? 'Copied!' : 'Copy'}</StyledButton>
-        </ButtonGroup>
-        <CodeContainer ref={snippet.id} dangerouslySetInnerHTML={{__html: snippet.html_text}} className={syntaxClassName}/>
-        <ShareButtons message={snippet.name}/>
-      </StyledContainer>
+      <Modal {...props}>
+        <StyledContainer>
+          <h2>{snippet.name}</h2>
+          <p>{snippet.summary}</p>
+          <ButtonGroup>
+            <StyledButton onClick={this.close}>Close</StyledButton>
+            <StyledButton onClick={this.copy}>{copied ? 'Copied!' : 'Copy'}</StyledButton>
+          </ButtonGroup>
+          <CodeContainer ref={snippet.id} dangerouslySetInnerHTML={{__html: snippet.html_text}} className={syntaxClassName}/>
+          <ShareButtons message={snippet.name}/>
+        </StyledContainer>
+      </Modal>
     );
   }
 
@@ -75,7 +78,7 @@ const StyledContainer = styled(Container)`
   color: ${props => props.theme.colors.primary};
   padding: 20px;
   overflow-y: scroll;
-
+  
   h2 {
     font-family: ${props => props.theme.fonts.title};
   }

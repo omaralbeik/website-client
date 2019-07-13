@@ -64,7 +64,6 @@ const WebsiteWrapper = styled(Container)`
   code, pre {
     font-family: ${props => props.theme.fonts.mono};
   }
-
 `;
 
 export default WebsiteWrapper;
