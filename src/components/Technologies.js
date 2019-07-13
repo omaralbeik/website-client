@@ -8,6 +8,7 @@ import {Badge} from 'reactstrap';
 // Styled Components
 import styled, {withTheme} from 'styled-components';
 
+
 class Technologies extends Component {
   static propTypes = {
     technologies: PropTypes.array.isRequired
@@ -16,15 +17,15 @@ class Technologies extends Component {
   render() {
     const {technologies=[]} = this.props;
     return (
-      <TechnologiesContainer>
-        {technologies.map(t => <TagItem key={t.slug}>{t.name}</TagItem>)}
-      </TechnologiesContainer>
+      <StyledDiv>
+        {technologies.map(t => <Technology key={t.slug}>{t.name}</Technology>)}
+      </StyledDiv>
     );
   }
 
 }
 
-const TagItem = styled(Badge)`
+const Technology = styled(Badge)`
   margin: 3px 6px 3px 0;
   padding: 5px 8px;
   user-select: none;
@@ -34,7 +35,7 @@ const TagItem = styled(Badge)`
   border: ${props => props.theme.colors.highlighted} solid 1px;
 `;
 
-const TechnologiesContainer = styled.div`
+const StyledDiv= styled.div`
   margin-bottom: 12px;
 `;
 

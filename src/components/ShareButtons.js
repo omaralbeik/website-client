@@ -28,6 +28,7 @@ import {
   PocketIcon
 } from 'react-share';
 
+
 class ShareButtons extends Component {
   static propTypes = {
     message: PropTypes.string.isRequired
@@ -39,8 +40,8 @@ class ShareButtons extends Component {
     const twitterMessage = `“${message}” by @${genericStrings.twitterHandler}`
 
     return (
-      <Container>
-        <Share>{genericStrings.share}</Share>
+      <StyledDiv>
+        <StyledP>{genericStrings.share}</StyledP>
         <FacebookShareButton url={url} quote={message}>
           <FacebookIcon size={38} round={true}/>
         </FacebookShareButton>
@@ -56,15 +57,16 @@ class ShareButtons extends Component {
         <PocketShareButton url={url} title={message}>
           <PocketIcon size={38} round={true}/>
         </PocketShareButton>
-      </Container>
+      </StyledDiv>
     );
   }
 
 }
 
-const Share = styled.p`
+const StyledP = styled.p`
   line-height: 38px;
   margin-right: 12px;
+  margin-bottom: 0;
   font-size: 14px;
   font-weight: bold;
   @media (${sm}) {
@@ -72,13 +74,12 @@ const Share = styled.p`
   }
 `;
 
-const Container = styled.div`
+const StyledDiv = styled.div`
   display: flex;
-  margin: 15px 0 14px 0;
   justify-content: flex-end;
+  margin-top: 20px;
   @media (${sm}) {
     justify-content: space-around;
-    margin-top: 20px;
     margin-right: 8px;
     margin-bottom: 0;
   }

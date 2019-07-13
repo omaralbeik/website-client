@@ -8,6 +8,7 @@ import {Badge} from 'reactstrap';
 // Styled Components
 import styled, {withTheme} from 'styled-components';
 
+
 class Tags extends Component {
   static propTypes = {
     tags: PropTypes.array.isRequired
@@ -16,15 +17,15 @@ class Tags extends Component {
   render() {
     const {tags=[]} = this.props;
     return (
-      <TagsContainer>
-        {tags.map(t => <TagItem key={t.slug}>{t.name}</TagItem>)}
-      </TagsContainer>
+      <StyledDiv>
+        {tags.map(t => <Tag key={t.slug}>{t.name}</Tag>)}
+      </StyledDiv>
     );
   }
 
 }
 
-const TagItem = styled(Badge)`
+const Tag = styled(Badge)`
   margin: 5px;
   padding: 8px 12px;
   user-select: none;
@@ -32,7 +33,7 @@ const TagItem = styled(Badge)`
   color: ${props => props.theme.colors.background};
 `;
 
-const TagsContainer = styled.div`
+const StyledDiv = styled.div`
   text-align: center;
 `;
 

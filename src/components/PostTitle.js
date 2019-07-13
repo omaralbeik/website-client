@@ -20,16 +20,16 @@ class PostTitle extends Component {
     const {post} = this.props;
 
     return (
-      <Container>
+      <StyledDiv>
         <h1>{post.title}</h1>
         <h2><Moment format='LL' date={post.date_published}/></h2>
-      </Container>
+      </StyledDiv>
     );
   }
 
 }
 
-const Container = styled.div`
+const StyledDiv = styled.div`
     h1 {
         font-size: 32px;
         @media (${sm}) {

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 
 
-const NavA = styled(NavLink)`
+const StyledNavLink = styled(NavLink)`
   color: ${props => props.theme.colors.selected};
   font-family: ${props => props.theme.fonts.title};
   &:hover {
@@ -13,4 +13,4 @@ const NavA = styled(NavLink)`
   }
 `;
 
-export default NavA;
+export default StyledNavLink;

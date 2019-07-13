@@ -15,18 +15,20 @@ class Links extends Component {
 
   render() {
     const {theme} = this.props;
-    return (<SocialLinkWrapper>
-      {social(theme).map(l => (
-        <SocialLink key={l.name} href={l.url} target='_blank' rel='noopener noreferrer'>
-          <img src={l.icon} alt={l.name}/>
-        </SocialLink>
-      ))}
-    </SocialLinkWrapper>);
+    return (
+      <StyledDiv>
+        {social(theme).map(l => (
+          <StyledA key={l.name} href={l.url} target='_blank' rel='noopener noreferrer'>
+            <img src={l.icon} alt={l.name}/>
+          </StyledA>
+        ))}
+      </StyledDiv>
+    );
   }
 
 }
 
-const SocialLink = styled.a`
+const StyledA = styled.a`
   padding: 5px;
   opacity: 0.75;
   &:hover {
@@ -45,7 +47,7 @@ const SocialLink = styled.a`
   }
 `;
 
-const SocialLinkWrapper = styled.div`
+const StyledDiv = styled.div`
   margin: 12px 8px;
   float: right;
   @media (${sm}) {

@@ -4,7 +4,10 @@ export const genericStrings = {
   share: "SHARE",
   twitterHandler: "omaralbeik",
   readMore: "Read More →",
-  linkArrow: " →"
+  linkArrow: " →",
+  close: "Close",
+  copy: "Copy",
+  copies: "Copied!",
 };
 
 export const homeStrings = {
