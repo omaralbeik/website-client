@@ -30,30 +30,30 @@ import {
 
 class ShareButtons extends Component {
   static propTypes = {
-    post: PropTypes.object.isRequired
+    message: PropTypes.string.isRequired
   }
 
   render() {
+    const {message} = this.props;
     const url = window.location.href;
-    const {post} = this.props;
-    const twitterMessage = `“${post.title}” by @${genericStrings.twitterHandler}`
+    const twitterMessage = `“${message}” by @${genericStrings.twitterHandler}`
 
     return (
       <Container>
         <Share>{genericStrings.share}</Share>
-        <FacebookShareButton url={url} quote={post.title}>
+        <FacebookShareButton url={url} quote={message}>
           <FacebookIcon size={38} round={true}/>
         </FacebookShareButton>
         <TwitterShareButton url={url} title={twitterMessage}>
           <TwitterIcon size={38} round={true}/>
         </TwitterShareButton>
-        <LinkedinShareButton url={url} title={post.title}>
+        <LinkedinShareButton url={url} title={message}>
           <LinkedinIcon size={38} round={true}/>
         </LinkedinShareButton>
-        <RedditShareButton url={url} title={post.title}>
+        <RedditShareButton url={url} title={message}>
           <RedditIcon size={38} round={true}/>
         </RedditShareButton>
-        <PocketShareButton url={url} title={post.title}>
+        <PocketShareButton url={url} title={message}>
           <PocketIcon size={38} round={true}/>
         </PocketShareButton>
       </Container>
@@ -84,6 +84,7 @@ const Container = styled.div`
   }
   > div {
     margin-left: 8px;
+    cursor: pointer;
     :focus {
       outline: 0;
     }
