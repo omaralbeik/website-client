@@ -94,7 +94,7 @@ class BlogPostDetails extends Component {
     return [
       <PostTitle key='title' post={post}/>,
       <div key='cover'>{this.generateCoverImage(post)}</div>,
-      <ShareButtons key='share' post={post}/>,
+      <ShareButtons key='share' message={post.title}/>,
       <FreeCodeContainer key='body' dangerouslySetInnerHTML={{__html: post.html_text}} className={syntaxClassName}/>,
       <Tags key='tags' tags={post.tags}/>
     ];

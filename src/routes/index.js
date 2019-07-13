@@ -52,9 +52,14 @@ class Routes extends Component {
         )}/>
         <Route exact path={links.blogLink.url} component={Blog}/>
         <Route exact path={`${links.blogLink.url}/:post_id`} component={BlogPostDetails}/>
+
         <Route exact path={links.portfolioLink.url} component={Portfolio}/>
+
         <Route exact path={links.aboutLink.url} component={About}/>
+
         <Route exact path={links.snippetsLink.url} component={Snippets}/>
+        <Route exact path={`${links.snippetsLink.url}/:snippet_id`} component={Snippets}/>
+
         <Route render={() => (<Error error={errorStrings.notFound}/>)}/>
       </Switch>
     ];

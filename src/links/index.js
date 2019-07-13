@@ -44,6 +44,14 @@ export const snippetsLink = {
   documentTitle: `Snippets | ${genericStrings.name}`
 };
 
+export function snippetLink(p) {
+  return {
+    name: p.name,
+    title: p.name,
+    url: `${snippetsLink.url}/${p.slug}`,
+    documentTitle: `${p.name} | ${genericStrings.name}`};
+};
+
 export const repoLink = {
   name: 'Github',
   url: 'https://github.com/omaralbeik/omaralbeik.com'
