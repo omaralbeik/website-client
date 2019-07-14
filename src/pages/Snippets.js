@@ -6,13 +6,14 @@ import {connect} from 'react-redux';
 import {loadSnippets, addSnippet} from '../actions';
 
 // Bootstrap
-import {Container, Row, Modal} from 'reactstrap';
+import {Container, Row} from 'reactstrap';
 
 // Components
 import ErrorContainer from '../components/ErrorContainer';
 import PageTitle from '../components/PageTitle';
 import SnippetCell from '../components/SnippetCell';
 import SnippetModal from '../components/SnippetModal';
+import SearchInput from '../components/SearchInput';
 
 // Links
 import {snippetsLink} from '../links';
@@ -20,6 +21,9 @@ import {snippetsLink} from '../links';
 // Helpers
 import {arrayFromObject} from '../utils';
 import APIHelper from '../utils/APIHelper';
+
+// Input
+import { throttle, debounce } from 'throttle-debounce';
 
 
 class Snippets extends Component {
@@ -32,10 +36,16 @@ class Snippets extends Component {
     this.fetchSnippet();
 
     this.state = {
-      modal: false
+      modal: false,
+      q: "",
+      results: null
     };
 
+    this.searchDebounced = debounce(500, this.search);
+    this.searchThrottled = throttle(500, this.search);
+
     this.toggle = this.toggle.bind(this);
+    this.keyPress = this.keyPress.bind(this);
   }
 
   componentWillMount() {
@@ -76,6 +86,35 @@ class Snippets extends Component {
     });
   }
 
+  changeQuery = event => {
+    this.setState({ q: event.target.value }, () => {
+      const q = this.state.q;
+      if (q.length < 5) {
+        this.searchThrottled(this.state.q);
+      } else {
+        this.searchDebounced(this.state.q);
+      }
+    });
+  };
+
+  search(query) {
+    if (query.length === 0) {
+      this.setState({results: null});
+      return;
+    }
+    APIHelper.searchSnippet(query).then(snippets => {
+      this.setState({results: snippets});
+    }).catch(error => {
+      console.error(error);
+    });
+  }
+
+  keyPress(event) {
+    if (event.keyCode === 13) {
+       this.search(event.target.value);       
+    }
+ }
+
   renderModal(snippets, snippetsArray) {
     const {snippet_id} = this.props.match.params;
     if (!snippet_id) { return }
@@ -95,7 +134,7 @@ class Snippets extends Component {
   }
 
   render() {
-    const {error} = this.state;
+    const {q, error, results} = this.state;
     if (error) {
       return (
         <ErrorContainer error={error}/>
@@ -104,11 +143,16 @@ class Snippets extends Component {
 
     const {snippets} = this.props;
     const snippetsArray = arrayFromObject(snippets)
-    const sortedSnippets = snippetsArray.sort((s1, s2) => (s1.date_published < s2.date_published ? 1 : -1))
+    let sortedSnippets = snippetsArray.sort((s1, s2) => (s1.date_published < s2.date_published ? 1 : -1))
+
+    if (results) {
+      sortedSnippets = results
+    }
 
     return (
       <Container>
         <PageTitle>{snippetsLink.title}</PageTitle>
+        <SearchInput placeholder='Search Snippets' value={q} onChange={this.changeQuery} onKeyDown={this.keyPress}/>
         {this.renderModal(snippets, snippetsArray)}
         <Row>
           {sortedSnippets.map(s => (<SnippetCell key={s.id} snippet={s}/>))}
