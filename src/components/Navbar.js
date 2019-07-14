@@ -69,7 +69,7 @@ class Bar extends Component {
                 {
                   navbarLinks.map(l => (
                     <Item key={l.name}>
-                      <NavLink activeClassName='active' exact to={l.url} onClick={_ => {this.close()}}>{l.name}</NavLink>
+                      <NavLink activeClassName='active' to={l.url} onClick={_ => {this.close()}}>{l.name}</NavLink>
                     </Item>
                   ))
                 }
