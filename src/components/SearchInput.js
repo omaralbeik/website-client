@@ -6,6 +6,7 @@ import {Input} from 'reactstrap';
 
 // Styled Components
 import styled from 'styled-components';
+import {sm} from '../breakpoints';
 
 
 class SearchInput extends Component {
@@ -24,14 +25,20 @@ const StyledInput = styled(Input)`
   background-color: ${props => props.theme.colors.inner_background};
   color: ${props => props.theme.colors.primary};
   font-family: ${props => props.theme.fonts.body};
-  border: 2px ${props => props.theme.colors.primary} solid;
+  border: 2px ${props => props.theme.colors.inner_background} solid;
   height: 45px;
+  width: 50%;
+  margin-bottom: 10px;
+  margin-left: auto;
   :focus {
     background-color: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.primary};
-    border: 2px ${props => props.theme.colors.highlighted} solid;
+    border: 2px ${props => props.theme.colors.inner_primary} solid;
     -webkit-box-shadow: none;
     box-shadow: none;
+  }
+  @media (${sm}) {
+    width: 100%;
   }
 `;
 

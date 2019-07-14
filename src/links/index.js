@@ -38,7 +38,7 @@ export const aboutLink = {
 };
 
 export const snippetsLink = {
-  name: 'Snippets (Beta)',
+  name: 'Snippets',
   title: 'Code Snippets (Beta)',
   url: '/snippets',
   documentTitle: `Snippets | ${genericStrings.name}`

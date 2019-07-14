@@ -144,7 +144,7 @@ const Item = styled(NavItem)`
     background-color: ${props => props.theme.colors.inner_background};
   }
   @media (${md}) {
-    font-size: 85%;
+    font-size: 110%;
     margin-top: 0;
   }
 `
