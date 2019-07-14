@@ -12,6 +12,7 @@ import {Container, Row} from 'reactstrap';
 import PostCell from '../components/PostCell';
 import PageTitle from '../components/PageTitle';
 import ErrorContainer from '../components/ErrorContainer'
+import SearchInput from '../components/SearchInput';
 
 // Links
 import {blogLink} from '../links';
@@ -20,13 +21,31 @@ import {blogLink} from '../links';
 import {arrayFromObject} from '../utils';
 import APIHelper from '../utils/APIHelper';
 
+// Input
+import {throttle, debounce} from 'throttle-debounce';
+
+// Strings
+import {genericStrings} from '../strings';
+
 
 class Blog extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { error: null };
+
+    this.state = {
+      error: null,
+      q: "",
+      results: null
+    };
+
     this.fetchBlogPosts();
+
+    this.searchDebounced = debounce(500, this.search);
+    this.searchThrottled = throttle(500, this.search);
+
+    this.keyPress = this.keyPress.bind(this);
+    this.resetSearch = this.resetSearch.bind(this);
   }
 
   componentWillMount() {
@@ -49,8 +68,42 @@ class Blog extends Component {
     });
   }
 
+  changeQuery = event => {
+    this.setState({ q: event.target.value }, () => {
+      const q = this.state.q;
+      if (q.length < 5) {
+        this.searchThrottled(this.state.q);
+      } else {
+        this.searchDebounced(this.state.q);
+      }
+    });
+  };
+
+  search(query) {
+    query = query.trim()
+    if (query.length === 0) {
+      this.setState({results: null});
+      return;
+    }
+    APIHelper.searchBlogPost(query).then(posts => {
+      this.setState({results: posts});
+    }).catch(error => {
+      console.error(error);
+    });
+  }
+
+  resetSearch() {
+    this.setState({q: "", results:null});
+  }
+
+  keyPress(event) {
+    if (event.keyCode === 13) {
+       this.search(event.target.value);       
+    }
+  }
+
   render() {
-    const {error} = this.state;
+    const {q, error, results} = this.state;
     if (error) {
       return (
         <ErrorContainer error={error}/>
@@ -59,11 +112,16 @@ class Blog extends Component {
 
     const {blogPosts} = this.props;
     const postsArray = arrayFromObject(blogPosts)
-    const sortedPosts = postsArray.sort((p1, p2) => (p1.date_published < p2.date_published ? 1 : -1))
+    let sortedPosts = postsArray.sort((p1, p2) => (p1.date_published < p2.date_published ? 1 : -1))
+
+    if (results) {
+      sortedPosts = results
+    }
 
     return (
       <Container>
         <PageTitle>{blogLink.title}</PageTitle>
+        <SearchInput placeholder={genericStrings.searchBlogPosts} value={q} onChange={this.changeQuery} onKeyDown={this.keyPress} onReset={this.resetSearch}/>
         <Row>
           {sortedPosts.map(p => (<PostCell key={p.id} post={p}/>))}
         </Row>

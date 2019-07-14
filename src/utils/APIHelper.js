@@ -38,10 +38,26 @@ class APIHelper {
   }
 
   /**
+   * Search for a project containing a query.
+   */
+  static searchProject(query) {
+    query = encodeURI(query).replace(/%20/g, '+');
+    return this._fetchObject(this.PROJECTS_URL, `?search=${query}`);
+  }
+
+  /**
    * Get a blog post by id.
    */
   static fetchBlogPost(post_id) {
     return this._fetchObject(this.BLOG_URL, post_id);
+  }
+
+  /**
+   * Search for a blog post containing a query.
+   */
+  static searchBlogPost(query) {
+    query = encodeURI(query).replace(/%20/g, '+');
+    return this._fetchObject(this.BLOG_URL, `?search=${query}`);
   }
 
   /**
@@ -66,7 +82,7 @@ class APIHelper {
   }
 
   /**
-   * Search snippets containing a query.
+   * Search for a snippet containing a query.
    */
   static searchSnippet(query) {
     query = encodeURI(query).replace(/%20/g, '+');

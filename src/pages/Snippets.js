@@ -25,27 +25,31 @@ import APIHelper from '../utils/APIHelper';
 // Input
 import { throttle, debounce } from 'throttle-debounce';
 
+// Strings
+import {genericStrings} from '../strings';
+
 
 class Snippets extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = { error: null };
-    this.fetchSnippets();
-    this.fetchSnippet();
-
     this.state = {
+      error: null,
       modal: false,
       q: "",
       results: null
     };
 
+    this.fetchSnippets();
+    this.fetchSnippet();
+
     this.searchDebounced = debounce(500, this.search);
     this.searchThrottled = throttle(500, this.search);
 
-    this.toggle = this.toggle.bind(this);
     this.keyPress = this.keyPress.bind(this);
+    this.toggle = this.toggle.bind(this);
+    this.resetSearch = this.resetSearch.bind(this);
   }
 
   componentWillMount() {
@@ -98,6 +102,7 @@ class Snippets extends Component {
   };
 
   search(query) {
+    query = query.trim()
     if (query.length === 0) {
       this.setState({results: null});
       return;
@@ -109,11 +114,15 @@ class Snippets extends Component {
     });
   }
 
+  resetSearch() {
+    this.setState({q: "", results:null});
+  }
+
   keyPress(event) {
     if (event.keyCode === 13) {
        this.search(event.target.value);       
     }
- }
+  }
 
   renderModal(snippets, snippetsArray) {
     const {snippet_id} = this.props.match.params;
@@ -152,7 +161,7 @@ class Snippets extends Component {
     return (
       <Container>
         <PageTitle>{snippetsLink.title}</PageTitle>
-        <SearchInput placeholder='Search Snippets' value={q} onChange={this.changeQuery} onKeyDown={this.keyPress}/>
+        <SearchInput placeholder={genericStrings.searchSnippets} value={q} onChange={this.changeQuery} onKeyDown={this.keyPress} onReset={this.resetSearch}/>
         {this.renderModal(snippets, snippetsArray)}
         <Row>
           {sortedSnippets.map(s => (<SnippetCell key={s.id} snippet={s}/>))}

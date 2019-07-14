@@ -7,7 +7,11 @@ export const genericStrings = {
   linkArrow: " →",
   close: "Close",
   copy: "Copy",
+  clear: "Clear",
   copies: "Copied!",
+  searchBlogPosts: "Search Blog",
+  searchSnippets: "Search Snippets",
+  searchProjects: "Search Projects"
 };
 
 export const homeStrings = {
