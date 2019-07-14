@@ -66,6 +66,14 @@ class APIHelper {
   }
 
   /**
+   * Search snippets containing a query.
+   */
+  static searchSnippet(query) {
+    query = encodeURI(query).replace(/%20/g, '+');
+    return this._fetchObject(this.SNIPPETS_URL, `?search=${query}`);
+  }
+
+  /**
    * Helper function to fetch object/s from a URL.
    */
    static _fetchObject(url, id = null, child = null) {
@@ -77,6 +85,7 @@ class APIHelper {
        if (child) {
          completeUrl += `/${child}/`
        }
+       
        var headers = new Headers();
        headers.append('Content-Type', 'application/json');
 
