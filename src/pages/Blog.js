@@ -5,6 +5,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {loadBlogPosts} from '../actions';
 
+// Helmet
+import {Helmet} from 'react-helmet';
+
 // Bootstrap
 import {Container, Row} from 'reactstrap';
 
@@ -91,6 +94,9 @@ class Blog extends Component {
 
     return (
       <Container>
+        <Helmet>
+          <title>{blogLink.documentTitle}</title>
+        </Helmet>
         <PageTitle>{blogLink.title}</PageTitle>
         <SearchInput placeholder={genericStrings.searchBlogPosts} onInputUpdate={this.preformSearch} onReset={this.resetSearch}/>
         <Row>

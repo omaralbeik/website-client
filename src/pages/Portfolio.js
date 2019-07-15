@@ -5,6 +5,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {loadProjects} from '../actions';
 
+// Helmet
+import {Helmet} from 'react-helmet';
+
 // Bootstrap
 import {Container} from 'reactstrap';
 
@@ -90,8 +93,17 @@ class Portfolio extends Component {
       sortedProjects = results
     }
 
+    let technologies = [];
+    sortedProjects.forEach(p => { technologies = technologies.concat(p.technologies) });
+    technologies = technologies.map(t => t.name);
+    technologies = [...new Set(technologies)];
+    
     return (
       <Container>
+        <Helmet>
+          <title>{portfolioLink.documentTitle}</title>
+          <meta name="keywords" content={technologies.join(',')}/>
+        </Helmet>
         <PageTitle>{portfolioLink.title}</PageTitle>
         <SearchInput placeholder={genericStrings.searchProjects} onInputUpdate={this.preformSearch} onReset={this.resetSearch}/>
         {sortedProjects.map(p => (<ProjectCell key={p.id} project={p}/>))}

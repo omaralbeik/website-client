@@ -5,6 +5,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addBlogPost} from '../actions';
 
+// Helmet
+import {Helmet} from 'react-helmet';
+
 // Styled Components
 import styled, {withTheme} from 'styled-components';
 
@@ -26,6 +29,7 @@ import {arrayFromObject} from '../utils';
 
 // Strings
 import {genericStrings} from '../strings';
+import {blogPostLink} from '../links';
 
 
 class BlogPostDetails extends Component {
@@ -78,6 +82,11 @@ class BlogPostDetails extends Component {
 
     return (
       <Container>
+        <Helmet key='meta'>
+          <title>{blogPostLink(post).documentTitle}</title>
+          <meta name="description" content={post.summary}/>
+          <meta name="keywords" content={post.tags.map(t => (t.name)).join(',')}/>
+        </Helmet>
         {this.generateBody(post)}
       </Container>
     );
