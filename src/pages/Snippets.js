@@ -40,6 +40,7 @@ class Snippets extends Component {
     this.fetchSnippets();
     this.fetchSnippet();
 
+    this.toggle = this.toggle.bind(this);
     this.preformSearch = this.preformSearch.bind(this);
     this.resetSearch = this.resetSearch.bind(this);
   }
@@ -105,7 +106,7 @@ class Snippets extends Component {
       snippet = snippetsArray.filter(s => (s.slug === snippet_id))[0]
     }
 
-    if (!snippet) { return }
+    if (!snippet) { return; }
 
     return (
       <SnippetModal snippet={snippet} toggle={this.toggle} isOpen centered scrollable size='lg'/>

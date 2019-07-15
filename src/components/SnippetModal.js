@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 // Bootstrap
-import {Modal, Container, ButtonGroup, Button} from 'reactstrap';
+import {Modal, Container, ButtonGroup, Button, Badge} from 'reactstrap';
 
 // Styled Components
 import styled, {withTheme} from 'styled-components';
@@ -57,7 +57,7 @@ class SnippetModal extends Component {
     return (
       <Modal {...props}>
         <StyledContainer>
-          <h2>{snippet.name}</h2>
+          <h2>{snippet.name} <StyledBadge>{snippet.language.name}</StyledBadge></h2>
           <p>{snippet.summary}</p>
           <ButtonGroup>
             <StyledButton onClick={this.close}>Close</StyledButton>
@@ -83,6 +83,13 @@ const StyledContainer = styled(Container)`
     font-family: ${props => props.theme.fonts.title};
   }
 
+`;
+
+const StyledBadge = styled(Badge)`
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.primary};
+  border: 2px solid ${props => props.theme.colors.highlight};
+  margin-left: 5px;
 `;
 
 const StyledButton = styled(Button)`
