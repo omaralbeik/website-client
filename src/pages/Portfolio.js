@@ -21,9 +21,6 @@ import {portfolioLink} from '../links';
 import {arrayFromObject} from '../utils';
 import APIHelper from '../utils/APIHelper';
 
-// Input
-import { throttle, debounce } from 'throttle-debounce';
-
 // Strings
 import {genericStrings} from '../strings';
 
@@ -36,16 +33,12 @@ class Portfolio extends Component {
     this.state = {
       error: null,
       modal: false,
-      q: "",
       results: null
     };
     
     this.fetchProjects();
 
-    this.searchDebounced = debounce(500, this.search);
-    this.searchThrottled = throttle(500, this.search);
-
-    this.keyPress = this.keyPress.bind(this);
+    this.preformSearch = this.preformSearch.bind(this);
     this.resetSearch = this.resetSearch.bind(this);
   }
 
@@ -69,23 +62,7 @@ class Portfolio extends Component {
     });
   }
 
-  changeQuery = event => {
-    this.setState({ q: event.target.value }, () => {
-      const q = this.state.q;
-      if (q.length < 5) {
-        this.searchThrottled(this.state.q);
-      } else {
-        this.searchDebounced(this.state.q);
-      }
-    });
-  };
-
-  search(query) {
-    query = query.trim()
-    if (query.length === 0) {
-      this.setState({results: null});
-      return;
-    }
+  preformSearch(query) {
     APIHelper.searchProject(query).then(snippets => {
       this.setState({results: snippets});
     }).catch(error => {
@@ -94,17 +71,11 @@ class Portfolio extends Component {
   }
 
   resetSearch() {
-    this.setState({q: "", results:null});
-  }
-
-  keyPress(event) {
-    if (event.keyCode === 13) {
-       this.search(event.target.value);       
-    }
+    this.setState({q: "", results: null});
   }
 
   render() {
-    const {q, error, results} = this.state;
+    const {error, results} = this.state;
     if (error) {
       return (
         <ErrorContainer error={error}/>
@@ -122,7 +93,7 @@ class Portfolio extends Component {
     return (
       <Container>
         <PageTitle>{portfolioLink.title}</PageTitle>
-        <SearchInput placeholder={genericStrings.searchProjects} value={q} onChange={this.changeQuery} onKeyDown={this.keyPress} onReset={this.resetSearch}/>
+        <SearchInput placeholder={genericStrings.searchProjects} onInputUpdate={this.preformSearch} onReset={this.resetSearch}/>
         {sortedProjects.map(p => (<ProjectCell key={p.id} project={p}/>))}
       </Container>
     );
