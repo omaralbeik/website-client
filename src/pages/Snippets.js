@@ -22,9 +22,6 @@ import {snippetsLink} from '../links';
 import {arrayFromObject} from '../utils';
 import APIHelper from '../utils/APIHelper';
 
-// Input
-import { throttle, debounce } from 'throttle-debounce';
-
 // Strings
 import {genericStrings} from '../strings';
 
@@ -37,18 +34,13 @@ class Snippets extends Component {
     this.state = {
       error: null,
       modal: false,
-      q: "",
       results: null
     };
 
     this.fetchSnippets();
     this.fetchSnippet();
 
-    this.searchDebounced = debounce(500, this.search);
-    this.searchThrottled = throttle(500, this.search);
-
-    this.keyPress = this.keyPress.bind(this);
-    this.toggle = this.toggle.bind(this);
+    this.preformSearch = this.preformSearch.bind(this);
     this.resetSearch = this.resetSearch.bind(this);
   }
 
@@ -90,23 +82,7 @@ class Snippets extends Component {
     });
   }
 
-  changeQuery = event => {
-    this.setState({ q: event.target.value }, () => {
-      const q = this.state.q;
-      if (q.length < 5) {
-        this.searchThrottled(this.state.q);
-      } else {
-        this.searchDebounced(this.state.q);
-      }
-    });
-  };
-
-  search(query) {
-    query = query.trim()
-    if (query.length === 0) {
-      this.setState({results: null});
-      return;
-    }
+  preformSearch(query) {
     APIHelper.searchSnippet(query).then(snippets => {
       this.setState({results: snippets});
     }).catch(error => {
@@ -116,12 +92,6 @@ class Snippets extends Component {
 
   resetSearch() {
     this.setState({q: "", results:null});
-  }
-
-  keyPress(event) {
-    if (event.keyCode === 13) {
-       this.search(event.target.value);       
-    }
   }
 
   renderModal(snippets, snippetsArray) {
@@ -143,7 +113,7 @@ class Snippets extends Component {
   }
 
   render() {
-    const {q, error, results} = this.state;
+    const {error, results} = this.state;
     if (error) {
       return (
         <ErrorContainer error={error}/>
@@ -161,7 +131,7 @@ class Snippets extends Component {
     return (
       <Container>
         <PageTitle>{snippetsLink.title}</PageTitle>
-        <SearchInput placeholder={genericStrings.searchSnippets} value={q} onChange={this.changeQuery} onKeyDown={this.keyPress} onReset={this.resetSearch}/>
+        <SearchInput placeholder={genericStrings.searchSnippets} onInputUpdate={this.preformSearch} onReset={this.resetSearch}/>
         {this.renderModal(snippets, snippetsArray)}
         <Row>
           {sortedSnippets.map(s => (<SnippetCell key={s.id} snippet={s}/>))}

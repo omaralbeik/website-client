@@ -1,5 +1,6 @@
 // React
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 // Bootstrap
 import {Input, Button} from 'reactstrap';
@@ -11,30 +12,82 @@ import {sm} from '../breakpoints';
 // Strings
 import {genericStrings} from '../strings';
 
+// Input
+import {throttle, debounce} from 'throttle-debounce';
+
 
 class SearchInput extends Component {
+  static propTypes = {
+    placeholder: PropTypes.string,
+    onReset: PropTypes.func,
+    onInputUpdate: PropTypes.func
+  }
 
   constructor(props) {
     super(props);
     
+    this.searchDebounced = debounce(500, this.search);
+    this.searchThrottled = throttle(500, this.search);
     this.renderClearButton = this.renderClearButton.bind(this);
+    this.keyPress = this.keyPress.bind(this);
+    this.search = this.search.bind(this);
+    this.reset = this.reset.bind(this);
+    this.state = {q: ""};
+  }
+
+  changeQuery = event => {
+    this.setState({ q: event.target.value }, _ => {
+      const timmedQuery = this.state.q.trim();
+      if (timmedQuery.length > 0 && timmedQuery.length < 5) {
+        this.searchThrottled(timmedQuery);
+      } else {
+        this.searchDebounced(timmedQuery);
+      }
+    });
+  };
+
+  search(query) {
+    const {onReset, onInputUpdate} = this.props;
+    const timmedQuery = query.trim()
+    if (timmedQuery.length === 0) {
+      onReset();
+    } else {
+      onInputUpdate(timmedQuery);
+    }
+  }
+
+  keyPress(event) {
+    if (event.keyCode !== 13) { return; }
+    event.target.blur();
+    const query = event.target.value.trim();
+    const {onReset, onInputUpdate} = this.props;
+    if (query.length === 0) {
+      onReset();
+    } else {
+      onInputUpdate(query);
+    }
+  }
+
+  reset() {
+    const {onReset} = this.props;
+    this.setState({q: ""})
+    onReset();
   }
 
   renderClearButton() {
-    const {onReset} = this.props;
-    let {value} = this.props;
-    value = value.trim();
-    if (value) {
-      return <StyledButton onClick={onReset}>{genericStrings.clear}</StyledButton>
+    const trimmedQuery = this.state.q.trim();
+    if (trimmedQuery) {
+      return <StyledButton onClick={this.reset}>{genericStrings.clear}</StyledButton>
     }
   }
 
   render() {
-    const {snippet, ...props} = this.props;
-    
+    const {placeholder} = this.props;
+    const {q} = this.state;
+
     return (
       <StyledDiv>
-        <StyledInput {...props}/>
+        <StyledInput placeholder={placeholder} value={q} onChange={this.changeQuery} onKeyDown={this.keyPress}/>
         {this.renderClearButton()}
       </StyledDiv>
     );

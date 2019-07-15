@@ -21,9 +21,6 @@ import {blogLink} from '../links';
 import {arrayFromObject} from '../utils';
 import APIHelper from '../utils/APIHelper';
 
-// Input
-import {throttle, debounce} from 'throttle-debounce';
-
 // Strings
 import {genericStrings} from '../strings';
 
@@ -35,16 +32,12 @@ class Blog extends Component {
 
     this.state = {
       error: null,
-      q: "",
       results: null
     };
 
     this.fetchBlogPosts();
 
-    this.searchDebounced = debounce(500, this.search);
-    this.searchThrottled = throttle(500, this.search);
-
-    this.keyPress = this.keyPress.bind(this);
+    this.preformSearch = this.preformSearch.bind(this);
     this.resetSearch = this.resetSearch.bind(this);
   }
 
@@ -68,23 +61,7 @@ class Blog extends Component {
     });
   }
 
-  changeQuery = event => {
-    this.setState({ q: event.target.value }, () => {
-      const q = this.state.q;
-      if (q.length < 5) {
-        this.searchThrottled(this.state.q);
-      } else {
-        this.searchDebounced(this.state.q);
-      }
-    });
-  };
-
-  search(query) {
-    query = query.trim()
-    if (query.length === 0) {
-      this.setState({results: null});
-      return;
-    }
+  preformSearch(query) {
     APIHelper.searchBlogPost(query).then(posts => {
       this.setState({results: posts});
     }).catch(error => {
@@ -93,17 +70,11 @@ class Blog extends Component {
   }
 
   resetSearch() {
-    this.setState({q: "", results:null});
-  }
-
-  keyPress(event) {
-    if (event.keyCode === 13) {
-       this.search(event.target.value);       
-    }
+    this.setState({results:null});
   }
 
   render() {
-    const {q, error, results} = this.state;
+    const {error, results} = this.state;
     if (error) {
       return (
         <ErrorContainer error={error}/>
@@ -121,7 +92,7 @@ class Blog extends Component {
     return (
       <Container>
         <PageTitle>{blogLink.title}</PageTitle>
-        <SearchInput placeholder={genericStrings.searchBlogPosts} value={q} onChange={this.changeQuery} onKeyDown={this.keyPress} onReset={this.resetSearch}/>
+        <SearchInput placeholder={genericStrings.searchBlogPosts} onInputUpdate={this.preformSearch} onReset={this.resetSearch}/>
         <Row>
           {sortedPosts.map(p => (<PostCell key={p.id} post={p}/>))}
         </Row>
