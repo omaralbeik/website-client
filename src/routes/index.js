@@ -15,6 +15,7 @@ import BlogPostDetails from '../pages/BlogPostDetails';
 import Portfolio from '../pages/Portfolio';
 import About from '../pages/About';
 import Snippets from '../pages/Snippets';
+import API from '../pages/API';
 import Error from '../pages/Error';
 
 // Strings
@@ -59,6 +60,8 @@ class Routes extends Component {
 
         <Route exact path={links.snippetsLink.url} component={Snippets}/>
         <Route exact path={`${links.snippetsLink.url}/:snippet_id`} component={Snippets}/>
+
+        <Route exact path={links.apiLink.url} component={API}/>
 
         <Route render={() => (<Error error={errorStrings.notFound}/>)}/>
       </Switch>

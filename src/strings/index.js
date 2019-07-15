@@ -18,6 +18,11 @@ export const homeStrings = {
   bio: "I'm a passionate software developer and AI enthusiast who continuously enjoys learning more about the ever-growing digital world and the technologies used to make it.",
 }
 
+export const apiStrings = {
+  subtitle: "This website is powered by a RESTful API built using Django and Django REST Framework.",
+  body: "Here is a list of URLs you can use to explore the website contents is a less user-friendly way!",
+}
+
 export const errorStrings = {
   error: "Error!",
   backHome: "Back Home",
