@@ -2,6 +2,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
+// Helmet
+import {Helmet} from 'react-helmet';
+
 // Bootstrap
 import {Modal, Container, ButtonGroup, Button, Badge} from 'reactstrap';
 
@@ -16,7 +19,7 @@ import {copyToClipboard} from '../utils';
 
 // Links
 import {withRouter} from 'react-router-dom';
-import {snippetsLink} from '../links';
+import {snippetsLink, snippetLink} from '../links';
 
 
 class SnippetModal extends Component {
@@ -56,6 +59,11 @@ class SnippetModal extends Component {
 
     return (
       <Modal {...props}>
+        <Helmet key='meta'>
+          <title>{snippetLink(snippet).documentTitle}</title>
+          <meta name="description" content={snippet.summary}/>
+          <meta name="keywords" content={snippet.language.name}/>
+        </Helmet>
         <StyledContainer>
           <h2>{snippet.name} <StyledBadge>{snippet.language.name}</StyledBadge></h2>
           <p>{snippet.summary}</p>

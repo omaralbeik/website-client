@@ -1,6 +1,9 @@
 // React
 import React, {Component} from 'react';
 
+// Helmet
+import {Helmet} from 'react-helmet';
+
 // Styled Components
 import styled from 'styled-components';
 
@@ -27,6 +30,9 @@ class API extends Component {
     const {items} = apiLink;
     return (      
       <Container>
+        <Helmet>
+          <title>{apiLink.documentTitle}</title>
+        </Helmet>
         <h1>{apiLink.title}</h1>
         <p>{apiStrings.subtitle}<br/>{apiStrings.body}</p>
         <StyledTable responsive hover>

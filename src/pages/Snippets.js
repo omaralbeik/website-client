@@ -5,6 +5,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {loadSnippets, addSnippet} from '../actions';
 
+// Helmet
+import {Helmet} from 'react-helmet';
+
 // Bootstrap
 import {Container, Row} from 'reactstrap';
 
@@ -131,6 +134,9 @@ class Snippets extends Component {
 
     return (
       <Container>
+        <Helmet key='meta'>
+          <title>{snippetsLink.documentTitle}</title>
+        </Helmet>
         <PageTitle>{snippetsLink.title}</PageTitle>
         <SearchInput placeholder={genericStrings.searchSnippets} onInputUpdate={this.preformSearch} onReset={this.resetSearch}/>
         {this.renderModal(snippets, snippetsArray)}

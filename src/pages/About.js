@@ -5,6 +5,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addContent} from '../actions';
 
+// Helmet
+import {Helmet} from 'react-helmet';
+
 // Styled Components
 import styled from 'styled-components';
 import {sm} from '../breakpoints';
@@ -52,6 +55,10 @@ class About extends Component {
     const about = contents.about;
     return (
       <Container>
+        <Helmet>
+          <title>{aboutLink.documentTitle}</title>
+          <meta name="description" content={about.text}/>
+        </Helmet>
         <PageTitle>{aboutLink.title}</PageTitle>
         {this.generateBody(about)}
         <ContactForm/>

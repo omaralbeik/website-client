@@ -48,8 +48,8 @@ class App extends Component {
             <meta property="og:title" content={genericStrings.name}/>
             <meta property="og:description" content={genericStrings.title}/>
             <meta name="description" content={homeStrings.bio}/>
-            <meta name="keyword" content={genericStrings.keyword}/>
             <meta name="apple-mobile-web-app-title" content={genericStrings.name}/>
+            <meta name="author" content={genericStrings.name}/>
           </Helmet>
           <FlexWrapper>
             <Navbar/>

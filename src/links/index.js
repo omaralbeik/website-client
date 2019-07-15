@@ -41,7 +41,7 @@ export const snippetsLink = {
   name: 'Snippets',
   title: 'Code Snippets (Beta)',
   url: '/snippets',
-  documentTitle: `Snippets | ${genericStrings.name}`
+  documentTitle: `Code Snippets | ${genericStrings.name}`
 };
 
 export function snippetLink(p) {
