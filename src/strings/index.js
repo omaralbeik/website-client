@@ -20,7 +20,7 @@ export const homeStrings = {
 
 export const apiStrings = {
   subtitle: "This website is powered by a RESTful API built using Django and Django REST Framework.",
-  body: "Here is a list of URLs you can use to explore the website contents is a less user-friendly way!",
+  body: "Here is a list of URLs you can use to explore the website contents in a less user-friendly way!",
 }
 
 export const errorStrings = {
