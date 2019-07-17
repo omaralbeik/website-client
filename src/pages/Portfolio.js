@@ -16,6 +16,7 @@ import ProjectCell from '../components/ProjectCell';
 import PageTitle from '../components/PageTitle';
 import ErrorContainer from '../components/ErrorContainer'
 import SearchInput from '../components/SearchInput';
+import Loading from '../components/Loading';
 
 // Links
 import {portfolioLink} from '../links';
@@ -70,7 +71,7 @@ class Portfolio extends Component {
     });
   }
 
-  resetSearch() {
+  resetSearch = _ => {
     this.setState({q: "", results: null});
   }
 
@@ -88,6 +89,10 @@ class Portfolio extends Component {
 
     if (results) {
       sortedProjects = results
+    }
+
+    if (sortedProjects.length === 0 && !results) {
+      return <Loading/>
     }
 
     let technologies = [];

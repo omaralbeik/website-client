@@ -28,7 +28,6 @@ import APIHelper from '../utils/APIHelper';
 import {arrayFromObject} from '../utils';
 
 // Strings
-import {genericStrings} from '../strings';
 import {blogPostLink} from '../links';
 
 
@@ -36,6 +35,7 @@ class BlogPostDetails extends Component {
 
   constructor(props) {
     super(props);
+    
     this.state = { error: null };
     this.fetchBlogPost();
   }
@@ -44,19 +44,13 @@ class BlogPostDetails extends Component {
     window.scrollTo(0, 0);
   }
 
-  fetchBlogPost() {
+  fetchBlogPost = _ => {
     const {post_id} = this.props.match.params;
     APIHelper.fetchBlogPost(post_id).then(post => {
       this.props.addBlogPost({post});
     }).catch(error => {
       this.setState({error: error});
     });
-  }
-
-  setTitle(post) {
-    if (post) {
-      document.title = `${post.title} | ${genericStrings.name}`;
-    }
   }
 
   render() {
@@ -71,14 +65,14 @@ class BlogPostDetails extends Component {
       post = postsArray.filter(p => (p.slug === post_id))[0]
     }
 
-    this.setTitle(post);
-
     const {error} = this.state;
-    if (error) {
+    if (error && !post) {
       return (
         <ErrorContainer error={error}/>
       );
     }
+
+    if (!post) { return <Loading/>; }
 
     const {summary='', tags=[]} = post;
 
@@ -95,7 +89,7 @@ class BlogPostDetails extends Component {
 
   }
 
-  generateBody(post) {
+  generateBody = (post) => {
     if (!post) {
       return <Loading/>
     }
@@ -111,7 +105,7 @@ class BlogPostDetails extends Component {
     ];
   }
 
-  generateCoverImage(post) {
+  generateCoverImage = (post) => {
     if (!post) { return }
     if (!post.cover_image_url) { return }
     return (

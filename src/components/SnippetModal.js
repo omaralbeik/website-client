@@ -21,6 +21,9 @@ import {copyToClipboard} from '../utils';
 import {withRouter} from 'react-router-dom';
 import {snippetsLink, snippetLink} from '../links';
 
+// Strings
+import {genericStrings} from '../strings';
+
 
 class SnippetModal extends Component {
   static propTypes = {
@@ -49,12 +52,12 @@ class SnippetModal extends Component {
 
   render() {
     const {copied} = this.state;
-    const {snippet, ...props} = this.props;
+    const {snippet, toggle} = this.props;
     const {style} = this.props.theme;
     const syntaxClassName = style === 'dark' ? 'dark-code' : 'light-code';
 
     return (
-      <Modal {...props}>
+      <Modal toggle={toggle} isOpen centered scrollable size='lg'>
         <Helmet key='meta'>
           <title>{snippetLink(snippet).documentTitle}</title>
           <meta name="description" content={snippet.summary}/>
@@ -64,8 +67,8 @@ class SnippetModal extends Component {
           <h2>{snippet.name} <StyledBadge>{snippet.language.name}</StyledBadge></h2>
           <p>{snippet.summary}</p>
           <ButtonGroup>
-            <StyledButton onClick={this.close}>Close</StyledButton>
-            <StyledButton onClick={this.copy}>{copied ? 'Copied!' : 'Copy'}</StyledButton>
+            <StyledButton onClick={this.close}>{genericStrings.close}</StyledButton>
+            <StyledButton onClick={this.copy}>{copied ? `${genericStrings.copies}` : `${genericStrings.copy}`}</StyledButton>
           </ButtonGroup>
           <CodeContainer ref={snippet.id} dangerouslySetInnerHTML={{__html: snippet.html_text}} className={syntaxClassName}/>
           <ShareButtons message={snippet.name}/>
