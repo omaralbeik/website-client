@@ -80,12 +80,14 @@ class BlogPostDetails extends Component {
       );
     }
 
+    const {summary='', tags=[]} = post;
+
     return (
       <Container>
         <Helmet key='meta'>
           <title>{blogPostLink(post).documentTitle}</title>
-          <meta name="description" content={post.summary}/>
-          <meta name="keywords" content={post.tags.map(t => (t.name)).join(',')}/>
+          <meta name="description" content={summary}/>
+          <meta name="keywords" content={tags.map(t => (t.name)).join(',')}/>
         </Helmet>
         {this.generateBody(post)}
       </Container>
