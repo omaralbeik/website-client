@@ -52,8 +52,9 @@ class About extends Component {
 
   render() {
     const {contents} = this.props;
-    const about = contents.about;
+    const {about={}} = contents;
     const {title = ''} = about;
+    
     return (
       <Container>
         <Helmet>
