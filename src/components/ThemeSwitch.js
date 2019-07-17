@@ -21,17 +21,11 @@ import darkIcon from '../images/icon-dark-mode.svg';
 
 class ThemeSwitch extends Component {
 
-  constructor() {
-    super();
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
   loadTheme(theme) {
     this.props.loadTheme(theme);
   }
 
-  handleChange(checked) {
+  handleChange = checked => {
     const info = generateInfo(checked ? DefaultDark : DefaultLight);
     this.loadTheme(info)
   }

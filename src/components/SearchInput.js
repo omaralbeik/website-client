@@ -28,10 +28,6 @@ class SearchInput extends Component {
     
     this.searchDebounced = debounce(500, this.search);
     this.searchThrottled = throttle(500, this.search);
-    this.renderClearButton = this.renderClearButton.bind(this);
-    this.keyPress = this.keyPress.bind(this);
-    this.search = this.search.bind(this);
-    this.reset = this.reset.bind(this);
     this.state = {q: ""};
   }
 
@@ -46,7 +42,7 @@ class SearchInput extends Component {
     });
   };
 
-  search(query) {
+  search = query => {
     const {onReset, onInputUpdate} = this.props;
     const timmedQuery = query.trim()
     if (timmedQuery.length === 0) {
@@ -56,7 +52,7 @@ class SearchInput extends Component {
     }
   }
 
-  keyPress(event) {
+  keyPress = event => {
     if (event.keyCode !== 13) { return; }
     event.target.blur();
     const query = event.target.value.trim();
@@ -68,13 +64,13 @@ class SearchInput extends Component {
     }
   }
 
-  reset() {
+  reset = _ => {
     const {onReset} = this.props;
     this.setState({q: ""})
     onReset();
   }
 
-  renderClearButton() {
+  renderClearButton = _ => {
     const trimmedQuery = this.state.q.trim();
     if (trimmedQuery) {
       return <StyledButton onClick={this.reset}>{genericStrings.clear}</StyledButton>

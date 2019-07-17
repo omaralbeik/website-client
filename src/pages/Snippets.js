@@ -42,10 +42,6 @@ class Snippets extends Component {
 
     this.fetchSnippets();
     this.fetchSnippet();
-
-    this.toggle = this.toggle.bind(this);
-    this.preformSearch = this.preformSearch.bind(this);
-    this.resetSearch = this.resetSearch.bind(this);
   }
 
   componentWillMount() {
@@ -56,14 +52,14 @@ class Snippets extends Component {
     window.scrollTo(0, 0)
   }
 
-  toggle() {
+  toggle = _ => {
     this.props.history.push(snippetsLink.url)
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
   }
 
-  fetchSnippets() {
+  fetchSnippets = _ => {
     APIHelper.fetchSnippet().then(snippets => {
       this.props.loadSnippets({snippets});
     }).catch(error => {
@@ -75,7 +71,7 @@ class Snippets extends Component {
     });
   }
 
-  fetchSnippet() {
+  fetchSnippet = _ => {
     const {snippet_id} = this.props.match.params;
     if (!snippet_id) { return }
     
@@ -86,7 +82,7 @@ class Snippets extends Component {
     });
   }
 
-  preformSearch(query) {
+  preformSearch = query => {
     APIHelper.searchSnippet(query).then(snippets => {
       this.setState({results: snippets});
     }).catch(error => {

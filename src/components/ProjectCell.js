@@ -12,10 +12,10 @@ import styled from 'styled-components';
 // Components
 import DateWrapper from './DateWrapper';
 import Loading from './Loading';
-import Technologies from './Technologies'
+import Technologies from './Technologies';
 
 // 3rd party components
-import Img from 'react-image'
+import Img from 'react-image';
 
 // Strings
 import {genericStrings} from '../strings';
@@ -31,6 +31,7 @@ class ProjectCell extends Component {
 
   render() {
     const {project} = this.props;
+    const {technologies = []} = project;
 
     return (
       <StyledContainer>
@@ -44,7 +45,7 @@ class ProjectCell extends Component {
             <StyledA1 href={project.url} target='_blank' rel='noopener noreferrer'><StyledH2>{project.name}</StyledH2></StyledA1>
             <DateWrapper date={project.date_published} />
             <StyledP>{project.summary}</StyledP>
-            <Technologies technologies={project.technologies}/>
+            <Technologies technologies={technologies}/>
             <StyledA2 href={project.url} target='_blank' rel='noopener noreferrer'>{project.url_name} {genericStrings.linkArrow}</StyledA2>
           </Col>
         </Row>

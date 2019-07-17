@@ -39,9 +39,6 @@ class Blog extends Component {
     };
 
     this.fetchBlogPosts();
-
-    this.preformSearch = this.preformSearch.bind(this);
-    this.resetSearch = this.resetSearch.bind(this);
   }
 
   componentWillMount() {
@@ -52,7 +49,7 @@ class Blog extends Component {
     window.scrollTo(0, 0)
   }
 
-  fetchBlogPosts() {
+  fetchBlogPosts = _ => {
     APIHelper.fetchBlogPosts().then(posts => {
       this.props.loadBlogPosts({posts});
     }).catch(error => {
@@ -64,7 +61,7 @@ class Blog extends Component {
     });
   }
 
-  preformSearch(query) {
+  preformSearch = query => {
     APIHelper.searchBlogPost(query).then(posts => {
       this.setState({results: posts});
     }).catch(error => {

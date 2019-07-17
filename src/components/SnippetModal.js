@@ -30,14 +30,10 @@ class SnippetModal extends Component {
   constructor(props) {
     super(props);
 
-    this.copy = this.copy.bind(this);
-    this.close = this.close.bind(this);
-    this.state = {
-      copied: false
-    };
+    this.state = {copied: false};
   }
 
-  copy() {
+  copy = _ => {
     const {snippet} = this.props;
     const code = this.refs[snippet.id];
     copyToClipboard(code.textContent)
@@ -47,7 +43,7 @@ class SnippetModal extends Component {
     }, 500);
   }
 
-  close() {
+  close = _ => {
     this.props.history.push(snippetsLink.url);
   }
 
