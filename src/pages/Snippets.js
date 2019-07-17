@@ -17,6 +17,7 @@ import PageTitle from '../components/PageTitle';
 import SnippetCell from '../components/SnippetCell';
 import SnippetModal from '../components/SnippetModal';
 import SearchInput from '../components/SearchInput';
+import Loading from '../components/Loading';
 
 // Links
 import {snippetsLink} from '../links';
@@ -90,11 +91,11 @@ class Snippets extends Component {
     });
   }
 
-  resetSearch() {
+  resetSearch = _ => {
     this.setState({q: "", results:null});
   }
 
-  renderModal(snippets, snippetsArray) {
+  renderModal = (snippets, snippetsArray) => {
     const {snippet_id} = this.props.match.params;
     if (!snippet_id) { return }
 
@@ -105,10 +106,10 @@ class Snippets extends Component {
       snippet = snippetsArray.filter(s => (s.slug === snippet_id))[0]
     }
 
-    if (!snippet) { return; }
+    if (!snippet) { return null; }
 
     return (
-      <SnippetModal snippet={snippet} toggle={this.toggle} isOpen centered scrollable size='lg'/>
+      <SnippetModal snippet={snippet} toggle={this.toggle}/>
     );
   }
 
@@ -126,6 +127,10 @@ class Snippets extends Component {
 
     if (results) {
       sortedSnippets = results
+    }
+
+    if (sortedSnippets.length === 0 && !results) {
+      return <Loading/>
     }
 
     return (

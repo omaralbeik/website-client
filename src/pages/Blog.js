@@ -16,6 +16,7 @@ import PostCell from '../components/PostCell';
 import PageTitle from '../components/PageTitle';
 import ErrorContainer from '../components/ErrorContainer'
 import SearchInput from '../components/SearchInput';
+import Loading from '../components/Loading';
 
 // Links
 import {blogLink} from '../links';
@@ -69,7 +70,7 @@ class Blog extends Component {
     });
   }
 
-  resetSearch() {
+  resetSearch = _ => {
     this.setState({results:null});
   }
 
@@ -87,6 +88,10 @@ class Blog extends Component {
 
     if (results) {
       sortedPosts = results
+    }
+
+    if (sortedPosts.length === 0 && !results) {
+      return <Loading/>
     }
 
     return (
