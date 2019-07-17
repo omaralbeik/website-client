@@ -53,11 +53,12 @@ class About extends Component {
   render() {
     const {contents} = this.props;
     const about = contents.about;
+    const {title = ''} = about;
     return (
       <Container>
         <Helmet>
           <title>{aboutLink.documentTitle}</title>
-          <meta name="description" content={about.text}/>
+          <meta name="description" content={title}/>
         </Helmet>
         <PageTitle>{aboutLink.title}</PageTitle>
         {this.generateBody(about)}
