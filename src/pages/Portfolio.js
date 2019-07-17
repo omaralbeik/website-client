@@ -40,9 +40,6 @@ class Portfolio extends Component {
     };
     
     this.fetchProjects();
-
-    this.preformSearch = this.preformSearch.bind(this);
-    this.resetSearch = this.resetSearch.bind(this);
   }
 
   componentWillMount() {
@@ -53,7 +50,7 @@ class Portfolio extends Component {
     window.scrollTo(0, 0)
   }
 
-  fetchProjects() {
+  fetchProjects = _ => {
     APIHelper.fetchProjects().then(projects => {
       this.props.loadProjects({projects})
     }).catch(error => {
@@ -65,7 +62,7 @@ class Portfolio extends Component {
     });
   }
 
-  preformSearch(query) {
+  preformSearch = query => {
     APIHelper.searchProject(query).then(snippets => {
       this.setState({results: snippets});
     }).catch(error => {

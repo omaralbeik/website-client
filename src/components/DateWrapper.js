@@ -19,15 +19,15 @@ class DateWrapper extends Component {
     const {date, isRelative} = this.props;
 
     return (
-      <Container>
+      <StyledDiv>
         <StyledMoment fromNow={isRelative} format={isRelative ? null : 'MMMM YYYY'}>{date}</StyledMoment>
-      </Container>
+      </StyledDiv>
     );
   }
 
 }
 
-const Container = styled.div`
+const StyledDiv = styled.div`
   margin: 8px auto 0 0;
   opacity: 0.75;
 `;

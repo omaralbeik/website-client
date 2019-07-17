@@ -29,25 +29,22 @@ class Bar extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
+    this.state = {isOpen: false};
   }
 
-  open() {
+  open = _ => {
     this.setState({
       isOpen: true
     });
   }
 
-  close() {
+  close = _ => {
     this.setState({
       isOpen: false
     });
   }
 
-  toggle() {
+  toggle = _ => {
     this.setState({
       isOpen: !this.state.isOpen
     });

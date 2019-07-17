@@ -41,8 +41,7 @@ class APIHelper {
    * Search for a project containing a query.
    */
   static searchProject(query) {
-    query = encodeURI(query).replace(/%20/g, '+');
-    return this._fetchObject(this.PROJECTS_URL, `?search=${query}`);
+    return this._fetchObject(this.PROJECTS_URL, this._searchQuery(query));
   }
 
   /**
@@ -56,8 +55,7 @@ class APIHelper {
    * Search for a blog post containing a query.
    */
   static searchBlogPost(query) {
-    query = encodeURI(query).replace(/%20/g, '+');
-    return this._fetchObject(this.BLOG_URL, `?search=${query}`);
+    return this._fetchObject(this.BLOG_URL, this._searchQuery(query));
   }
 
   /**
@@ -85,8 +83,21 @@ class APIHelper {
    * Search for a snippet containing a query.
    */
   static searchSnippet(query) {
-    query = encodeURI(query).replace(/%20/g, '+');
-    return this._fetchObject(this.SNIPPETS_URL, `?search=${query}`);
+    return this._fetchObject(this.SNIPPETS_URL, this._searchQuery(query));
+  }
+
+  /**
+   * Create a search query.
+   */
+  static _searchQuery(query) {
+    return `?search=${this._fixQuery(query)}`
+  }
+
+  /**
+   * Replace /%20/ with + in a query string.
+   */
+  static _fixQuery(query) {
+    return encodeURI(query).replace(/%20/g, '+');
   }
 
   /**

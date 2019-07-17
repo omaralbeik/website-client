@@ -27,19 +27,19 @@ class ErrorContainer extends Component {
   render() {
     const {error} = this.props;
     return (
-      <Container>
+      <StyledContainer>
         <h1>{errorStrings.error}</h1>
         <p>{error}</p>
         <NavLink to={homeLink.url}>
           <Button>{errorStrings.backHome}</Button>
         </NavLink>
-      </Container>
+      </StyledContainer>
     );
   }
 
 }
 
-const Container = styled(InnerContainer)`
+const StyledContainer = styled(InnerContainer)`
   text-align: center;
   margin-top: 35px;
   padding: 100px 20px;

@@ -21,13 +21,7 @@ class SnippetCell extends Component {
     snippet: PropTypes.object.isRequired
   }
 
-  constructor(props) {
-    super(props)
-
-    this.expand = this.expand.bind(this)
-  }
-
-  expand() {
+  expand = _ => {
     const {snippet} = this.props;
     this.props.history.push(snippetLink(snippet).url);
   }
