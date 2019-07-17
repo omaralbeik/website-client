@@ -25,7 +25,7 @@ This project is built using ReactJS, Redux and other dependencies. Complete list
 
 2. Move to project directory and install required npm packages
 
-``` bash
+``` sh
 npm i
 ```
 
@@ -33,7 +33,7 @@ npm i
 
 Run React server
 
-```bash
+```sh
 npm run start
 ```
 
@@ -41,7 +41,7 @@ npm run start
 
 To create a production build, use:
 
-```bash
+```sh
 npm run build
 ```
 
