@@ -4,18 +4,19 @@
 
 ## Features
 
-- Single page web application using React.
+- Built using NextJS.
+- Server side rendering and SEO friendly
 - Progressive web app (PWA).
 - Fully Written in ES6.
-- Client-side routing using React Router.
 - State management and local caching using Redux and Local Storage.
 - Google Analytics support.
 - Light/Dark themes and CSS in JS using [styled-componenets](https://www.styled-components.com/)
 - Fully responsive design with the help of Bootstrap.
+- Support for .env files.
 
 ## Dependencies
 
-This project is built using ReactJS, Redux and other dependencies. Complete list of 3rd party dependencies can be found in [**package.json**](package.json)
+This project is built using NextJS, Redux and other dependencies. Complete list of 3rd party dependencies can be found in [**package.json**](package.json)
 
 ## Getting Started
 
@@ -29,12 +30,12 @@ This project is built using ReactJS, Redux and other dependencies. Complete list
 npm i
 ```
 
-### Start React development server
+### Start NextJS development server
 
-Run React server
+Run development server
 
 ```sh
-npm run start
+npm run dev
 ```
 
 ### Create a production build
