@@ -8,7 +8,8 @@ const nextConfig = {
   workboxOpts: {
     cleanupOutdatedCaches: true,
     swDest: '/sw.js',
-    include: [/\.html$/, /\.js$/],
+    include: [/\.(?:html|js|css|scss)$/],
+    clientsClaim: true,
     runtimeCaching: [
       {
         urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
@@ -16,18 +17,28 @@ const nextConfig = {
         options: {
           cacheName: 'images',
           expiration: {
-            maxEntries: 50
+            maxEntries: 10
           }
         }
       },
       {
-        urlPattern: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?omaralbeik\.com/,
+        urlPattern: new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'google-fonts',
+          cacheableResponse: {
+            statuses: [0, 200],
+          }
+        }
+      },
+      {
+        urlPattern: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?omaralbeik\.com?.*/,
         handler: 'NetworkFirst',
         options: {
           cacheName: 'https-calls',
           networkTimeoutSeconds: 10,
           expiration: {
-            maxEntries: 150,
+            maxEntries: 100,
             maxAgeSeconds: 30 * 24 * 60 * 60, // 1 month
           },
           cacheableResponse: {
