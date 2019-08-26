@@ -21,7 +21,7 @@ const nextConfig = {
         }
       },
       {
-        urlPattern: /^https?:((?!api\.).)*$/,
+        urlPattern: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?omaralbeik\.com/,
         handler: 'NetworkFirst',
         options: {
           cacheName: 'https-calls',
