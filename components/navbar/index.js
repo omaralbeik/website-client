@@ -36,7 +36,9 @@ class Navbar extends Component {
         <_Navbar expand="md" sticky="top">
           <_Container>
           <Link href='/'>
-            <_NavbarBrand>{genericStrings.name}</_NavbarBrand>
+            <span>
+              <_NavbarBrand>{genericStrings.name}</_NavbarBrand>
+            </span>
           </Link>
           <_NavbarToggler onClick={this.toggle}>{menu}</_NavbarToggler>
           <_Collapse isOpen={this.state.isOpen} navbar>

@@ -63,9 +63,9 @@ export default withRedux(initStore) (
       const { Component, pageProps, store, theme } = this.props;
       store.dispatch(loadTheme(theme));
 
-      return (
-        <Container>
+      return [
           <NextSeo
+            key='seo'
             openGraph={{
               site_name: genericStrings.name
             }}
@@ -74,14 +74,13 @@ export default withRedux(initStore) (
               site: twitter().handle,
               cardType: 'summary_large_image',
             }}
-          />
-          <Provider store={store}>
+          />,
+          <Provider key='provider' store={store}>
             <Layout>
               <Component {...pageProps} />
             </Layout>
           </Provider>
-        </Container>
-      );
+      ];
     }
   }
 
