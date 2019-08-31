@@ -11,7 +11,7 @@ export const _InnerContainer = styled(InnerContainer)`
   padding: 50px 50px 30px 50px;
   border-radius: 8px;
   margin: 15px 0 10px 0;
-  border-top: 10px ${props => props.theme.colors.primary}25 solid;
+  border-top: 10px ${props => props.theme.colors.primary}25 solid !important;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
   @media (${sm}) {
     padding: 20px;

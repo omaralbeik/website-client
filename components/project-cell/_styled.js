@@ -12,11 +12,11 @@ export const _div = styled.div`
   border-radius: 8px;
   padding: 22px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-  border-left: 10px ${props => props.theme.colors.primary}25 solid;
+  border-left: 10px ${props => props.theme.colors.primary}25 solid !important;
   border-right: 0 transparent solid;
   transition: 0.25s;
   :hover {
-    border-left: 0 ${props => props.theme.colors.primary}25 solid;
+    border-left: 0 ${props => props.theme.colors.primary}25 solid !important;
     border-right: 10px transparent solid;
   }
 `;
