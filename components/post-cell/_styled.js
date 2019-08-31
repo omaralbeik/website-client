@@ -18,11 +18,12 @@ export const _Container = styled(Container)`
   border-radius: 8px;
   padding: 25px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-  border-top: 10px solid;
+  border-top: 10px ${props => props.theme.colors.primary}25 solid;
   border-bottom: 0 transparent solid;
   transition: 0.25s;
+  cursor: pointer;
   :hover {
-    border-top: 0 solid;
+    border-top: 0 ${props => props.theme.colors.primary}25 solid;
     border-bottom: 10px transparent solid;
   }
 `;
@@ -31,7 +32,6 @@ export const _h1 = styled.h1`
   font-size: 150%;
   margin-bottom: 2px;
   font-weight: bold;
-  cursor: pointer;
   @media (${sm}) {
     font-size: 130%;
   }

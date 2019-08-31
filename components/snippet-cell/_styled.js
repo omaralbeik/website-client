@@ -24,11 +24,11 @@ export const _Container = styled(Container)`
     margin: 0;
   }
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-  border-top: 10px solid;
+  border-top: 10px ${props => props.theme.colors.primary}25 solid;
   border-bottom: 0 transparent;
   transition: 0.25s;
   :hover {
-    border-top: 0 solid;
+    border-top: 0 ${props => props.theme.colors.primary}25 solid;
     border-bottom: 10px transparent;
   }
 `;

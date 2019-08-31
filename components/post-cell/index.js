@@ -18,16 +18,18 @@ class PostCell extends Component {
 
     return (
       <_Col xs={12} md={12} lg={6}>
-          <_Container>
-            <Link href={blogPostLink(post).templateUrl} as={blogPostLink(post).url} >
-              <_h1>{post.title}</_h1>
-            </Link>
-            <DateWrapper date={post.date_published} isRelative />
-            <_p>{post.summary}</_p>
-            <Link href={blogPostLink(post).templateUrl} as={blogPostLink(post).url} >
-              <_a href={blogPostLink(post).url}>{genericStrings.readMore}</_a>
-            </Link>
-          </_Container>
+          <Link href={blogPostLink(post).templateUrl} as={blogPostLink(post).url} >
+            <span>
+              <_Container>
+                  <_h1>{post.title}</_h1>
+                <DateWrapper date={post.date_published} isRelative />
+                <_p>{post.summary}</_p>
+                <Link href={blogPostLink(post).templateUrl} as={blogPostLink(post).url} >
+                  <_a href={blogPostLink(post).url}>{genericStrings.readMore}</_a>
+                </Link>
+              </_Container>
+            </span>
+          </Link>
       </_Col>
     );
   }
