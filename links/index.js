@@ -191,5 +191,5 @@ export const repoLink = {
   url: "https://github.com/omaralbeik/omaralbeik.com"
 };
 
-export const navbarLinks = [blogLink, projectsLink, snippetsLink, aboutLink];
+export const navbarLinks = [blogLink, snippetsLink, aboutLink];
 export const footerLinks = [blogLink, projectsLink, snippetsLink, apiLink, aboutLink];
