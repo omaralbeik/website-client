@@ -83,7 +83,7 @@ class Projects extends Component {
           }}
         />
         <PageTitle title={projectsLink.title} subtitle={projectsLink.subtitle} />
-        <SearchInput placeholder={genericStrings.searchBlogPosts} onInputUpdate={this.preformSearch} onReset={this.resetSearch} />
+        <SearchInput placeholder={genericStrings.searchProjects} onInputUpdate={this.preformSearch} onReset={this.resetSearch} />
         {projects.map(p => (<ProjectCell key={p.id} project={p} />))}
       </div>
     );
