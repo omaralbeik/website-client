@@ -16,7 +16,15 @@ class ThemeSwitch extends Component {
 
   handleChange = checked => {
     const info = generateInfo(checked ? dark : light);
-    this.loadTheme(info)
+    this.loadTheme(info);
+  }
+
+  componentDidMount() {
+    // observe theme change in macOS.
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(({ matches }) => {
+      const info = generateInfo(matches ? dark : light);
+      this.loadTheme(info);
+    });
   }
 
   render() {

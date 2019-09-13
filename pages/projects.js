@@ -10,7 +10,7 @@ import SearchInput from 'components/search-input';
 import { projectsLink } from 'links';
 import { twitter } from 'links/social';
 import { genericStrings } from 'static/strings';
-import { arrayFromObject, isEmpty } from 'utils';
+import { arrayFromObject } from 'utils';
 import { NextSeo } from 'next-seo';
 
 class Projects extends Component {
