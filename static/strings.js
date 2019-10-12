@@ -5,6 +5,7 @@ export const genericStrings = {
   twitterHandler: "omaralbeik",
   readMore: "Read More →",
   linkArrow: " →",
+  read: "read",
   close: "Close",
   copy: "Copy",
   clear: "Clear",

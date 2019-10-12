@@ -22,7 +22,7 @@ class PostCell extends Component {
             <span>
               <_Container>
                   <_h1>{post.title}</_h1>
-                <DateWrapper date={post.date_published} isRelative />
+                <DateWrapper date={post.date_published} isRelative readTime={post.read_time}/>
                 <_p>{post.summary}</_p>
                 <Link href={blogPostLink(post).templateUrl} as={blogPostLink(post).url} >
                   <_a href={blogPostLink(post).url}>{genericStrings.readMore}</_a>

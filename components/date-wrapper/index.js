@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { _div, _Moment } from './_styled';
+import { _div, _span } from './_styled';
+import Moment from 'react-moment';
+import { genericStrings } from 'static/strings';
 
 class DateWrapper extends Component {
 
@@ -10,11 +12,14 @@ class DateWrapper extends Component {
   }
 
   render() {
-    const {date, isRelative} = this.props;
+    const {date, isRelative, readTime} = this.props;
 
     return (
       <_div>
-        <_Moment fromNow={isRelative} format={isRelative ? null : 'MMMM YYYY'}>{date}</_Moment>
+        <_span>
+          <Moment fromNow={isRelative} format={isRelative ? null : 'MMMM YYYY'}>{date}</Moment>
+          {readTime ? ` ~${readTime} ${genericStrings.read}` : null}
+        </_span>
       </_div>
     );
   }

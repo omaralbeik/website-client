@@ -6,7 +6,7 @@ export const _div = styled.div`
   opacity: 0.75;
 `;
 
-export const _Moment = styled(Moment)`
+export const _span = styled.span`
   color: ${props => props.theme.colors.inner_primary};
   font-size: 10pt;
   font-family: ${props => props.theme.fonts.title};
