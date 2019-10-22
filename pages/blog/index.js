@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { loadBlogPosts } from 'redux/actions';
@@ -10,7 +9,6 @@ import SearchInput from 'components/search-input';
 import { Row } from 'reactstrap';
 import Error from 'components/error';
 import { blogLink } from 'links';
-import { twitter } from 'links/social';
 import { arrayFromObject } from 'utils';
 import { genericStrings } from 'static/strings';
 import { NextSeo } from 'next-seo';

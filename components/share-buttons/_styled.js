@@ -7,6 +7,7 @@ export const _p = styled.p`
   margin-bottom: 0;
   font-size: 14px;
   font-weight: bold;
+  user-select: none;
   @media (${sm}) {
     display: none;
   }

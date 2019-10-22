@@ -36,9 +36,7 @@ class About extends Component {
     this.state = { cachedAbout };
   }
 
-  handleCaptcha = key => {
-    console.log(key);
-    
+  handleCaptcha = key => {    
     this.setState({
       captcha: true,
       'g-recaptcha-response': key

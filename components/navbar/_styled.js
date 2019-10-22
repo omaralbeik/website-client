@@ -30,6 +30,7 @@ export const _NavItem = styled(NavItem)`
   padding: 5px 10px 0 10px;
   font-weight: lighter;
   text-transform: uppercase;
+  user-select: none;
   @media (${sm}) {
     text-align: center;
     font-size: 120%;
