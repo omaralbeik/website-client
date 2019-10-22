@@ -1,6 +1,6 @@
 // Styled componenets
 import styled from 'styled-components';
-import { sm } from 'styles/breakpoints';
+import { sm, xl } from 'styles/breakpoints';
 import { Container } from 'reactstrap'
 
 import '../../styles/themes/dark/syntax.css';
@@ -13,6 +13,10 @@ export const _Container = styled(Container)`
   border-radius: 8px;
   border-top: 10px ${props => props.theme.colors.primary}25 solid;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+  @media (${xl}) {
+    padding-right: 175px;
+    padding-left: 175px;
+  }
   @media (${sm}) {
     background-color: ${props => props.theme.colors.background};
     box-shadow: none;

@@ -10,10 +10,8 @@ import PostCover from 'components/post-cover';
 import ShareButtons from 'components/share-buttons';
 import TagsWrapper from 'components/tags-wrapper';
 import FreeCodeContainer from 'components/free-code-container';
-import { arrayFromObject, findByIdOrSlug } from 'utils';
-import { genericStrings } from 'static/strings';
+import { findByIdOrSlug } from 'utils';
 import { blogPostLink } from 'links';
-import { twitter } from 'links/social';
 import { NextSeo } from 'next-seo';
 
 class Post extends Component {
