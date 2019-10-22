@@ -5,7 +5,7 @@ import { sm } from 'styles/breakpoints';
 export const _Col = styled(Col)`
   padding: 12px;
   @media (${sm}) {
-    padding: 12px 30px;
+    padding: 12px 15px;
   }
 `;
 

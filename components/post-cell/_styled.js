@@ -5,7 +5,7 @@ import { sm } from 'styles/breakpoints';
 export const _Col = styled(Col)`
   padding: 12px;
   @media (${sm}) {
-    padding: 12px 30px;
+    padding: 12px 15px;
   }
 `;
 
@@ -13,7 +13,7 @@ export const _Container = styled(Container)`
   display: flex;
   flex-direction: column;
   height: 100%;
-  height: 250px;
+  height: 260px;
   background-color: ${props => props.theme.colors.inner_background};
   border-radius: 8px;
   padding: 25px;
