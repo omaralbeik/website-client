@@ -99,9 +99,7 @@ class APIHelper {
       if (child) {
         completeUrl += `/${child}/`
       }
-
-      console.log(completeUrl);
-      
+            
       var init = { method: 'GET'};
       fetch(completeUrl, init).then(response => {
         if (!response.ok) {

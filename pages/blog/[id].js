@@ -53,8 +53,6 @@ class Post extends Component {
       }
     }
 
-    console.log(relatedPosts);
-
     const { style } = this.props.theme;
     const syntaxClassName = style === 'dark' ? 'dark-code' : 'light-code';
 
