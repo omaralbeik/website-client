@@ -42,6 +42,10 @@ class APIHelper {
     return this._fetchObject(this.BLOG_URL, post_id);
   }
 
+  static fetchRelatedBlogPosts(post_id) {
+    return this._fetchObject(this.BLOG_URL, `${post_id}/related`);
+  }
+
   static searchBlogPost(query) {
     return this._fetchObject(this.BLOG_URL, this._searchQuery(query));
   }
@@ -96,6 +100,8 @@ class APIHelper {
         completeUrl += `/${child}/`
       }
 
+      console.log(completeUrl);
+      
       var init = { method: 'GET'};
       fetch(completeUrl, init).then(response => {
         if (!response.ok) {

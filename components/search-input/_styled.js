@@ -5,6 +5,7 @@ import { Input, Button } from 'reactstrap';
 export const _div = styled.div`
   display: flex;
   flex-direction: row;
+  user-select: none;
 `;
 
 export const _Input = styled(Input)`

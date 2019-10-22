@@ -10,6 +10,7 @@ import PostCover from 'components/post-cover';
 import ShareButtons from 'components/share-buttons';
 import TagsWrapper from 'components/tags-wrapper';
 import FreeCodeContainer from 'components/free-code-container';
+import RelatedPosts from 'components/related-posts';
 import { findByIdOrSlug } from 'utils';
 import { blogPostLink } from 'links';
 import { NextSeo } from 'next-seo';
@@ -20,8 +21,9 @@ class Post extends Component {
     const { id } = query;
     try {
       const post = await APIHelper.fetchBlogPost(id);
+      const relatedPosts = await APIHelper.fetchRelatedBlogPosts(id);
       store.dispatch(addBlogPost({ post }));
-      return { post, id };
+      return { post, relatedPosts, id };
     }
     catch (error) {
       console.error(error);
@@ -40,7 +42,7 @@ class Post extends Component {
 
   render() {
     const { error } = this.props;
-    var { post } = this.props;
+    var { post, relatedPosts=[] } = this.props;
     const { cachedPost } = this.state;
 
     if (error) {
@@ -50,6 +52,8 @@ class Post extends Component {
         return <Error error={error} />;
       }
     }
+
+    console.log(relatedPosts);
 
     const { style } = this.props.theme;
     const syntaxClassName = style === 'dark' ? 'dark-code' : 'light-code';
@@ -80,6 +84,7 @@ class Post extends Component {
         <ShareButtons message={post.title} />
         <FreeCodeContainer dangerouslySetInnerHTML={{__html: post.html_text}} className={syntaxClassName} />
         <TagsWrapper tags={post.tags} />
+        <RelatedPosts posts={relatedPosts}/>
       </div>
     );
   }

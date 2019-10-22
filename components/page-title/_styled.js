@@ -4,6 +4,7 @@ import { sm } from 'styles/breakpoints';
 export const _div = styled.div`
   color: ${props => props.theme.colors.primary};
   margin: 35px 0 80px 10px;
+  user-select: none;
   @media (${sm}) {
     margin: 35px 0 25px 0;
   }

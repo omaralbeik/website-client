@@ -16,6 +16,11 @@ export const genericStrings = {
   menu: "Menu"
 };
 
+export const blogStrings = {
+  relatedTitle: "You made it to the end. You're Awesome!",
+  relatedSubtitle: "Here is something more to read",
+};
+
 export const apiStrings = {
   subtitle: "This website is powered by a RESTful API built using Django and Django REST Framework.",
   body: "Here is a list of URLs you can use to explore the website contents in a less user-friendly way!",

@@ -3,7 +3,9 @@ import InnerContainer from '../inner-container';
 import { sm } from 'styles/breakpoints';
 import styled from 'styled-components';
 
-export const _Container = Container;
+export const _Container = styled(Container)`
+  user-select: none;
+`;
 
 export const _Row = Row;
 
