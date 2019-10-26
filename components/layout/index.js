@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import { connect } from 'react-redux';
-import { ThemeProvider, withTheme } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import Navbar from 'components/navbar';
 import FlexWrapper from 'components/flex-wrapper';
 import Footer from 'components/footer';

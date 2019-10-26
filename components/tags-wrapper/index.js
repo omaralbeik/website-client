@@ -1,5 +1,4 @@
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { _div, _Badge } from './_styled';
 

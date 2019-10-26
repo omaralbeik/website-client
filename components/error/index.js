@@ -1,8 +1,7 @@
-// React
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import {homeLink} from 'links';
+import { homeLink } from 'links';
 import { errorStrings } from 'static/strings';
 import { _InnerContainer, _Button } from './_styled';
 

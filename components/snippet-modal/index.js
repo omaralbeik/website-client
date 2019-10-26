@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Router, { withRouter } from 'next/router';
+import { withRouter } from 'next/router';
 import { withTheme } from 'styled-components';
 import ShareButtons from 'components/share-buttons';
 import { _Modal, _ButtonGroup, _Container, _Badge, _Button, _div } from './_styled';
 import { copyToClipboard } from 'utils';
-import { snippetsLink } from 'links';
 import { genericStrings } from 'static/strings';
 
 class SnippetModal extends Component {

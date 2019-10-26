@@ -1,7 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
-import DateWrapper from 'components/date-wrapper';
 import Loading from 'components/loading';
 import { _div, _Img, _creditDiv } from './_styled.js';
 import placeholder from 'static/placeholders/post.png';

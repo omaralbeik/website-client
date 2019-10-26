@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Link from 'next/link';
 import { _Container, _Row, _Col, _LinksCol, _OpenSourceCol, _InnerContainer, _p, _a } from './_styled';
 import SocialLinks from 'components/social-links';

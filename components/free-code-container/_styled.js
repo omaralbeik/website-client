@@ -1,4 +1,3 @@
-// Styled componenets
 import styled from 'styled-components';
 import { sm, xl } from 'styles/breakpoints';
 import { Container } from 'reactstrap'

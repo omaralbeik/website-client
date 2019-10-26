@@ -12,7 +12,6 @@ import ContactForm from 'components/contact-form';
 import { genericStrings } from 'static/strings';
 import Loading from 'components/loading';
 import FreeContentContainer from 'components/free-content-container';
-import { twitter } from 'links/social';
 import { NextSeo } from 'next-seo';
 
 class About extends Component {

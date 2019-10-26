@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withTheme } from 'styled-components';
-import { snippetLink } from 'links';
 import { _Container, _Col, _Badge, _div } from './_styled.js';
 
 class SnippetCell extends Component {

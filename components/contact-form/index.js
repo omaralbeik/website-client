@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Toast from 'cogo-toast';
 import { _h2, _InnerContainer, _Col, _Form, _FormGroup, _Label, _Input, _Button } from './_styled';
 import { countries, contactStrings } from 'static/strings';

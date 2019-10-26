@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Moment from 'react-moment';
 
 export const _div = styled.div`
   margin: 8px auto 0 0;
