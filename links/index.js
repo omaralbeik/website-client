@@ -94,6 +94,12 @@ export const apiLink = {
       method: "GET"
     },
     {
+      name: "blog/[post.id]|[post.slug]/related",
+      description: "Get related blog posts for a post",
+      url: "https://api.omaralbeik.com/v1/blog/6/related",
+      method: "GET"
+    },
+    {
       name: "blog?search=[query]",
       description: "Search blog posts",
       url: "https://api.omaralbeik.com/v1/blog?search=swift",
