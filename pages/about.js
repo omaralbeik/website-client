@@ -9,7 +9,7 @@ import { aboutLink } from 'links';
 import PageTitle from 'components/page-title';
 import AboutCover from 'components/about-cover';
 import ContactForm from 'components/contact-form';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 import Loading from 'components/loading';
 import FreeContentContainer from 'components/free-content-container';
 import { NextSeo } from 'next-seo';

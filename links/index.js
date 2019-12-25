@@ -1,4 +1,4 @@
-import { genericStrings } from "static/strings";
+import { genericStrings } from 'public/static/strings';
 
 export const prodLink = {
   url: "https://omaralbeik.com"

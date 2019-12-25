@@ -4,8 +4,8 @@ import DateWrapper from 'components/date-wrapper';
 import Loading from 'components/loading';
 import TechnologiesWrapper from 'components/technologies-wrapper';
 import { _div, _Container, _Col, _Row, _Img, _ImgCol, _h2, _p, _a } from './_styled.js';
-import { genericStrings } from 'static/strings';
-import placeholder from 'static/placeholders/project.png';
+import { genericStrings } from 'public/static/strings';
+import placeholder from 'public/static/placeholders/project.png';
 
 class ProjectCell extends Component {
 

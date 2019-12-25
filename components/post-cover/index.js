@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from 'components/loading';
 import { _div, _Img, _creditDiv } from './_styled.js';
-import placeholder from 'static/placeholders/post.png';
+import placeholder from 'public/static/placeholders/post.png';
 
 class PostCover extends Component {
 

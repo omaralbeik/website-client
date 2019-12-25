@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router'
 import { _p, _div } from './_styled';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 import { prodLink } from 'links';
 
 import {

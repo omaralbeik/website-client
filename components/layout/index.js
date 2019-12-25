@@ -8,7 +8,7 @@ import Footer from 'components/footer';
 import { Container } from 'reactstrap';
 import { getTheme } from 'styles/themes';
 import { _GlobalStyle } from './_styled';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 import { prodLink } from 'links';
 
 class Layout extends Component {

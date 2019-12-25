@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Toast from 'cogo-toast';
 import { _h2, _InnerContainer, _Col, _Form, _FormGroup, _Label, _Input, _Button } from './_styled';
-import { countries, contactStrings } from 'static/strings';
+import { countries, contactStrings } from 'public/static/strings';
 import ReCAPTCHA from 'components/recaptcha';
 import APIHelper from 'utils/api-helper';
 

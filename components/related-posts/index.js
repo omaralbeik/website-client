@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { _Container, _Row, _h1, _h2 } from './_styled.js';
 import RelatedPostCell from 'components/related-post-cell';
-import { blogStrings } from 'static/strings';
+import { blogStrings } from 'public/static/strings';
 
 class RelatedPosts extends Component {
 

@@ -10,7 +10,7 @@ import Error from 'components/error';
 import SnippetCell from 'components/snippet-cell';
 import SnippetModal from 'components/snippet-modal';
 import { snippetsLink, snippetLink } from 'links';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 import { arrayFromObject, findByIdOrSlug } from 'utils';
 import { Row } from 'reactstrap';
 import { NextSeo } from 'next-seo';

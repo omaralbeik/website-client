@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { _Container, _Row, _Col, _LinksCol, _OpenSourceCol, _InnerContainer, _p, _a } from './_styled';
 import SocialLinks from 'components/social-links';
 import { homeLink, footerLinks, repoLink } from 'links';
-import { genericStrings, footerStrings } from 'static/strings';
+import { genericStrings, footerStrings } from 'public/static/strings';
 
 class Footer extends Component {
 

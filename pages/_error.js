@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Err from 'components/error';
-import { errorStrings } from 'static/strings';
+import { errorStrings } from 'public/static/strings';
 
 class Error extends Component {
 

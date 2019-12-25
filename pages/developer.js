@@ -3,7 +3,7 @@ import { apiLink } from 'links';
 import PageTitle from 'components/page-title';
 import APITable from 'components/api-table';
 import APIRow from 'components/api-row';
-import { apiStrings } from 'static/strings';
+import { apiStrings } from 'public/static/strings';
 import { NextSeo } from 'next-seo';
 
 class Developer extends Component {

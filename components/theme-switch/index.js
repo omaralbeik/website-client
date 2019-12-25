@@ -6,8 +6,8 @@ import { _Switch } from './_styled';
 import light from 'styles/themes/light';
 import dark from 'styles/themes/dark';
 import { getTheme, generateInfo } from 'styles/themes';
-import LightIcon from 'static/icons/icon-light-mode.svg';
-import DarkIcon from 'static/icons/icon-dark-mode.svg';
+import LightIcon from 'public/static/icons/icon-light-mode.svg';
+import DarkIcon from 'public/static/icons/icon-dark-mode.svg';
 class ThemeSwitch extends Component {
 
   loadTheme(theme) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { _div, _span } from './_styled';
 import Moment from 'react-moment';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 
 class DateWrapper extends Component {
 

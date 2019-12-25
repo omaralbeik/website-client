@@ -5,7 +5,7 @@ import { withTheme } from 'styled-components';
 import ShareButtons from 'components/share-buttons';
 import { _Modal, _ButtonGroup, _Container, _Badge, _Button, _div } from './_styled';
 import { copyToClipboard } from 'utils';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 
 class SnippetModal extends Component {
 

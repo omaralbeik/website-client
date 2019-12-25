@@ -5,7 +5,7 @@ import { _Container, _Collapse, _Nav, _Navbar, _NavbarBrand, _NavItem, _SwitchIt
 import ThemeSwitch from 'components/theme-switch';
 import ActiveLink from 'components/active-link';
 import { navbarLinks } from 'links';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 
 class Navbar extends Component {
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import Github from 'static/icons/social-gh-1.svg';
-import Twitter from 'static/icons/social-tw-1.svg';
-import Linkedin from 'static/icons/social-in-1.svg';
-import StackOverflow from 'static/icons/social-so-1.svg';
-import Menu from 'static/icons/menu-1.svg';
+import Github from 'public/static/icons/social-gh-1.svg';
+import Twitter from 'public/static/icons/social-tw-1.svg';
+import Linkedin from 'public/static/icons/social-in-1.svg';
+import StackOverflow from 'public/static/icons/social-so-1.svg';
+import Menu from 'public/static/icons/menu-1.svg';
 
 const Light = {
   id: 1,

@@ -10,7 +10,7 @@ import ReactGA from 'react-ga';
 import { NextSeo } from 'next-seo';
 import NProgress from 'nprogress';
 import { twitter } from 'links/social';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'styles/index.css';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { _div, _Input, _Button } from './_styled';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 import { throttle, debounce } from 'throttle-debounce';
 
 class SearchInput extends Component {

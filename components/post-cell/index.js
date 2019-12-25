@@ -4,7 +4,7 @@ import Link from 'next/link';
 import DateWrapper from 'components/date-wrapper';
 import { withTheme } from 'styled-components';
 import { _Col, _Container, _h1, _p, _a } from './_styled.js';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 import { blogPostLink } from 'links';
 
 class PostCell extends Component {

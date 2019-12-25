@@ -1,9 +1,9 @@
 import React from 'react';
-import Github from 'static/icons/social-gh-2.svg';
-import Twitter from 'static/icons/social-tw-2.svg';
-import Linkedin from 'static/icons/social-in-2.svg';
-import StackOverflow from 'static/icons/social-so-2.svg';
-import Menu from 'static/icons/menu-2.svg';
+import Github from 'public/static/icons/social-gh-2.svg';
+import Twitter from 'public/static/icons/social-tw-2.svg';
+import Linkedin from 'public/static/icons/social-in-2.svg';
+import StackOverflow from 'public/static/icons/social-so-2.svg';
+import Menu from 'public/static/icons/menu-2.svg';
 
 const Dark = {
   id: 2,

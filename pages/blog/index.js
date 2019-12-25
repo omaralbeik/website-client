@@ -10,7 +10,7 @@ import { Row } from 'reactstrap';
 import Error from 'components/error';
 import { blogLink } from 'links';
 import { arrayFromObject } from 'utils';
-import { genericStrings } from 'static/strings';
+import { genericStrings } from 'public/static/strings';
 import { NextSeo } from 'next-seo';
 
 class Blog extends Component {
