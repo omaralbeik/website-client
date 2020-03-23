@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { withRouter } from "next/router";
 import { withTheme } from "styled-components";
 import ShareButtons from "components/share-buttons";
@@ -8,12 +7,6 @@ import { copyToClipboard } from "utils";
 import { genericStrings } from "public/static/strings";
 
 class SnippetModal extends Component {
-
-  static propTypes = {
-    snippet: PropTypes.object,
-    onCloseClick: PropTypes.func
-  }
-  
   state = { copied: false };
 
   copy = _ => {

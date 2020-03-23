@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { withTheme } from "styled-components";
 import {
   _Container, _Col, _Badge, _div,
-} from "./_styled.js";
+} from "./_styled";
 
 class SnippetCell extends Component {
-  static propTypes = {
-    snippet: PropTypes.object.isRequired,
-    onClick: PropTypes.func,
-  }
-
   handleClick = () => {
     const { snippet, onClick } = this.props;
     if (onClick) {
