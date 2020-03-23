@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import Head from 'next/head';
-import { connect } from 'react-redux';
-import { ThemeProvider } from 'styled-components';
-import Navbar from 'components/navbar';
-import FlexWrapper from 'components/flex-wrapper';
-import Footer from 'components/footer';
-import { Container } from 'reactstrap';
-import { getTheme } from 'styles/themes';
-import { _GlobalStyle } from './_styled';
-import { genericStrings } from 'public/static/strings';
-import { prodLink } from 'links';
+import React, { Component } from "react";
+import Head from "next/head";
+import { connect } from "react-redux";
+import { ThemeProvider } from "styled-components";
+import { loadTheme } from "redux/actions";
+import Navbar from "components/navbar";
+import FlexWrapper from "components/flex-wrapper";
+import Footer from "components/footer";
+import { Container } from "reactstrap";
+import { getTheme } from "styles/themes";
+import { genericStrings } from "public/static/strings";
+import { prodLink } from "links";
+import { _GlobalStyle } from "./_styled";
 
 class Layout extends Component {
-
   render() {
     const { children } = this.props;
+    // eslint-disable-next-line react/destructuring-assignment
     const info = this.props.theme;
-    let theme = getTheme(info);
+    const theme = getTheme(info);
 
     return (
       <ThemeProvider theme={theme}>
         <div>
           <Head>
-            <link rel='manifest' href='/static/manifest.json' />
+            <link rel="manifest" href="/static/manifest.json" />
             <meta name="theme-color" content={theme.colors.background} />
 
             <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
@@ -31,7 +32,7 @@ class Layout extends Component {
             <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
             <meta name="apple-mobile-web-app-title" content={genericStrings.name} />
             <meta content="yes" name="apple-touch-fullscreen" />
-            
+
             <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
             <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
 
@@ -52,7 +53,6 @@ class Layout extends Component {
       </ThemeProvider>
     );
   }
-
 }
 
 function mapStateToProps(theme) {
@@ -61,8 +61,8 @@ function mapStateToProps(theme) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadTheme: theme => dispatch(loadTheme(theme))
-  }
+    loadTheme: (theme) => dispatch(loadTheme(theme)),
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);

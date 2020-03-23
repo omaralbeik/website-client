@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withRouter } from 'next/router'
-import { _p, _div } from './_styled';
-import { genericStrings } from 'public/static/strings';
-import { prodLink } from 'links';
+import React, { Component } from "react";
+import { withRouter } from "next/router"
+import { _p, _div } from "./_styled";
+import { genericStrings } from "public/static/strings";
+import { prodLink } from "links";
 
 import {
   FacebookShareButton,
@@ -11,7 +10,7 @@ import {
   LinkedinShareButton,
   RedditShareButton,
   PocketShareButton
-} from 'react-share';
+} from "react-share";
 
 import {
   FacebookIcon,
@@ -19,14 +18,9 @@ import {
   LinkedinIcon,
   RedditIcon,
   PocketIcon
-} from 'react-share';
+} from "react-share";
 
 class ShareButtons extends Component {
-
-  static propTypes = {
-    message: PropTypes.string.isRequired
-  }
-
   render() {
     const { message } = this.props;
     const url = `${prodLink.url}${this.props.router.asPath}`;    

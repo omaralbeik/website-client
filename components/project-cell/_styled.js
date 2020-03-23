@@ -1,22 +1,22 @@
-import styled from 'styled-components';
-import { Container, Row, Col } from 'reactstrap';
-import { sm } from 'styles/breakpoints';
-import Img from 'react-image';
+import styled from "styled-components";
+import { Container, Row, Col } from "reactstrap";
+import { sm } from "styles/breakpoints";
+import Img from "react-image";
 
 export const _Row = Row;
 export const _Col = Col;
 
 export const _div = styled.div`
   margin: 20px 0 20px 0;
-  background-color: ${props => props.theme.colors.inner_background};
+  background-color: ${(props) => props.theme.colors.inner_background};
   border-radius: 8px;
   padding: 22px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-  border-left: 10px ${props => props.theme.colors.primary}25 solid;
+  border-left: 10px ${(props) => props.theme.colors.primary}25 solid;
   border-right: 0 transparent solid;
   transition: 0.25s;
   :hover {
-    border-left: 0 ${props => props.theme.colors.primary}25 solid;
+    border-left: 0 ${(props) => props.theme.colors.primary}25 solid;
     border-right: 10px transparent solid;
   }
 `;

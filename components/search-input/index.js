@@ -1,27 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { _div, _Input, _Button } from './_styled';
-import { genericStrings } from 'public/static/strings';
-import { throttle, debounce } from 'throttle-debounce';
+import React, { Component } from "react";
+import { genericStrings } from "public/static/strings";
+import { throttle, debounce } from "throttle-debounce";
+import { _div, _Input, _Button } from "./_styled";
 
 class SearchInput extends Component {
-
-  static propTypes = {
-    placeholder: PropTypes.string,
-    onReset: PropTypes.func,
-    onInputUpdate: PropTypes.func
-  }
-
   constructor(props) {
     super(props);
-    
+
     this.searchDebounced = debounce(500, this.search);
     this.searchThrottled = throttle(500, this.search);
-    this.state = {q: ""};
+    this.state = { q: "" };
   }
 
-  changeQuery = event => {
-    this.setState({ q: event.target.value }, _ => {
+  changeQuery = (event) => {
+    this.setState({ q: event.target.value }, () => {
+      // eslint-disable-next-line react/destructuring-assignment
       const timmedQuery = this.state.q.trim();
       if (timmedQuery.length > 0 && timmedQuery.length < 5) {
         this.searchThrottled(timmedQuery);
@@ -31,9 +24,9 @@ class SearchInput extends Component {
     });
   };
 
-  search = query => {
+  search = (query) => {
     const { onReset, onInputUpdate } = this.props;
-    const timmedQuery = query.trim()
+    const timmedQuery = query.trim();
     if (timmedQuery.length === 0) {
       onReset();
     } else {
@@ -41,11 +34,11 @@ class SearchInput extends Component {
     }
   }
 
-  keyPress = event => {
+  keyPress = (event) => {
     if (event.keyCode !== 13) { return; }
     event.target.blur();
     const query = event.target.value.trim();
-    const {onReset, onInputUpdate} = this.props;
+    const { onReset, onInputUpdate } = this.props;
     if (query.length === 0) {
       onReset();
     } else {
@@ -55,15 +48,17 @@ class SearchInput extends Component {
 
   reset = () => {
     const { onReset } = this.props;
-    this.setState({q: ""})
+    this.setState({ q: "" });
     onReset();
   }
 
   renderClearButton = () => {
+    // eslint-disable-next-line react/destructuring-assignment
     const trimmedQuery = this.state.q.trim();
     if (trimmedQuery) {
-      return <_Button onClick={this.reset}>{genericStrings.clear}</_Button>
+      return <_Button onClick={this.reset}>{genericStrings.clear}</_Button>;
     }
+    return null;
   }
 
   render() {

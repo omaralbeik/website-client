@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Container, Col } from 'reactstrap';
-import { sm } from 'styles/breakpoints';
+import styled from "styled-components";
+import { Container, Col } from "reactstrap";
+import { sm } from "styles/breakpoints";
 
 export const _Col = styled(Col)`
   padding: 12px;
@@ -14,16 +14,16 @@ export const _Container = styled(Container)`
   flex-direction: column;
   height: 100%;
   height: 165px;
-  background-color: ${props => props.theme.colors.inner_background};
+  background-color: ${(props) => props.theme.colors.inner_background};
   border-radius: 8px;
   padding: 25px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-  border-top: 10px ${props => props.theme.colors.primary}25 solid;
+  border-top: 10px ${(props) => props.theme.colors.primary}25 solid;
   border-bottom: 0 transparent solid;
   transition: 0.25s;
   cursor: pointer;
   :hover {
-    border-top: 0 ${props => props.theme.colors.primary}25 solid;
+    border-top: 0 ${(props) => props.theme.colors.primary}25 solid;
     border-bottom: 10px transparent solid;
   }
 `;

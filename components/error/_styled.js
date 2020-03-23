@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Button } from 'reactstrap';
-import InnerContainer from '../inner-container';
+import styled from "styled-components";
+import { Button } from "reactstrap";
+import InnerContainer from "../inner-container";
 
 export const _InnerContainer = styled(InnerContainer)`
   text-align: center;

@@ -1,4 +1,4 @@
-import { _Table } from './_styled';
+import { _Table } from "./_styled";
 
 const APITable = _Table;
 

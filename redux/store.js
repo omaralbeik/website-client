@@ -1,36 +1,15 @@
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunkMiddleware from 'redux-thunk';
-import reducers from './reducers';
-import { defaultTheme, generateInfo } from 'styles/themes';
-import { isServer } from 'utils';
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunkMiddleware from "redux-thunk";
+import { defaultTheme, generateInfo } from "styles/themes";
+import { isServer } from "utils";
+import reducers from "./reducers";
 
 const emptyStateWithTheme = { theme: generateInfo(defaultTheme) };
 
-export const initStore = (initialState={}) => {  
-  const state = isServer ? initialState : loadState();
-
-  var store = createStore(
-    reducers,
-    state,
-    composeWithDevTools(applyMiddleware(thunkMiddleware))
-  );
-  
-  if (!isServer) {
-    store.subscribe(_ => {
-      saveState({
-        ...store.getState(),
-        theme: store.getState().theme
-      });
-    });
-  }
-
-  return store;
-}
-
-const loadState = _ => {
+const loadState = () => {
   try {
-    const serializedState = localStorage.getItem('state');
+    const serializedState = localStorage.getItem("state");
     if (serializedState === null) {
       return emptyStateWithTheme;
     }
@@ -39,13 +18,16 @@ const loadState = _ => {
     console.error(error);
     return emptyStateWithTheme;
   }
-}
+};
 
-const saveState = state => {
-  try {
-    const serializedState = JSON.stringify(state);
-    localStorage.setItem('state', serializedState);
-  } catch (err) {
-    console.error(err.message);
-  }
-}
+export const initStore = (initialState = {}) => {
+  const state = isServer ? initialState : loadState();
+
+  const store = createStore(
+    reducers,
+    state,
+    composeWithDevTools(applyMiddleware(thunkMiddleware)),
+  );
+
+  return store;
+};

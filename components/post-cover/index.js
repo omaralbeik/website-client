@@ -1,15 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Loading from 'components/loading';
-import { _div, _Img, _creditDiv } from './_styled.js';
-import placeholder from 'public/static/placeholders/post.png';
+import React, { Component } from "react";
+import Loading from "components/loading";
+import placeholder from "public/static/placeholders/post.png";
+import { _div, _Img, _creditDiv } from "./_styled";
 
 class PostCover extends Component {
-
-  static propTypes = {
-    post: PropTypes.object.isRequired
-  }
-
   render() {
     const { post } = this.props;
 
@@ -19,12 +13,11 @@ class PostCover extends Component {
 
     return (
       <_div>
-        <_Img src={[post.cover_image_url, placeholder]} alt={post.title} loader={<Loading/>} />
+        <_Img src={[post.cover_image_url, placeholder]} alt={post.title} loader={<Loading />} />
         <_creditDiv dangerouslySetInnerHTML={{ __html: post.cover_image_credit_badge }} />
       </_div>
     );
   }
-
 }
 
 export default PostCover;

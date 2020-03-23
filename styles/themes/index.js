@@ -1,14 +1,14 @@
-import light from './light';
-import dark from './dark';
 import cookie from "cookie";
+import light from "./light";
+import dark from "./dark";
 
 export const defaultTheme = dark;
 
 export function getTheme(info) {
   switch (info.style) {
-    case 'light':
+    case "light":
       return light;
-    case 'dark':
+    case "dark":
       return dark;
     default:
       return defaultTheme;
@@ -21,7 +21,7 @@ export function generateInfo(theme) {
 
 
 export function getThemeInfoFromCookies(req) {
-  const result = cookie.parse(req ? req.headers.cookie || "" : document.cookie);  
+  const result = cookie.parse(req ? req.headers.cookie || "" : document.cookie);
   if (!result) {
     return defaultTheme;
   }

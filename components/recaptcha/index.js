@@ -1,13 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { _div, _CAPTCHA } from './_styled';
+import React, { Component } from "react";
+import { _div, _CAPTCHA } from "./_styled";
 
 class ReCAPTCHA extends Component {
-  
-  static propTypes = {
-    onChange: PropTypes.func
-  }
-
   render() {
     const { onChange, innerRef } = this.props;
     return (
@@ -20,9 +14,12 @@ class ReCAPTCHA extends Component {
       </_div>
     );
   }
-
 }
 
-export default React.forwardRef((props, ref) => <ReCAPTCHA 
-  innerRef={ref} {...props}
-/>);
+export default React.forwardRef((props, ref) => (
+  <ReCAPTCHA
+    innerRef={ref}
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    {...props}
+  />
+));

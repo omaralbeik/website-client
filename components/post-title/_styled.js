@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { sm } from 'styles/breakpoints';
+import styled from "styled-components";
+import { sm } from "styles/breakpoints";
 
 
 export const _div = styled.div`
@@ -11,7 +11,7 @@ export const _div = styled.div`
     }
   }
   h2 {
-    font-family: ${props => props.theme.fonts.body};
+    font-family: ${(props) => props.theme.fonts.body};
     margin-bottom: 24px;
     font-size: 18px;
     @media (${sm}) {

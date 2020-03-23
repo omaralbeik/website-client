@@ -1,24 +1,26 @@
-import { Container, Collapse, NavLink, Nav, Navbar, NavbarToggler, NavbarBrand, NavItem } from 'reactstrap';
-import styled from 'styled-components';
-import { sm, md } from 'styles/breakpoints';
+import {
+  Container, Collapse, NavLink, Nav, Navbar, NavbarToggler, NavbarBrand, NavItem,
+} from "reactstrap";
+import styled from "styled-components";
+import { sm, md } from "styles/breakpoints";
 
 export const _Navbar = styled(Navbar)`
-  background-color: ${props => props.theme.colors.inner_background};
-  box-shadow: 0px 2px 0px 0px ${props => props.theme.colors.highlighted};
+  background-color: ${(props) => props.theme.colors.inner_background};
+  box-shadow: 0px 2px 0px 0px ${(props) => props.theme.colors.highlighted};
   button {
-    background-color: ${props => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.background};
     &:focus {
-      background-color: ${props => props.theme.colors.background};
+      background-color: ${(props) => props.theme.colors.background};
     }
     &:hover {
-      background-color: ${props => props.theme.colors.background};
+      background-color: ${(props) => props.theme.colors.background};
     }
   }
 `;
 
 export const _NavbarBrand = styled(NavbarBrand)`
   font-size: 140%;
-  font-family: ${props => props.theme.fonts.title};
+  font-family: ${(props) => props.theme.fonts.title};
   font-weight: bolder;
   cursor: pointer;
   @media (${sm}) {
@@ -37,7 +39,7 @@ export const _NavItem = styled(NavItem)`
     margin: 12px 0 0 0;
     padding: 10px;
     border-radius: 8px;
-    background-color: ${props => props.theme.colors.inner_background};
+    background-color: ${(props) => props.theme.colors.inner_background};
   }
   @media (${md}) {
     font-size: 110%;
@@ -47,7 +49,7 @@ export const _NavItem = styled(NavItem)`
 
 export const _SwitchItem = styled(NavItem)`
   padding-top: 6px;
-  background-color: ${props => props.theme.colors.inner_background};
+  background-color: ${(props) => props.theme.colors.inner_background};
   @media (${sm}) {
     text-align: center;
     margin: 20px 0 0 0;
@@ -56,26 +58,26 @@ export const _SwitchItem = styled(NavItem)`
   @media (${md}) {
     margin: 0;
   }
-`
+`;
 
 export const _NavbarToggler = styled(NavbarToggler)`
   bolder: none;
   padding-right: 4px;
   padding-left: 4px;
   margin-top: -5px;
-  background-color: ${props => props.theme.colors.inner_background} !important;
-  color: ${props => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.inner_background} !important;
+  color: ${(props) => props.theme.colors.primary};
   &:focus {
-    background-color: ${props => props.theme.colors.inner_background} !important;
+    background-color: ${(props) => props.theme.colors.inner_background} !important;
     outline: none;
   }
 `;
 
 export const _NavLink = styled(NavLink)`
   && {
-    color: ${props => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
     &.active {
-      color: ${props => props.theme.colors.selected};
+      color: ${(props) => props.theme.colors.selected};
       font-weight: bold;
     }
   }

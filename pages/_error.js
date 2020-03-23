@@ -3,7 +3,6 @@ import Err from 'components/error';
 import { errorStrings } from 'public/static/strings';
 
 class Error extends Component {
-
   static getInitialProps({ res, err }) {
     const statusCode = res ? res.statusCode : err ? err.statusCode : null;
     return { error: err, statusCode };

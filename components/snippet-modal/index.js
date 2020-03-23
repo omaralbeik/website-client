@@ -1,19 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withRouter } from 'next/router';
-import { withTheme } from 'styled-components';
-import ShareButtons from 'components/share-buttons';
-import { _Modal, _ButtonGroup, _Container, _Badge, _Button, _div } from './_styled';
-import { copyToClipboard } from 'utils';
-import { genericStrings } from 'public/static/strings';
+import React, { Component } from "react";
+import { withRouter } from "next/router";
+import { withTheme } from "styled-components";
+import ShareButtons from "components/share-buttons";
+import { _Modal, _ButtonGroup, _Container, _Badge, _Button, _div, } from "./_styled";
+import { copyToClipboard } from "utils";
+import { genericStrings } from "public/static/strings";
 
 class SnippetModal extends Component {
-
-  static propTypes = {
-    snippet: PropTypes.object,
-    onCloseClick: PropTypes.func
-  }
-  
   state = { copied: false };
 
   copy = _ => {
@@ -37,14 +30,14 @@ class SnippetModal extends Component {
     const { copied } = this.state;
     const { snippet, toggle } = this.props;
     const { style } = this.props.theme;
-    const syntaxClassName = style === 'dark' ? 'dark-code' : 'light-code';
+    const syntaxClassName = style === "dark" ? "dark-code" : "light-code";
 
     if (!snippet) {
       return null;
     }
 
     return (
-      <_Modal toggle={toggle} isOpen centered scrollable size='lg'>
+      <_Modal toggle={toggle} isOpen centered scrollable size="lg">
         <_Container>
           <h2>{snippet.name} <_Badge>{snippet.language.name}</_Badge></h2>
           <p>{snippet.summary}</p>

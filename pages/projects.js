@@ -1,46 +1,33 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { loadProjects } from 'redux/actions';
-import APIHelper from 'utils/api-helper';
-import PageTitle from 'components/page-title';
-import Error from 'components/error';
-import ProjectCell from 'components/project-cell';
-import SearchInput from 'components/search-input';
-import { projectsLink } from 'links';
-import { twitter } from 'links/social';
-import { genericStrings } from 'public/static/strings';
-import { arrayFromObject } from 'utils';
-import { NextSeo } from 'next-seo';
+import React, { Component } from "react";
+import APIHelper from "utils/api-helper";
+import PageTitle from "components/page-title";
+import Error from "components/error";
+import ProjectCell from "components/project-cell";
+import SearchInput from "components/search-input";
+import { projectsLink } from "links";
+import { genericStrings } from "public/static/strings";
+import { NextSeo } from "next-seo";
 
 class Projects extends Component {
-
-  static async getInitialProps({ store }) {
+  static async getInitialProps() {
     try {
       const projects = await APIHelper.fetchProjects();
-      const content = await APIHelper.fetchContent('projects');
-      store.dispatch(loadProjects({ projects }));
+      const content = await APIHelper.fetchContent("projects");
       return { projects, content };
-    }
-    catch (error) {
+    } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
       return { error };
     }
   }
 
-  constructor(props) {
-    super(props);
-    
-    var { cachedProjects } = this.props;
-    cachedProjects = arrayFromObject(cachedProjects);
-    cachedProjects = cachedProjects.sort((p1, p2) => (p1.date_published < p2.date_published ? 1 : -1));
-    this.state = { cachedProjects };
-  }
+  state = {};
 
-  preformSearch = query => {
-    APIHelper.searchProjects(query).then(projects => {
+  preformSearch = (query) => {
+    APIHelper.searchProjects(query).then((projects) => {
       this.setState({ results: projects });
-    }).catch(error => {
+    }).catch((error) => {
+      // eslint-disable-next-line no-console
       console.error(error);
     });
   }
@@ -50,20 +37,11 @@ class Projects extends Component {
   }
 
   render() {
-    var { projects, content } = this.props;
-    const { error } = this.props;
-    const { cachedProjects, results } = this.state;
+    const { error, projects, content } = this.props;
+    const { results } = this.state;
 
     if (error) {
-      if (cachedProjects) {
-        projects = cachedProjects;
-      } else {
-        return <Error error={error} />;
-      }
-    }
-
-    if (results) {
-      projects = results;
+      return <Error error={error} />;
     }
 
     return (
@@ -73,8 +51,8 @@ class Projects extends Component {
           description={content.meta.description}
           canonical={content.meta.canonical}
           additionalMetaTags={[{
-            property: 'keywords',
-            content: content.meta.keywords
+            property: "keywords",
+            content: content.meta.keywords,
           }]}
           openGraph={{
             url: projectsLink.prodUrl,
@@ -84,21 +62,10 @@ class Projects extends Component {
         />
         <PageTitle title={projectsLink.title} subtitle={projectsLink.subtitle} />
         <SearchInput placeholder={genericStrings.searchProjects} onInputUpdate={this.preformSearch} onReset={this.resetSearch} />
-        {projects.map(p => (<ProjectCell key={p.id} project={p} />))}
+        {(results || projects).map((p) => (<ProjectCell key={p.id} project={p} />))}
       </div>
     );
   }
-
 }
 
-function mapStateToProps({ projects }) {
-  return { cachedProjects: projects };
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    loadProjects: bindActionCreators(loadProjects, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Projects);
+export default Projects;
