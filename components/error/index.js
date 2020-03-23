@@ -1,16 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Link from 'next/link';
-import { homeLink } from 'links';
-import { errorStrings } from 'public/static/strings';
-import { _InnerContainer, _Button } from './_styled';
+import React, { Component } from "react";
+import Link from "next/link";
+import { homeLink } from "links";
+import { errorStrings } from "public/static/strings";
+import { _InnerContainer, _Button } from "./_styled";
 
 class Error extends Component {
-
-  static propTypes = {
-    error: PropTypes.string
-  }
-
   render() {
     const { error } = this.props;
 
@@ -24,7 +18,6 @@ class Error extends Component {
       </_InnerContainer>
     );
   }
-
 }
 
 export default Error;

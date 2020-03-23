@@ -1,4 +1,4 @@
-import { _Container } from './_styled';
+import { _Container } from "./_styled";
 
 const FreeContentContainer = _Container;
 

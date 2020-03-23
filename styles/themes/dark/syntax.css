@@ -57,7 +57,7 @@
 .dark-code .vg { color: #f8f8f2 } /* Name.Variable.Global */
 .dark-code .vi { color: #f8f8f2 } /* Name.Variable.Instance */
 .dark-code .il { color: #ae81ff } /* Literal.Number.Integer.Long */
-.dark-code .gh { } /* Generic Heading & Diff Header */
+.dark-code .gh { color: #aca99a; } /* Generic Heading & Diff Header */
 .dark-code .gu { color: #75715e; } /* Generic.Subheading & Diff Unified/Comment? */
 .dark-code .gd { color: #f92672; } /* Generic.Deleted & Diff Deleted */
 .dark-code .gi { color: #a6e22e; } /* Generic.Inserted & Diff Inserted */

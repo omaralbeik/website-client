@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import { apiLink } from 'links';
-import PageTitle from 'components/page-title';
-import APITable from 'components/api-table';
-import APIRow from 'components/api-row';
-import { apiStrings } from 'public/static/strings';
-import { NextSeo } from 'next-seo';
+import React, { Component } from "react";
+import { apiLink } from "links";
+import PageTitle from "components/page-title";
+import APITable from "components/api-table";
+import APIRow from "components/api-row";
+import { apiStrings } from "public/static/strings";
+import { NextSeo } from "next-seo";
 
 class Developer extends Component {
-
   render() {
     const { items } = apiLink;
 
@@ -32,15 +31,12 @@ class Developer extends Component {
             </tr>
           </thead>
           <tbody>
-            {items.map(i => <APIRow key={i.name} item={i} isUrl={i.is_url} />)}
+            {items.map((i) => <APIRow key={i.name} item={i} isUrl={i.is_url} />)}
           </tbody>
         </APITable>
-      </div> 
+      </div>
     );
   }
-
 }
 
 export default Developer;
-
-

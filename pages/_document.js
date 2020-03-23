@@ -1,15 +1,17 @@
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components'
+import NextDocument, {
+  Html, Head, Main, NextScript,
+} from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 class Document extends NextDocument {
-
   static async getInitialProps(ctx) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
 
     try {
       ctx.renderPage = () => originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
       });
       const initialProps = await NextDocument.getInitialProps(ctx);
       return {
@@ -19,10 +21,10 @@ class Document extends NextDocument {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        )
-      }
+        ),
+      };
     } finally {
-      sheet.seal()
+      sheet.seal();
     }
   }
 
@@ -39,7 +41,6 @@ class Document extends NextDocument {
       </Html>
     );
   }
-
 }
 
 export default Document;

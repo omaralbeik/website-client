@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import CAPTCHA from 'react-google-recaptcha';
+import styled from "styled-components";
+import CAPTCHA from "react-google-recaptcha";
 
 export const _CAPTCHA = styled(CAPTCHA)`
   margin-left: auto;

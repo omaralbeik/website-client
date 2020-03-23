@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { Badge } from 'reactstrap';
+import styled from "styled-components";
+import { Badge } from "reactstrap";
 
-export const _div= styled.div`
+export const _div = styled.div`
   margin-bottom: 12px;
 `;
 
@@ -9,8 +9,8 @@ export const _Badge = styled(Badge)`
   margin: 3px 6px 3px 0;
   padding: 5px 8px;
   user-select: none;
-  background-color: ${props => props.theme.colors.background};
-  color: ${props => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.primary};
   font-size: 14px;
-  border: ${props => props.theme.colors.highlighted} solid 1px;
+  border: ${(props) => props.theme.colors.highlighted} solid 1px;
 `;

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import Img from 'react-image';
-import { sm, md } from 'styles/breakpoints';
+import styled from "styled-components";
+import Img from "react-image";
+import { sm, md } from "styles/breakpoints";
 
 export const _Img = styled(Img)`
   width: 100%;

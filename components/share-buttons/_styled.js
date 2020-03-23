@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { sm } from 'styles/breakpoints';
+import styled from "styled-components";
+import { sm } from "styles/breakpoints";
 
 export const _p = styled.p`
   line-height: 38px;

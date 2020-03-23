@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { sm } from 'styles/breakpoints';
+import styled from "styled-components";
+import { sm } from "styles/breakpoints";
 
 export const _a = styled.a`
   padding: 5px;

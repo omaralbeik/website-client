@@ -1,7 +1,7 @@
-import { Container, Row, Col } from 'reactstrap';
-import InnerContainer from '../inner-container';
-import { sm } from 'styles/breakpoints';
-import styled from 'styled-components';
+import { Container, Row, Col } from "reactstrap";
+import { sm } from "styles/breakpoints";
+import styled from "styled-components";
+import InnerContainer from "../inner-container";
 
 export const _Container = styled(Container)`
   user-select: none;

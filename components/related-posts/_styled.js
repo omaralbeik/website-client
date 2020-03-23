@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Container, Row } from 'reactstrap';
-import { sm } from 'styles/breakpoints';
+import styled from "styled-components";
+import { Container, Row } from "reactstrap";
+import { sm } from "styles/breakpoints";
 
 export const _Row = Row;
 
@@ -25,7 +25,7 @@ export const _h2 = styled.h2`
   font-size: 15pt;
   margin-bottom: 20px;
   user-select: none;
-  font-family: ${props => props.theme.fonts.body};
+  font-family: ${(props) => props.theme.fonts.body};
   font-weight: normal;
   @media (${sm}) {
     font-size: 110%;

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { sm } from 'styles/breakpoints';
-import Img from 'react-image';
+import styled from "styled-components";
+import { sm } from "styles/breakpoints";
+import Img from "react-image";
 
 export const _div = styled.div`
   position: relative;

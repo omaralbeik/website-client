@@ -1,17 +1,26 @@
 {
-  "presets": [ "next/babel" ],
+  "presets": [
+    "next/babel"
+  ],
   "plugins": [
     "inline-react-svg",
-    [ "babel-plugin-styled-components",
+    [
+      "babel-plugin-styled-components",
       {
         "ssr": true,
         "displayName": true,
         "minify": true,
-        "preprocess": false
+        "preprocess": false,
+        "pure": true
       }
     ],
-    [ "module-resolver",
-      { "root": ["./"] }
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./"
+        ]
+      }
     ]
   ]
 }
