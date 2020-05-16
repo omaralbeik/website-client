@@ -1,6 +1,6 @@
 # Deprecation Notice
 
-This repo is depreacted, refer to v3.0 [here](https://github.com/albeiks/omaralbeik.com)
+This repo is deprecated, refer to v3.0 [here](https://github.com/albeiks/omaralbeik.com)
 
 ---
 
